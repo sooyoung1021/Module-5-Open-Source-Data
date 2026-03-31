@@ -17,7 +17,7 @@ execute:
 
 # Objectives
 
--   Understand the basic concepts of API and JSON
+-   Understand the basic concepts of API
 -   Retrieve and use open-source data for your data use projects with R
 
 # Required packages
