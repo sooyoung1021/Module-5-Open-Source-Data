@@ -58,16 +58,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="Module 5_Example script_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Module 5_Example script_files/libs/quarto-html/quarto.js"></script>
-<script src="Module 5_Example script_files/libs/quarto-html/popper.min.js"></script>
-<script src="Module 5_Example script_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Module 5_Example script_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Module 5_Example script_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Module 5_Example script_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Module 5_Example script_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Module 5_Example script_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Module 5_Example script_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="Module%205_Example%20script_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Module%205_Example%20script_files/libs/quarto-html/quarto.js"></script>
+<script src="Module%205_Example%20script_files/libs/quarto-html/popper.min.js"></script>
+<script src="Module%205_Example%20script_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Module%205_Example%20script_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Module%205_Example%20script_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Module%205_Example%20script_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Module%205_Example%20script_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Module%205_Example%20script_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Module%205_Example%20script_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -174,9 +174,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="mozambique-population-estimates-100m-for-specific-age-sex-group" class="level2">
 <h2 class="anchored" data-anchor-id="mozambique-population-estimates-100m-for-specific-age-sex-group">Mozambique population estimates (~100m) for specific age-sex group</h2>
 <p>I downloaded this set of geotiff data from <a href="https://wopr.worldpop.org/?MOZ/">here</a>.</p>
-<p><img src="images/clipboard-952880206.png" class="img-fluid"></p>
+<p><img src="../images/clipboard-952880206.png" class="img-fluid"></p>
 <p>When you extract the zip file, you will see there are separate geotiff images for each age-sex group.</p>
-<p><img src="images/clipboard-423925056.png" class="img-fluid"></p>
+<p><img src="../images/clipboard-423925056.png" class="img-fluid"></p>
 <p>For this example, we will try to extract the # of women in their reproductive age (15-49 years).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load Mozambique shapefile with ADM3 level boundaries</span></span>
@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(moz_shp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Module-5_Example-script_files/figure-html/moz_pop_est_example-1.png" class="img-fluid" width="672"></p>
+<p><img src="../Module-5_Example-script_files/figure-html/moz_pop_est_example-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check the CRS - you'll see it's WGS 84</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -263,7 +263,7 @@ Geodetic CRS:  WGS 84
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="do">### add a plot title</span></span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"# of Women in Reproductive Age (15-49 yrs, as of 2025)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Module-5_Example-script_files/figure-html/moz_pop_est_example-2.png" class="img-fluid" width="672"></p>
+<p><img src="../Module-5_Example-script_files/figure-html/moz_pop_est_example-2.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>rio<span class="sc">::</span><span class="fu">export</span>(<span class="at">file=</span>here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"clean data"</span>, </span>
@@ -275,8 +275,8 @@ Geodetic CRS:  WGS 84
 <section id="example-2.-grid3" class="level1">
 <h1>Example 2. GRID3</h1>
 <p>This code uses the REST API to request from GRID3 on the locations of IDP sites in Nigeria. The API query can be found <a href="https://data.grid3.org/datasets/GRID3::grid3-nga-other-poi-idp-sites/about">here</a></p>
-<p><img src="images/clipboard-3624930457.png" class="img-fluid"></p>
-<p><img src="images/clipboard-1320778740.png" class="img-fluid"></p>
+<p><img src="../images/clipboard-3624930457.png" class="img-fluid"></p>
+<p><img src="../images/clipboard-1320778740.png" class="img-fluid"></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save REST API query to request geojson data into an object</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>grid3_url <span class="ot">&lt;-</span> <span class="st">"https://services3.arcgis.com/BU6Aadhn6tbBEdyk/arcgis/rest/services/IDP_sites_in_Nigeria/FeatureServer/0/query?outFields=*&amp;where=1%3D1&amp;f=geojson"</span></span>
@@ -381,7 +381,7 @@ Geodetic CRS:  WGS 84
 #   SD_PCODE &lt;chr&gt;, geometry &lt;MULTIPOLYGON [°]&gt;</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="Module-5_Example-script_files/figure-html/grid3_nga_example-1.png" class="img-fluid" width="672"></p>
+<p><img src="../Module-5_Example-script_files/figure-html/grid3_nga_example-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the CRS</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">crs</span>(nigeria) <span class="co"># WGS 84</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -403,7 +403,7 @@ Geodetic CRS:  WGS 84
 <span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>())<span class="sc">+</span></span>
 <span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">guide =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Module-5_Example-script_files/figure-html/grid3_nga_example-2.png" class="img-fluid" width="672"></p>
+<p><img src="../Module-5_Example-script_files/figure-html/grid3_nga_example-2.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">st_write</span>(dat_nga_idp,</span>
@@ -429,12 +429,12 @@ Writing 870 features with 43 fields and geometry type Point.</code></pre>
 <li>You know what Image or ImageCollection you’d like to retrieve from. <a href="https://developers.google.com/earth-engine/datasets">GEE Data catalog</a> provides the list of all available sources. You need 2 different types of information from the catalog:
 <ul>
 <li><p>Name of the Image or Image Collection</p>
-<p><img src="images/clipboard-657887609.png" class="img-fluid"></p></li>
+<p><img src="../images/clipboard-657887609.png" class="img-fluid"></p></li>
 <li><p>Name of the bands (variables) you’d like to extract. You can find the description of all available bands in their catalog.</p>
-<p><img src="images/clipboard-5740560.png" class="img-fluid"></p></li>
+<p><img src="../images/clipboard-5740560.png" class="img-fluid"></p></li>
 </ul></li>
 <li>You are registered and have an acess to <a href="https://developers.google.com/earth-engine/guides/access?_gl=1*x5b4vb*_up*MQ..*_ga*MTczMTc3MzY2MS4xNzc0ODcxNTI1*_ga_SM8HXJ53K2*czE3NzQ4NzE1MjQkbzEkZzAkdDE3NzQ4NzE1MjQkajYwJGwwJGgw">Google Earth Engine</a></li>
-<li>You have created a GEE project you’ll connect to. It is IMPORTANT THAT YOU SPECIFY A PROJECT using the project parameter. If you forget what project IDs you have access to, find them <a href="console.cloud.google.com/project">here</a></li>
+<li>You have created a GEE project you’ll connect to. It is IMPORTANT THAT YOU SPECIFY A PROJECT using the project parameter. If you forget what project IDs you have access to, find them <a href="../console.cloud.google.com/project">here</a></li>
 <li>Python (<a href="https://www.python.org/downloads/">download from here</a>), miniconda, and rgee package are installed on your computer.</li>
 </ul>
 <div class="cell">
@@ -582,7 +582,7 @@ Writing 870 features with 43 fields and geometry type Point.</code></pre>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ee_check</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>When you’re done, and everything is set up correctly, you’ll see a message like this in your R console:</p>
-<p><img src="images/clipboard-3068667351.png" class="img-fluid"></p>
+<p><img src="../images/clipboard-3068667351.png" class="img-fluid"></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove credentials if you are switching the user ee_clean_user_credentials()</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ee_clean_user_credentials</span>()</span>
@@ -692,7 +692,7 @@ Writing 870 features with 43 fields and geometry type Point.</code></pre>
 <span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"Total precipitation of the week (mm)"</span>)</span>
 <span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Module-5_Example-script_files/figure-html/gee_preview-1.png" class="img-fluid" width="672"></p>
+<p><img src="../Module-5_Example-script_files/figure-html/gee_preview-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>rio<span class="sc">::</span><span class="fu">export</span>(<span class="at">file=</span>here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"clean data"</span>, </span>
@@ -800,7 +800,7 @@ Geodetic CRS:  WGS 84
   ..- attr(*, "names")= chr [1:14] "Shape_Leng" "Shape_Area" "ADM2_EN" "ADM2_PCODE" ...</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="Module-5_Example-script_files/figure-html/OSM_example_zam-1.png" class="img-fluid" width="672"></p>
+<p><img src="../Module-5_Example-script_files/figure-html/OSM_example_zam-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">crs</span>(zam_shape) <span class="co"># WGS 84</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -813,7 +813,7 @@ Geodetic CRS:  WGS 84
 <span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>())<span class="sc">+</span></span>
 <span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">guide =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Module-5_Example-script_files/figure-html/OSM_example_zam-2.png" class="img-fluid" width="672"></p>
+<p><img src="../Module-5_Example-script_files/figure-html/OSM_example_zam-2.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Calculate 30-minute drive-time isochrones</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 'breaks' defines the time intervals in minutes</span></span>
@@ -851,7 +851,7 @@ Geodetic CRS:  WGS 84
 <span id="cb40-34"><a href="#cb40-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">guide =</span> <span class="st">"none"</span>)<span class="sc">+</span></span>
 <span id="cb40-35"><a href="#cb40-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Module-5_Example-script_files/figure-html/OSM_example_zam-3.png" class="img-fluid" width="672"></p>
+<p><img src="../Module-5_Example-script_files/figure-html/OSM_example_zam-3.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
