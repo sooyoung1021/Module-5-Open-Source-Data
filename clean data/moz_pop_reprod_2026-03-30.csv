@@ -1,0 +1,412 @@
+adm3_name,adm3_name1,adm3_name2,adm3_name3,adm3_pcode,adm2_name,adm2_name1,adm2_name2,adm2_name3,adm2_pcode,adm1_name,adm1_name1,adm1_name2,adm1_name3,adm1_pcode,adm0_name,adm0_name1,adm0_name2,adm0_name3,adm0_pcode,valid_on,valid_to,area_sqkm,cod_versio,lang,lang1,lang2,lang3,adm0_en,adm3_ref_n,center_lat,center_lon,total_pop_reprod
+7 De Abril,,,,MZ070901,Meconta,,,,MZ0709,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,552.90360273,V_01,pt,,,,Mozambique,7 De Abril,-15.11588196,39.70477366,8911.73297841847
+Alto Changane,,,,MZ020201,Chibuto,,,,MZ0202,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,2601.85540502,V_01,pt,,,,Mozambique,Alto Changane,-24.15813641,33.47543728,1617.94972538203
+Alto Ligonha,,,,MZ110501,Gile,,,,MZ1105,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,3900.62706449,V_01,pt,,,,Mozambique,Alto Ligonha,-15.70530888,38.34115429,17125.9016570449
+Alto Molocue,,,,MZ110101,Alto Molocue,,,,MZ1101,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,3738.84504818,V_01,pt,,,,Mozambique,Alto Molocue,-15.88830278,37.74000479,68715.0435893387
+Alua,,,,MZ070301,Erati,,,,MZ0703,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1913.13142958,V_01,pt,,,,Mozambique,Alua,-14.02805823,39.82754757,22257.484310627
+Amatongas,,,,MZ040301,Gondola,,,,MZ0403,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,837.54392808,V_01,pt,,,,Mozambique,Amatongas,-19.09579842,33.78402464,9595.66866573691
+Anchilo,,,,MZ072201,Rapale,,,,MZ0722,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1317.40374321,V_01,pt,,,,Mozambique,Anchilo,-15.21683192,39.29343617,20475.9336729497
+Ancuabe,,,,MZ010101,Ancuabe,,,,MZ0101,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,2089.83754197,V_01,pt,,,,Mozambique,Ancuabe,-12.83613407,39.77208564,15130.0418455303
+Angoche,,,,MZ070101,Angoche,,,,MZ0701,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,473.80476659,V_01,pt,,,,Mozambique,Angoche,-16.10975291,39.98545869,54800.3562435508
+Aube,,,,MZ070102,Angoche,,,,MZ0701,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,551.61160469,V_01,pt,,,,Mozambique,Aube,-16.34419973,39.70401669,6340.45243501663
+Bajone,,,,MZ111501,Mocubela,,,,MZ1115,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,1348.0878165,V_01,pt,,,,Mozambique,Bajone,-17.25684689,37.91803883,22238.2670605779
+Balama,,,,MZ010201,Balama,,,,MZ0102,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,971.49562348,V_01,pt,,,,Mozambique,Balama,-13.33013921,38.60640991,28245.1071700454
+Bazaruto,,,,MZ030601,Inhassoro,,,,MZ0306,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,100.21135502,V_01,pt,,,,Mozambique,Bazaruto,-21.64939204,35.47000697,103.294522516429
+Bazua,,,,MZ041101,Tambara,,,,MZ0411,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,1980.28983497,V_01,pt,,,,Mozambique,Bazua,-17.13437251,34.07951195,2777.35709261894
+Bela Vista,,,,MZ050601,Matutuine,,,,MZ0506,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,2625.1993028,V_01,pt,,,,Mozambique,Bela Vista,-26.4597118,32.63875253,4550.27294239402
+Bilibiza,,,,MZ011801,Quissanga,,,,MZ0118,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,787.24658956,V_01,pt,,,,Mozambique,Bilibiza,-12.6093804,40.2225401,4835.4824693203
+Boane,,,,MZ050101,Boane,,,,MZ0501,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,599.03048811,V_01,pt,,,,Mozambique,Boane,-26.08365155,32.34702765,21027.9286973551
+Boila,,,,MZ070103,Angoche,,,,MZ0701,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1252.90864051,V_01,pt,,,,Mozambique,Boila,-16.09913207,39.67032887,21516.4279589951
+Buzi,,,,MZ090101,Buzi,,,,MZ0901,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,3417.81144652,V_01,pt,,,,Mozambique,Buzi,-19.8569596,34.41200582,37232.941570133
+Cafumpe,,,,MZ040302,Gondola,,,,MZ0403,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,774.95256701,V_01,pt,,,,Mozambique,Cafumpe,-18.98400677,33.67760953,7364.5922113955
+Caia,,,,MZ090201,Caia,,,,MZ0902,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,2014.06903218,V_01,pt,,,,Mozambique,Caia,-17.98027411,34.93428039,32160.5786825568
+Calanga,,,,MZ050401,Manhiça,,,,MZ0504,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,589.15215222,V_01,pt,,,,Mozambique,Calanga,-25.34030554,33.01713007,596.902076400817
+Calipo,,,,MZ071301,Mogovolas,,,,MZ0713,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1085.46246315,V_01,pt,,,,Mozambique,Calipo,-15.53285954,39.03926643,13029.4953593314
+Campo,,,,MZ111701,Mopeia,,,,MZ1117,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,3668.17085227,V_01,pt,,,,Mozambique,Campo,-17.86156989,36.34426351,5021.61102971435
+Caniçado,,,,MZ020801,Guija,,,,MZ0208,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,28.78115633,V_01,pt,,,,Mozambique,Canicado,-24.49300921,33.03474862,6775.92229640484
+Canxixe,,,,MZ091001,Maringue,,,,MZ0910,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,1684.12736464,V_01,pt,,,,Mozambique,Canxixe,-17.45279949,34.31720961,6203.95358127356
+Catandica,,,,MZ040101,Barue,,,,MZ0401,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,2955.47896678,V_01,pt,,,,Mozambique,Catandica,-18.24522923,33.2866975,40817.990693152
+Catuane,,,,MZ050602,Matutuine,,,,MZ0506,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,1259.24708926,V_01,pt,,,,Mozambique,Catuane,-26.60719839,32.27627003,582.267444204539
+Chai,,,,MZ010601,Macomia,,,,MZ0106,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1053.79470209,V_01,pt,,,,Mozambique,Chai,-11.94730106,40.10767163,2870.1702939868
+Chaimite,,,,MZ020202,Chibuto,,,,MZ0202,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,522.39371917,V_01,pt,,,,Mozambique,Chaimite,-24.65076281,33.39186958,5762.29402735829
+Chalaua,,,,MZ071401,Moma,,,,MZ0714,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1400.3586557,V_01,pt,,,,Mozambique,Chalaua,-16.10741938,39.13643226,24423.0562074482
+Changalane,,,,MZ050801,Namaacha,,,,MZ0508,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,778.67781859,V_01,pt,,,,Mozambique,Changalane,-26.32318904,32.23736765,1830.50977618992
+Changanine,,,,MZ020203,Chibuto,,,,MZ0202,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,1388.60790493,V_01,pt,,,,Mozambique,Changanine,-23.96313787,33.76982163,821.627094384283
+Chapa,,,,MZ011201,Mueda,,,,MZ0112,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,2032.71930182,V_01,pt,,,,Mozambique,Chapa,-11.90823994,39.25340435,688.401521831751
+Charre,,,,MZ101301,Mutarara,,,,MZ1013,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,626.90607933,V_01,pt,,,,Mozambique,Charre,-17.23944198,35.19502101,6945.32527136803
+Chemba,,,,MZ090301,Chemba,,,,MZ0903,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,1136.02328199,V_01,pt,,,,Mozambique,Chemba,-17.16179825,34.76971148,14098.6391285956
+Chibabava,,,,MZ090501,Chibabava,,,,MZ0905,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,1023.24444705,V_01,pt,,,,Mozambique,Chibabava,-20.32947382,33.63081023,5630.09962891042
+Chibonzane,,,,MZ021101,Mandlakaze,,,,MZ0211,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,938.20319728,V_01,pt,,,,Mozambique,Chibonzane,-24.60829847,34.19905472,1715.71103779972
+Chibuto,,,,MZ020204,Chibuto,,,,MZ0202,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,47.35048064,V_01,pt,,,,Mozambique,Chibuto,-24.69425406,33.56689215,29611.2265084982
+Chicomo,,,,MZ030901,Massinga,,,,MZ0309,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,5343.24452409,V_01,pt,,,,Mozambique,Chicomo,-22.63496678,34.76552808,7816.53484896943
+Chiconono,,,,MZ081601,Muembe,,,,MZ0816,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,4097.13846609,V_01,pt,,,,Mozambique,Chiconono,-12.64497308,35.77122915,3123.58730857074
+Chicumbane,,,,MZ020901,Limpopo,,,,MZ0209,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,563.78084641,V_01,pt,,,,Mozambique,Chicumbane,-24.94844417,33.50601818,30083.0669847429
+Chidenguele,,,,MZ021102,Mandlakaze,,,,MZ0211,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,719.80092368,V_01,pt,,,,Mozambique,Chidenguele,-24.8587366,34.25642647,11055.0144712627
+Chidzolomondo,,,,MZ100801,Macanga,,,,MZ1008,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,1860.4771826,V_01,pt,,,,Mozambique,Chidzolomondo,-14.92482589,33.34508913,3546.66414926946
+Chifunde,,,,MZ100401,Chifunde,,,,MZ1004,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,3319.08158629,V_01,pt,,,,Mozambique,Chifunde,-15.0180798,32.91680467,1767.47702620924
+Chigubo,,,,MZ020401,Chigubo,,,,MZ0204,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,3695.22757539,V_01,pt,,,,Mozambique,Chigubo,-22.53238295,33.17490923,1036.53708934784
+Chihulo,,,,MZ070801,Malema,,,,MZ0708,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1686.5945991,V_01,pt,,,,Mozambique,Chihulo,-14.56993851,37.49851493,2278.68113023788
+Chimbonila,,,,MZ080101,Chimbonila,,,,MZ0801,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,3723.93130106,V_01,pt,,,,Mozambique,Chimbonila,-13.39998318,35.57435264,21571.1791851819
+Chinde,,,,MZ110201,Chinde,,,,MZ1102,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,1024.63209097,V_01,pt,,,,Mozambique,Chinde,-18.70377351,36.24550051,8115.07398810983
+Chinga,,,,MZ071801,Murrupula,,,,MZ0718,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,571.78883736,V_01,pt,,,,Mozambique,Chinga,-15.19237759,38.6233593,1493.71280544996
+Chintholo,,,,MZ100201,Cahora Bassa,,,,MZ1002,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,5131.39584457,V_01,pt,,,,Mozambique,Chintholo,-16.22528364,32.43761429,1913.83053883165
+Chinthopo,,,,MZ100901,Magoe,,,,MZ1009,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,3055.2104858,V_01,pt,,,,Mozambique,Chinthopo,-15.84060748,30.79444477,2994.6048411727
+Chipembere,,,,MZ100301,Changara,,,,MZ1003,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,3900.79310081,V_01,pt,,,,Mozambique,Chipembere,-16.34920397,33.51345133,12887.3364301771
+Chipene,,,,MZ071101,Memba,,,,MZ0711,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,783.89873889,V_01,pt,,,,Mozambique,Chipene,-13.78122642,40.27524131,7336.00298196077
+Chipera,,,,MZ101101,Maravia,,,,MZ1011,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,2875.03722408,V_01,pt,,,,Mozambique,Chipera,-15.43476557,32.51149721,3041.78709980845
+Chiputu,,,,MZ101102,Maravia,,,,MZ1011,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,3762.25455551,V_01,pt,,,,Mozambique,Chiputu,-15.04289747,32.2676616,2114.87340578437
+Chiramba,,,,MZ090302,Chemba,,,,MZ0903,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,1242.92822286,V_01,pt,,,,Mozambique,Chiramba,-17.02634494,34.50929548,3782.93759018183
+Chire,,,,MZ111801,Morrumbala,,,,MZ1118,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,3333.96328996,V_01,pt,,,,Mozambique,Chire,-16.70846409,35.61506602,16890.1925358027
+Chissano,,,,MZ020902,Limpopo,,,,MZ0209,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,517.50453395,V_01,pt,,,,Mozambique,Chissano,-24.9287181,33.29044321,9450.85664756596
+Chitima,,,,MZ100202,Cahora Bassa,,,,MZ1002,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,3120.65906714,V_01,pt,,,,Mozambique,Chitima,-15.78045168,32.58845881,14981.7481090724
+Chitobe,,,,MZ040601,Machaze,,,,MZ0406,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,8260.50538306,V_01,pt,,,,Mozambique,Chitobe,-20.76873036,33.53861354,27457.2764564455
+Chitunda,,,,MZ011301,Muidumbe,,,,MZ0113,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,525.72729097,V_01,pt,,,,Mozambique,Chitunda,-11.8153611,40.05641612,7605.79687619209
+Chiurairue,,,,MZ040901,Mossurize,,,,MZ0409,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,2122.34876408,V_01,pt,,,,Mozambique,Chiurairue,-20.73526685,32.83528652,11814.9381524324
+Chiure,,,,MZ010301,Chiure,,,,MZ0103,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,620.9123061,V_01,pt,,,,Mozambique,Chiure,-13.35134324,39.76388457,54564.6784245968
+Chiure Velho,,,,MZ010302,Chiure,,,,MZ0103,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,623.29852856,V_01,pt,,,,Mozambique,Chiure Velho,-13.38756962,39.98441055,4612.78164628148
+Chiuta,,,,MZ081301,Mecanhelas,,,,MZ0813,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,2156.94135865,V_01,pt,,,,Mozambique,Chiuta,-14.69666863,36.05180722,7036.59829691052
+Chivongoene,,,,MZ020802,Guija,,,,MZ0208,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,730.86462668,V_01,pt,,,,Mozambique,Chivongoene,-24.44112316,33.24264013,7296.41464363784
+Choa,,,,MZ040102,Barue,,,,MZ0401,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,832.77547532,V_01,pt,,,,Mozambique,Choa,-18.08963196,33.01866678,2799.15029147267
+Chokwe,,,,MZ020501,Chokwe,,,,MZ0205,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,51.09706543,V_01,pt,,,,Mozambique,Chokwe,-24.51253098,32.98358403,28822.0722501278
+Chongoene,,,,MZ020601,Chongoene,,,,MZ0206,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,747.08104707,V_01,pt,,,,Mozambique,Chongoene,-24.96195553,33.79250315,26455.9398149252
+Chupanga,,,,MZ091101,Marromeu,,,,MZ0911,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,2000.51615969,V_01,pt,,,,Mozambique,Chupanga,-18.13297559,35.59020905,5719.34470930696
+Cidade Da Beira,,,,MZ090601,Cidade Da Beira,,,,MZ0906,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,630.5879265,V_01,pt,,,,Mozambique,Cidade Da Beira,-19.73519889,34.90363919,180204.179871142
+Cidade Da Matola,,,,MZ050201,Cidade Da Matola,,,,MZ0502,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,367.67341637,V_01,pt,,,,Mozambique,Cidade Da Matola,-25.84427623,32.48712412,374045.365882874
+Cidade De Chimoio,,,,MZ040201,Cidade De Chimoio,,,,MZ0402,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,174.4207951,V_01,pt,,,,Mozambique,Cidade De Chimoio,-19.13449268,33.45602056,119352.48799783
+Cidade De Inhambane,,,,MZ030101,Cidade De Inhambane,,,,MZ0301,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,194.93308716,V_01,pt,,,,Mozambique,Cidade De Inhambane,-23.87363489,35.51501771,25634.5188945532
+Cidade De Lichinga,,,,MZ080201,Cidade De Lichinga,,,,MZ0802,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,256.43264596,V_01,pt,,,,Mozambique,Cidade De Lichinga,-13.30644444,35.26432424,72399.9474988282
+Cidade De Maputo,,,,MZ060101,Cidade De Maputo,,,,MZ0601,Maputo City,,,,MZ06,Moçambique,,,,MZ,2019-06-07,,347.02386781,V_01,pt,,,,Mozambique,Cidade De Maputo,-26.03137641,32.54974244,322323.586649127
+Cidade De Nampula,,,,MZ070201,Cidade De Nampula,,,,MZ0702,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,330.07009497,V_01,pt,,,,Mozambique,Cidade De Nampula,-15.11486111,39.25954671,221767.095064163
+Cidade De Pemba,,,,MZ010401,Cidade De Pemba,,,,MZ0104,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,100.34921977,V_01,pt,,,,Mozambique,Cidade De Pemba,-13.03077417,40.54006321,57301.5432862043
+Cidade De Quelimane,,,,MZ110301,Cidade De Quelimane,,,,MZ1103,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,121.66223643,V_01,pt,,,,Mozambique,Cidade De Quelimane,-17.86662252,36.89734531,93655.3035576344
+Cidade De Tete,,,,MZ100601,Cidade De Tete,,,,MZ1006,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,287.27825707,V_01,pt,,,,Mozambique,Cidade De Tete,-16.15839768,33.57980834,123374.914737463
+Cidade De Xai-Xai,,,,MZ020701,Cidade De Xai-Xai,,,,MZ0207,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,135.27802676,V_01,pt,,,,Mozambique,Cidade De Xai-Xai,-25.05006991,33.662001,43459.2777064741
+Cobue,,,,MZ080601,Lago,,,,MZ0806,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,3517.52403906,V_01,pt,,,,Mozambique,Cobue,-12.04231925,35.01369147,3714.06821988523
+Combomune,,,,MZ021001,Mabalane,,,,MZ0210,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,5119.45504843,V_01,pt,,,,Mozambique,Combomune,-23.29748562,32.72451816,2558.86854874343
+Corrane,,,,MZ070902,Meconta,,,,MZ0709,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,2316.55034106,V_01,pt,,,,Mozambique,Corrane,-15.36970927,39.59076107,13035.5673664808
+Covo,,,,MZ072001,Nacala-A-Velha,,,,MZ0720,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,288.03920186,V_01,pt,,,,Mozambique,Covo,-14.48715287,40.38201946,3724.93535709381
+Cuamba,,,,MZ080301,Cuamba,,,,MZ0803,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,2159.58818591,V_01,pt,,,,Mozambique,Cuamba,-14.60997301,36.35541596,63774.3949785531
+Cumbana,,,,MZ030701,Jangamo,,,,MZ0307,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,627.00674856,V_01,pt,,,,Mozambique,Cumbana,-24.20949752,35.13505836,13225.1222277433
+Cunle,,,,MZ072301,Ribaue,,,,MZ0723,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1424.25871227,V_01,pt,,,,Mozambique,Cunle,-15.21944009,38.26601211,10225.8197277635
+Dacata,,,,MZ040902,Mossurize,,,,MZ0409,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,2380.47868215,V_01,pt,,,,Mozambique,Dacata,-20.3240156,33.05110935,22747.3835393712
+Derre,,,,MZ110401,Derre,,,,MZ1104,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,4746.78828788,V_01,pt,,,,Mozambique,Derre,-17.05683996,36.12293874,27658.6804479361
+Diaca,,,,MZ011001,Mocimboa Da Praia,,,,MZ0110,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1020.01639169,V_01,pt,,,,Mozambique,Diaca,-11.52662725,39.97923828,2733.95603746176
+Dindiza,,,,MZ020402,Chigubo,,,,MZ0204,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,6424.81719536,V_01,pt,,,,Mozambique,Dindiza,-23.47557784,33.48346266,4202.94482355192
+Divinhe,,,,MZ090901,Machanga,,,,MZ0909,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,1958.67982005,V_01,pt,,,,Mozambique,Divinhe,-20.73267472,34.71422026,3527.13210451603
+Doa,,,,MZ100701,Doa,,,,MZ1007,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,3634.09644243,V_01,pt,,,,Mozambique,Doa,-16.60597182,34.44525075,22802.6166340709
+Dombe,,,,MZ041001,Sussundenga,,,,MZ0410,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,3203.59294929,V_01,pt,,,,Mozambique,Dombe,-19.94736162,33.31111918,12772.9441584498
+Domue,,,,MZ100101,Angonia,,,,MZ1001,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,2121.05196144,V_01,pt,,,,Mozambique,Domue,-14.78151734,34.08128414,51167.296238035
+Dondo,,,,MZ090701,Dondo,,,,MZ0907,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,1548.14803386,V_01,pt,,,,Mozambique,Dondo,-19.53460889,35.01430782,35318.1052975059
+Espungabera,,,,MZ040903,Mossurize,,,,MZ0409,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,519.98666892,V_01,pt,,,,Mozambique,Espungabera,-20.49068698,32.79395426,20711.0525178611
+Estaquinha,,,,MZ090102,Buzi,,,,MZ0901,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,1475.26905768,V_01,pt,,,,Mozambique,Estaquinha,-20.15210269,34.17269024,6208.34254831076
+Etarara,,,,MZ080302,Cuamba,,,,MZ0803,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,1351.75175782,V_01,pt,,,,Mozambique,Etarara,-15.07883585,36.49157955,7235.47301757336
+Fingoe,,,,MZ101103,Maravia,,,,MZ1011,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,4892.08849502,V_01,pt,,,,Mozambique,Fingoe,-15.29230783,31.78563661,18661.8519948721
+Funhalouro,,,,MZ030201,Funhalouro,,,,MZ0302,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,8797.11254485,V_01,pt,,,,Mozambique,Funhalouro,-23.26060324,34.37589613,8689.09448025003
+Furancungo,,,,MZ100802,Macanga,,,,MZ1008,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,5335.83543247,V_01,pt,,,,Mozambique,Furancungo,-14.71518186,33.6690034,46342.8030135036
+Galinha,,,,MZ091201,Muanza,,,,MZ0912,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,5907.57351683,V_01,pt,,,,Mozambique,Galinha,-19.11719834,35.24252076,6258.58576512337
+Gile,,,,MZ110502,Gile,,,,MZ1105,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,5076.38974699,V_01,pt,,,,Mozambique,Gile,-16.13567574,38.36666671,37792.5872642398
+Godide,,,,MZ020205,Chibuto,,,,MZ0202,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,559.02206718,V_01,pt,,,,Mozambique,Godide,-24.59655558,33.66195188,11268.8549622595
+Gondola,,,,MZ040303,Gondola,,,,MZ0403,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,52.63107956,V_01,pt,,,,Mozambique,Gondola,-19.07476675,33.65828459,18662.7170697451
+Gonhane,,,,MZ110801,Inhassunge,,,,MZ1108,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,249.11248597,V_01,pt,,,,Mozambique,Gonhane,-18.1244985,36.75127124,6086.97061359882
+Goonda,,,,MZ090502,Chibabava,,,,MZ0905,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,2149.21361081,V_01,pt,,,,Mozambique,Goonda,-19.92877042,33.93619986,8685.74107307196
+Gorongosa,,,,MZ090801,Gorongosa,,,,MZ0908,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,2996.19469952,V_01,pt,,,,Mozambique,Gorongosa,-18.78239348,34.31508725,36334.1610061228
+Guro,,,,MZ040401,Guro,,,,MZ0404,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,1113.52625857,V_01,pt,,,,Mozambique,Guro,-17.25592278,33.2023137,19285.5756362677
+Gurue,,,,MZ110601,Gurue,,,,MZ1106,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,1442.60220182,V_01,pt,,,,Mozambique,Gurue,-15.43127183,36.90019741,56704.638817817
+Homoine,,,,MZ030401,Homoine,,,,MZ0304,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,1037.3302523,V_01,pt,,,,Mozambique,Homoine,-23.98822021,35.1323922,28194.0110278204
+Hucula,,,,MZ011401,Namuno,,,,MZ0114,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,761.68720821,V_01,pt,,,,Mozambique,Hucula,-13.8227604,39.00957056,5341.18580770493
+Iapala,,,,MZ072302,Ribaue,,,,MZ0723,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,2622.56348111,V_01,pt,,,,Mozambique,Iapala,-14.95607036,37.955536,29574.0747170001
+Ibo,,,,MZ010501,Ibo,,,,MZ0105,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,58.33220939,V_01,pt,,,,Mozambique,Ibo,-12.36675053,40.58163787,1886.02424621582
+Ile,,,,MZ110701,Ile,,,,MZ1107,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,2070.59763716,V_01,pt,,,,Mozambique,Ile,-16.10927378,37.32245915,40550.9080619812
+Ilha De Moçambique,,,,MZ070401,Ilha De Moçambique,,,,MZ0704,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,50.30792038,V_01,pt,,,,Mozambique,Ilha De Mocambique,-15.05459129,40.66978107,13934.8120045066
+Ilha Josina Machel,,,,MZ050402,Manhiça,,,,MZ0504,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,192.46515407,V_01,pt,,,,Mozambique,Ilha Josina Machel,-25.18193065,32.96656209,1146.42682912946
+Ilha Licom,,,,MZ080401,Ilha Licom,,,,MZ0804,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,29.35220133,V_01,pt,,,,Mozambique,Ilha Licom,-12.07154961,34.7277087,16.8956857919693
+Ilha Risunodo,,,,MZ080501,Ilha Risunodo,,,,MZ0805,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,8.3923654,V_01,pt,,,,Mozambique,Ilha Risunodo,-12.0334247,34.61933666,9.78585815429688
+Imala,,,,MZ071701,Muecate,,,,MZ0717,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1220.00397033,V_01,pt,,,,Mozambique,Imala,-14.5060755,39.44815659,4145.82981389761
+Imbuo,,,,MZ011202,Mueda,,,,MZ0112,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,529.82196272,V_01,pt,,,,Mozambique,Imbuo,-11.52230725,39.72411911,5347.96543049812
+Impiri,,,,MZ010202,Balama,,,,MZ0102,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,771.51945124,V_01,pt,,,,Mozambique,Impiri,-13.32950935,38.28870469,2814.59114658833
+Inchope,,,,MZ040304,Gondola,,,,MZ0403,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,1017.42097349,V_01,pt,,,,Mozambique,Inchope,-19.33548386,33.83385572,17824.682682395
+Inhaminga,,,,MZ090401,Cheringoma,,,,MZ0904,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,5397.65086299,V_01,pt,,,,Mozambique,Inhaminga,-18.64316693,35.12732617,13611.7176989019
+Inhamitanga,,,,MZ090402,Cheringoma,,,,MZ0904,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,1706.11380902,V_01,pt,,,,Mozambique,Inhamitanga,-18.17627812,35.1588473,2592.78265973926
+Inhangoma,,,,MZ101302,Mutarara,,,,MZ1013,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,774.55382791,V_01,pt,,,,Mozambique,Inhangoma,-17.51737351,35.21966269,11023.3980858922
+Inharrime,,,,MZ030501,Inharrime,,,,MZ0305,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,1110.00640851,V_01,pt,,,,Mozambique,Inharrime,-24.40782818,35.10689765,26011.3821155429
+Inhassoro,,,,MZ030602,Inhassoro,,,,MZ0306,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,4644.45310252,V_01,pt,,,,Mozambique,Inhassoro,-21.71763984,34.84259526,15104.5725059547
+Inhassunge,,,,MZ110802,Inhassunge,,,,MZ1108,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,505.30745971,V_01,pt,,,,Mozambique,Inhassunge,-18.04142559,36.87751455,17065.9310744405
+Insaca,,,,MZ081302,Mecanhelas,,,,MZ0813,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,2854.06445885,V_01,pt,,,,Mozambique,Insaca,-15.18831726,36.03161356,63588.5828742981
+Intete,,,,MZ072101,Nacaroa,,,,MZ0721,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,684.72505457,V_01,pt,,,,Mozambique,Intete,-14.3484161,40.20067785,9782.21207582951
+Itepela,,,,MZ081701,Ngauma,,,,MZ0817,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,1421.97679182,V_01,pt,,,,Mozambique,Itepela,-13.7630931,35.77471991,2468.48744726181
+Itoculo,,,,MZ071501,Monapo,,,,MZ0715,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1242.73371075,V_01,pt,,,,Mozambique,Itoculo,-14.66578348,40.25935665,30000.5464398265
+Iuluti,,,,MZ071302,Mogovolas,,,,MZ0713,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1390.45207706,V_01,pt,,,,Mozambique,Iuluti,-15.79622392,39.03298704,24236.5463557839
+Jangamo,,,,MZ030702,Jangamo,,,,MZ0307,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,665.63515147,V_01,pt,,,,Mozambique,Jangamo,-24.11122923,35.39701937,13720.359495163
+Kambulatsisi,,,,MZ101201,Moatize,,,,MZ1012,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,1858.42861857,V_01,pt,,,,Mozambique,Kambulatsisi,-16.09934635,34.21842202,1964.49436238408
+Katapua,,,,MZ010303,Chiure,,,,MZ0103,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1675.22128695,V_01,pt,,,,Mozambique,Katapua,-13.40313046,39.46633888,5957.25626575947
+Kazula,,,,MZ100501,Chiuta,,,,MZ1005,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,3012.34652987,V_01,pt,,,,Mozambique,Kazula,-15.47587083,33.70948208,5279.49341773987
+Kuekue,,,,MZ010203,Balama,,,,MZ0102,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,2470.26229408,V_01,pt,,,,Mozambique,Kuekue,-13.79502941,38.34438383,7115.65977993608
+Lago Niassa,,,,MZ080701,Lago Niassa,,,,MZ0807,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,6932.98392175,V_01,pt,,,,Mozambique,Lago Niassa,-12.52888952,34.58485361,2113.50967755914
+Lalaua,,,,MZ070501,Lalaua,,,,MZ0705,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,2871.22277349,V_01,pt,,,,Mozambique,Lalaua,-14.39400683,38.23475699,21146.5597267449
+Larde,,,,MZ070601,Larde,,,,MZ0706,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,734.88713253,V_01,pt,,,,Mozambique,Larde,-16.48620428,39.60126157,21502.2294411063
+Lioma,,,,MZ110602,Gurue,,,,MZ1106,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,2911.75242599,V_01,pt,,,,Mozambique,Lioma,-15.295486,36.66786575,36944.4113752544
+Lionde,,,,MZ020502,Chokwe,,,,MZ0205,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,928.26864955,V_01,pt,,,,Mozambique,Lionde,-24.69362484,33.0033348,16994.7146517187
+Lione,,,,MZ080102,Chimbonila,,,,MZ0801,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,874.46125231,V_01,pt,,,,Mozambique,Lione,-13.64750173,35.16213252,2668.09792459011
+Liúpo,,,,MZ070701,Liúpo,,,,MZ0707,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1363.10663833,V_01,pt,,,,Mozambique,Liupo,-15.64627098,39.92886562,16320.8526730239
+Luabo,,,,MZ110901,Luabo,,,,MZ1109,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,1119.50486382,V_01,pt,,,,Mozambique,Luabo,-18.32316486,36.13182879,14732.7750360966
+Luenha,,,,MZ100302,Changara,,,,MZ1003,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,2247.38123492,V_01,pt,,,,Mozambique,Luenha,-16.93745582,33.03496824,20720.6721152142
+Lugela,,,,MZ111001,Lugela,,,,MZ1110,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,952.33013625,V_01,pt,,,,Mozambique,Lugela,-16.32313805,36.82526478,10491.2124256194
+Lumbo,,,,MZ070402,Ilha De Moçambique,,,,MZ0704,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,130.90845024,V_01,pt,,,,Mozambique,Lumbo,-15.05594823,40.6007807,4989.35851097107
+Lunga,,,,MZ071601,Mossuril,,,,MZ0716,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1825.34695343,V_01,pt,,,,Mozambique,Lunga,-15.2692859,40.46336328,7506.82079413533
+Lunho,,,,MZ080602,Lago,,,,MZ0806,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,946.39804449,V_01,pt,,,,Mozambique,Lunho,-12.4586893,34.91455894,3072.62531557679
+Lurio,,,,MZ071102,Memba,,,,MZ0711,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,710.87676964,V_01,pt,,,,Mozambique,Lurio,-13.63289737,40.47274264,2940.04922276735
+Lurio,,,,MZ080303,Cuamba,,,,MZ0803,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,1832.35061285,V_01,pt,,,,Mozambique,Lurio,-14.66016652,36.81170879,8926.20182454586
+Lussimbesse,,,,MZ081901,Sanga,,,,MZ0819,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,820.10721173,V_01,pt,,,,Mozambique,Lussimbesse,-13.02762365,35.12825498,6572.81184138358
+M'Sawize,,,,MZ081201,Mavago,,,,MZ0812,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,4946.20906281,V_01,pt,,,,Mozambique,MSawize,-12.16673244,36.50504602,1086.35758811235
+M'Tamba,,,,MZ011501,Nangade,,,,MZ0115,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1026.85266935,V_01,pt,,,,Mozambique,MTamba,-11.31230422,39.84496118,3826.72604179382
+Mabalane,,,,MZ021002,Mabalane,,,,MZ0210,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,2061.44504661,V_01,pt,,,,Mozambique,Mabalane,-23.88571792,32.81627806,6141.46531122178
+Mabote,,,,MZ030801,Mabote,,,,MZ0308,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,4936.81198375,V_01,pt,,,,Mozambique,Mabote,-22.12376107,34.19229963,11386.5540875532
+Macaloge,,,,MZ081902,Sanga,,,,MZ0819,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,4493.12492886,V_01,pt,,,,Mozambique,Macaloge,-12.28864888,35.47627779,1119.94900104404
+Macarretane,,,,MZ020503,Chokwe,,,,MZ0205,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,1023.5850456,V_01,pt,,,,Mozambique,Macarretane,-24.37210732,32.73022727,8155.74209453166
+Macate,,,,MZ040501,Macate,,,,MZ0405,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,1433.63569051,V_01,pt,,,,Mozambique,Macate,-19.39735848,33.56302299,18706.4432924539
+Machanga,,,,MZ090902,Machanga,,,,MZ0909,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,3757.32590642,V_01,pt,,,,Mozambique,Machanga,-20.99045905,34.48541772,11804.8401218578
+Machipanda,,,,MZ040801,Manica,,,,MZ0408,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,588.98848852,V_01,pt,,,,Mozambique,Machipanda,-18.86858714,32.8835712,14651.4944920987
+Machoca,,,,MZ011402,Namuno,,,,MZ0114,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,930.73465698,V_01,pt,,,,Mozambique,Machoca,-13.95407653,38.91125886,6849.5278558135
+Machubo,,,,MZ050501,Marracuene,,,,MZ0505,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,231.97078735,V_01,pt,,,,Mozambique,Machubo,-25.56197941,32.79147285,144.938922919333
+Macia,,,,MZ020101,Bilene,,,,MZ0201,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,87.18228633,V_01,pt,,,,Mozambique,Macia,-25.02507387,33.12120261,21316.6176179647
+Macomia,,,,MZ010602,Macomia,,,,MZ0106,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1378.24762275,V_01,pt,,,,Mozambique,Macomia,-12.18979412,40.00221265,22629.3827896416
+Macossa,,,,MZ040701,Macossa,,,,MZ0407,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,5607.94205277,V_01,pt,,,,Mozambique,Macossa,-17.80294415,33.93461396,3593.24310308695
+Macuacua,,,,MZ021103,Mandlakaze,,,,MZ0211,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,1060.71107116,V_01,pt,,,,Mozambique,Macuacua,-24.3271498,33.91540074,2199.45388664305
+Macuze,,,,MZ112001,Namacurra,,,,MZ1120,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,644.96797132,V_01,pt,,,,Mozambique,Macuze,-17.57059284,37.24908712,13051.3095878065
+Madzucane,,,,MZ020602,Chongoene,,,,MZ0206,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,265.07942665,V_01,pt,,,,Mozambique,Madzucane,-24.74560661,34.00541091,2314.03796508908
+Mafambisse,,,,MZ090702,Dondo,,,,MZ0907,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,759.92745945,V_01,pt,,,,Mozambique,Mafambisse,-19.41191559,34.62176613,19945.8346848339
+Maganja,,,,MZ111101,Maganja Da Costa,,,,MZ1111,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,1548.00644374,V_01,pt,,,,Mozambique,Maganja,-17.28358784,37.52615616,28557.1751209796
+Magude,,,,MZ050301,Magude,,,,MZ0503,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,1801.45142924,V_01,pt,,,,Mozambique,Magude,-25.0057614,32.64921762,19558.9988115206
+Mahate,,,,MZ011802,Quissanga,,,,MZ0118,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,875.35172139,V_01,pt,,,,Mozambique,Mahate,-12.60530758,40.457801,3383.80960828066
+Mahele,,,,MZ050302,Magude,,,,MZ0503,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,865.7467879,V_01,pt,,,,Mozambique,Mahele,-24.51457573,32.54082499,105.108963519335
+Maiaca,,,,MZ081101,Maua,,,,MZ0811,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,1912.28297752,V_01,pt,,,,Mozambique,Maiaca,-14.11196595,37.24285763,2162.23431119323
+Majaua,,,,MZ111301,Milange,,,,MZ1113,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,653.66346675,V_01,pt,,,,Mozambique,Majaua,-16.24804881,35.4347105,20964.7676095963
+Makluane,,,,MZ020102,Bilene,,,,MZ0201,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,539.69695803,V_01,pt,,,,Mozambique,Makluane,-25.13887756,33.17372746,791.675651401281
+Malanga,,,,MZ080801,Majune,,,,MZ0808,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,5259.5712614,V_01,pt,,,,Mozambique,Malanga,-13.11761563,36.31335977,8529.28577005863
+Malehice,,,,MZ020206,Chibuto,,,,MZ0202,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,486.24850822,V_01,pt,,,,Mozambique,Malehice,-24.74671998,33.6762609,11714.9009442925
+Malema,,,,MZ070802,Malema,,,,MZ0708,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,2359.03870155,V_01,pt,,,,Mozambique,Malema,-14.88255303,37.62821279,42245.8894239813
+Malowera,,,,MZ101104,Maravia,,,,MZ1011,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,5175.28052316,V_01,pt,,,,Mozambique,Malowera,-14.73076831,31.91788425,8744.49875590205
+Maluana,,,,MZ050403,Manhiça,,,,MZ0504,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,450.16686661,V_01,pt,,,,Mozambique,Maluana,-25.4934704,32.66817733,9400.59872429073
+Mandie,,,,MZ040402,Guro,,,,MZ0404,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,1168.98363566,V_01,pt,,,,Mozambique,Mandie,-16.53819689,33.67374842,1922.12900882959
+Mandimba,,,,MZ080901,Mandimba,,,,MZ0809,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,1535.41326662,V_01,pt,,,,Mozambique,Mandimba,-14.36467837,35.76869658,45892.5843942761
+Mandlakaze,,,,MZ021104,Mandlakaze,,,,MZ0211,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,97.81622541,V_01,pt,,,,Mozambique,Mandlakaze,-24.71517392,33.86682489,15735.1914512813
+Manhiça,,,,MZ050404,Manhiça,,,,MZ0504,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,412.11432323,V_01,pt,,,,Mozambique,Manhica,-25.3522077,32.72527511,35510.8297989219
+Maniamba,,,,MZ080603,Lago,,,,MZ0806,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,1263.45713969,V_01,pt,,,,Mozambique,Maniamba,-12.76296029,35.04038042,8434.45673459768
+Manica,,,,MZ040802,Manica,,,,MZ0408,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,121.43943819,V_01,pt,,,,Mozambique,Manica,-18.95231592,32.87608235,33989.1792728007
+Manje,,,,MZ100502,Chiuta,,,,MZ1005,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,4111.90563119,V_01,pt,,,,Mozambique,Manje,-15.50982324,33.2280645,21335.4558307678
+Mapai,,,,MZ021201,Mapai,,,,MZ0212,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,11601.48549517,V_01,pt,,,,Mozambique,Mapai,-22.6245121,32.48571191,7245.89015983045
+Mapinhane,,,,MZ031301,Vilankulo,,,,MZ0313,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,4047.40162564,V_01,pt,,,,Mozambique,Mapinhane,-22.41251281,35.17573182,4811.90247519314
+Mapulanguene,,,,MZ050303,Magude,,,,MZ0503,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,2670.77336648,V_01,pt,,,,Mozambique,Mapulanguene,-24.52170886,32.18128145,208.653256081045
+Mapupulo,,,,MZ011101,Montepuez,,,,MZ0111,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,742.70569688,V_01,pt,,,,Mozambique,Mapupulo,-13.30133636,38.91255064,2721.09022080898
+Maquival,,,,MZ111201,Maquival,,,,MZ1112,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,617.40114868,V_01,pt,,,,Mozambique,Maquival,-17.82502675,37.04972572,8476.16055601835
+Marangira,,,,MZ081001,Marrupa,,,,MZ0810,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,6768.59502316,V_01,pt,,,,Mozambique,Marangira,-12.72309284,37.58905145,1349.78795196489
+Marara,,,,MZ101001,Marara,,,,MZ1010,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,2715.85401947,V_01,pt,,,,Mozambique,Marara,-16.05397773,33.16779296,17356.4069092572
+Maringue,,,,MZ091002,Maringue,,,,MZ0910,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,2223.52966027,V_01,pt,,,,Mozambique,Maringue,-17.82229515,34.49966349,13043.6934080422
+Marracuene,,,,MZ050502,Marracuene,,,,MZ0505,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,465.12027439,V_01,pt,,,,Mozambique,Marracuene,-25.73013682,32.65863466,69812.6111042649
+Marromeu,,,,MZ091102,Marromeu,,,,MZ0911,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,3752.32337722,V_01,pt,,,,Mozambique,Marromeu,-18.5499433,35.82073086,37638.4087129831
+Marrupa,,,,MZ081002,Marrupa,,,,MZ0810,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,7421.17593962,V_01,pt,,,,Mozambique,Marrupa,-13.161901,37.26614119,19836.5603802726
+Massangena,,,,MZ021301,Massangena,,,,MZ0213,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,1877.1624489,V_01,pt,,,,Mozambique,Massangena,-21.72770609,33.00064925,3650.60654249787
+Massangulo,,,,MZ081702,Ngauma,,,,MZ0817,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,1583.05215007,V_01,pt,,,,Mozambique,Massangulo,-13.86919037,35.41904118,24287.6216026247
+Massinga,,,,MZ030902,Massinga,,,,MZ0309,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,2064.74399138,V_01,pt,,,,Mozambique,Massinga,-23.23031112,35.28932476,57445.8113042712
+Massingir,,,,MZ021401,Massingir,,,,MZ0214,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,1710.39589971,V_01,pt,,,,Mozambique,Massingir,-24.09238699,32.10271759,7950.39162039757
+Matchedje,,,,MZ081903,Sanga,,,,MZ0819,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,5157.81247246,V_01,pt,,,,Mozambique,Matchedje,-11.72103876,35.80523798,252.477839291096
+Matibane,,,,MZ071602,Mossuril,,,,MZ0716,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,707.40225942,V_01,pt,,,,Mozambique,Matibane,-14.71801244,40.69419315,10587.5241377056
+Matola Rio,,,,MZ050102,Boane,,,,MZ0501,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,205.82884112,V_01,pt,,,,Mozambique,Matola Rio,-25.90323825,32.39245712,52417.7015299499
+Matondovela,,,,MZ081401,Mecula,,,,MZ0814,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,8348.99632116,V_01,pt,,,,Mozambique,Matondovela,-12.12959434,37.10357922,210.690263837576
+Matsinho,,,,MZ041201,Vanduzi,,,,MZ0412,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,1307.15384938,V_01,pt,,,,Mozambique,Matsinho,-18.89354329,33.56310499,9917.06685701013
+Maua,,,,MZ081102,Maua,,,,MZ0811,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,6134.25355335,V_01,pt,,,,Mozambique,Maua,-13.80516859,36.92622434,15080.9322149456
+Mavago,,,,MZ081202,Mavago,,,,MZ0812,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,4248.40018864,V_01,pt,,,,Mozambique,Mavago,-12.19313445,36.14501142,6722.89113053679
+Mavala,,,,MZ010204,Balama,,,,MZ0102,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1284.3263226,V_01,pt,,,,Mozambique,Mavala,-13.11526374,38.43087674,5867.77421760559
+Mavodze,,,,MZ021402,Massingir,,,,MZ0214,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,3037.29941704,V_01,pt,,,,Mozambique,Mavodze,-23.59390471,31.95986959,641.071584150195
+Mavonde,,,,MZ040803,Manica,,,,MZ0408,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,1001.66323707,V_01,pt,,,,Mozambique,Mavonde,-18.63012886,33.01372478,1911.98352090269
+Mavue,,,,MZ021302,Massangena,,,,MZ0213,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,5667.3911264,V_01,pt,,,,Mozambique,Mavue,-21.72954328,32.41680798,1745.60154895484
+Mawayela,,,,MZ031201,Panda,,,,MZ0312,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,2771.05635971,V_01,pt,,,,Mozambique,Mawayela,-24.05715903,34.10573531,1513.21576815099
+Maxixe,,,,MZ031001,Maxixe,,,,MZ0310,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,267.74080166,V_01,pt,,,,Mozambique,Maxixe,-23.87139233,35.30300801,43168.5384249091
+Mazeze,,,,MZ010304,Chiure,,,,MZ0103,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,692.68247402,V_01,pt,,,,Mozambique,Mazeze,-13.39041108,40.24393501,2964.39494109154
+Mazivila,,,,MZ020103,Bilene,,,,MZ0201,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,378.40395997,V_01,pt,,,,Mozambique,Mazivila,-24.87613366,33.16083116,1899.51802299917
+Mazula,,,,MZ071103,Memba,,,,MZ0711,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1569.54057194,V_01,pt,,,,Mozambique,Mazula,-13.97121784,40.32691053,13015.0220235884
+Mbau,,,,MZ011002,Mocimboa Da Praia,,,,MZ0110,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,784.86662686,V_01,pt,,,,Mozambique,Mbau,-11.62050677,40.29491567,829.215380460024
+Meconta,,,,MZ070903,Meconta,,,,MZ0709,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,459.89038219,V_01,pt,,,,Mozambique,Meconta,-15.05662216,39.86023231,7406.78059753776
+Mecuburi,,,,MZ071001,Mecuburi,,,,MZ0710,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,3640.81306039,V_01,pt,,,,Mozambique,Mecuburi,-14.61942571,38.91884792,29468.2056670487
+Mecufi,,,,MZ010701,Mecufi,,,,MZ0107,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,619.93551302,V_01,pt,,,,Mozambique,Mecufi,-13.33766829,40.46540164,10369.4067199826
+Mecula,,,,MZ081402,Mecula,,,,MZ0814,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,9666.45417645,V_01,pt,,,,Mozambique,Mecula,-11.87642158,38.00765464,4861.10272926092
+Megaza,,,,MZ111802,Morrumbala,,,,MZ1118,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,1584.6650004,V_01,pt,,,,Mozambique,Megaza,-17.34910342,35.43040319,11421.5897102058
+Meloco,,,,MZ011403,Namuno,,,,MZ0114,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1406.10695834,V_01,pt,,,,Mozambique,Meloco,-13.55981651,39.18346493,10468.5140600502
+Meluco,,,,MZ010801,Meluco,,,,MZ0108,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,4524.68590594,V_01,pt,,,,Mozambique,Meluco,-12.46128015,39.5313872,7763.89799110592
+Memba,,,,MZ071104,Memba,,,,MZ0711,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1385.27912287,V_01,pt,,,,Mozambique,Memba,-14.2522192,40.52357537,57629.5247159302
+Meponda,,,,MZ080103,Chimbonila,,,,MZ0801,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,818.90756812,V_01,pt,,,,Mozambique,Meponda,-13.27271726,34.87244327,293.327836863697
+Mepuagiua,,,,MZ110603,Gurue,,,,MZ1106,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,1289.09390509,V_01,pt,,,,Mozambique,Mepuagiua,-15.61354224,37.08717328,22226.8297557235
+Mesa,,,,MZ010102,Ancuabe,,,,MZ0101,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1413.69565683,V_01,pt,,,,Mozambique,Mesa,-12.95513014,39.46838842,4133.643806234
+Messano,,,,MZ020104,Bilene,,,,MZ0201,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,367.89865925,V_01,pt,,,,Mozambique,Messano,-24.97390643,33.00030942,3862.57368424535
+Messica,,,,MZ040804,Manica,,,,MZ0408,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,821.5932061,V_01,pt,,,,Mozambique,Messica,-19.05946063,33.01392042,12184.4879836142
+Metangula,,,,MZ080604,Lago,,,,MZ0806,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,827.5885575,V_01,pt,,,,Mozambique,Metangula,-12.85581787,34.8529302,12123.4271679521
+Metarica,,,,MZ081501,Metarica,,,,MZ0815,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,2613.71465722,V_01,pt,,,,Mozambique,Metarica,-14.25883303,36.64361313,8421.53732255101
+Meti,,,,MZ070502,Lalaua,,,,MZ0705,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1660.23575358,V_01,pt,,,,Mozambique,Meti,-14.53401833,37.84315806,5772.39162534475
+Metoro,,,,MZ010103,Ancuabe,,,,MZ0101,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1417.71106607,V_01,pt,,,,Mozambique,Metoro,-13.11755126,39.93638469,22034.5599089861
+Metuge,,,,MZ010901,Metuge,,,,MZ0109,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1460.26118505,V_01,pt,,,,Mozambique,Metuge,-12.91413202,40.24277524,9366.54662904143
+Micaune,,,,MZ110202,Chinde,,,,MZ1102,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,2092.38633645,V_01,pt,,,,Mozambique,Micaune,-18.30085311,36.49586424,14958.9499163628
+Mieze,,,,MZ010902,Metuge,,,,MZ0109,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,128.07958507,V_01,pt,,,,Mozambique,Mieze,-13.07283878,40.4172917,10563.4004600644
+Milange,,,,MZ111302,Milange,,,,MZ1113,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,3432.20624424,V_01,pt,,,,Mozambique,Milange,-16.23055435,35.89158916,119458.467911303
+Milhana,,,,MZ071002,Mecuburi,,,,MZ0710,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1275.36838259,V_01,pt,,,,Mozambique,Milhana,-14.25483359,39.10547931,3966.07214447856
+Mirate,,,,MZ011102,Montepuez,,,,MZ0111,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,3118.25385197,V_01,pt,,,,Mozambique,Mirate,-12.85658961,38.91379804,3363.84229941666
+Mitande,,,,MZ080902,Mandimba,,,,MZ0809,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,3144.79135347,V_01,pt,,,,Mozambique,Mitande,-14.16424047,35.92373143,13456.1822478473
+Miteda,,,,MZ011302,Muidumbe,,,,MZ0113,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,473.82291118,V_01,pt,,,,Mozambique,Miteda,-11.86043319,39.6281466,2981.20453256369
+Moamba,,,,MZ050701,Moamba,,,,MZ0507,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,1468.10153386,V_01,pt,,,,Mozambique,Moamba,-25.50425236,32.4011057,10804.7424239665
+Moatize,,,,MZ101202,Moatize,,,,MZ1012,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,3829.65090482,V_01,pt,,,,Mozambique,Moatize,-16.21245656,33.87322674,58574.2001032829
+Mocimboa Da Praia,,,,MZ011003,Mocimboa Da Praia,,,,MZ0110,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1668.28903869,V_01,pt,,,,Mozambique,Mocimboa Da Praia,-11.29479999,40.21501227,31015.699403584
+Mocuba,,,,MZ111401,Mocuba,,,,MZ1114,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,3649.88540195,V_01,pt,,,,Mozambique,Mocuba,-17.02033983,36.94366511,93575.8364585489
+Mocubela,,,,MZ111502,Mocubela,,,,MZ1115,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,3412.70864938,V_01,pt,,,,Mozambique,Mocubela,-16.87589336,37.73400458,10461.2392068356
+Mocumbi,,,,MZ030502,Inharrime,,,,MZ0305,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,1637.41407525,V_01,pt,,,,Mozambique,Mocumbi,-24.4153409,34.54913704,4396.31397669017
+Molumbo,,,,MZ111601,Molumbo,,,,MZ1116,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,4319.74500548,V_01,pt,,,,Mozambique,Molumbo,-15.68256644,36.19548526,78190.8106023073
+Moma,,,,MZ071402,Moma,,,,MZ0714,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,2510.02927578,V_01,pt,,,,Mozambique,Moma,-16.50534779,39.21155192,56700.6893825531
+Monapo,,,,MZ071502,Monapo,,,,MZ0715,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1232.64985322,V_01,pt,,,,Mozambique,Monapo,-15.01398897,40.22145621,48363.7140675783
+Mongue,,,,MZ111303,Milange,,,,MZ1113,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,1418.389425,V_01,pt,,,,Mozambique,Mongue,-16.45810258,35.66804901,23444.7006617188
+Montepuez,,,,MZ011103,Montepuez,,,,MZ0111,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1210.56821609,V_01,pt,,,,Mozambique,Montepuez,-13.12362512,39.06236116,65999.9333989173
+Mopeia,,,,MZ111702,Mopeia,,,,MZ1117,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,3988.48598891,V_01,pt,,,,Mozambique,Mopeia,-17.86709184,35.74225581,36748.7066542357
+Morrumbala,,,,MZ111803,Morrumbala,,,,MZ1118,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,3116.8037363,V_01,pt,,,,Mozambique,Morrumbala,-17.25213275,35.75339447,69136.8264205009
+Morrumbene,,,,MZ031101,Morrumbene,,,,MZ0311,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,554.69136911,V_01,pt,,,,Mozambique,Morrumbene,-23.63223088,35.31389255,29108.5847212672
+Mossuril,,,,MZ071603,Mossuril,,,,MZ0716,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,847.85012007,V_01,pt,,,,Mozambique,Mossuril,-14.89050859,40.50812111,30232.3378870487
+Motaze,,,,MZ050304,Magude,,,,MZ0503,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,964.70600002,V_01,pt,,,,Mozambique,Motaze,-24.72322598,32.66505333,1299.5250472948
+Mphende,,,,MZ100902,Magoe,,,,MZ1009,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,1926.08158449,V_01,pt,,,,Mozambique,Mphende,-15.86937339,31.87936238,8850.66276460886
+Muabanama,,,,MZ111002,Lugela,,,,MZ1110,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,2208.71150117,V_01,pt,,,,Mozambique,Muabanama,-16.10403006,36.42615314,2344.16891114414
+Muaguide,,,,MZ010802,Meluco,,,,MZ0108,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1204.26159123,V_01,pt,,,,Mozambique,Muaguide,-12.45091853,40.01090625,2296.89592015743
+Mualadze,,,,MZ100402,Chifunde,,,,MZ1004,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,3500.42396545,V_01,pt,,,,Mozambique,Mualadze,-14.36134869,32.93220339,25764.9683302194
+Mualama,,,,MZ112301,Pebane,,,,MZ1123,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,5123.37743269,V_01,pt,,,,Mozambique,Mualama,-16.75120147,38.45215631,16381.8667627573
+Muanza,,,,MZ091202,Muanza,,,,MZ0912,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,1601.89860483,V_01,pt,,,,Mozambique,Muanza,-18.94900848,34.66608693,3798.29752376676
+Muaquia,,,,MZ080802,Majune,,,,MZ0808,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,2967.44207532,V_01,pt,,,,Mozambique,Muaquia,-13.39328582,36.66218141,530.158622652292
+Muatua,,,,MZ071303,Mogovolas,,,,MZ0713,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,604.59049245,V_01,pt,,,,Mozambique,Muatua,-15.76690531,39.64814183,5919.51091635227
+Mubangoene,,,,MZ020803,Guija,,,,MZ0208,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,1215.68749252,V_01,pt,,,,Mozambique,Mubangoene,-24.24624076,32.9275198,9303.05769062787
+Mucoduene,,,,MZ031102,Morrumbene,,,,MZ0311,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,2024.00413144,V_01,pt,,,,Mozambique,Mucoduene,-23.42183231,34.93394919,7286.21983746439
+Mucojo,,,,MZ010603,Macomia,,,,MZ0106,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1116.59533855,V_01,pt,,,,Mozambique,Mucojo,-12.14071334,40.38398733,3649.60068064928
+Mucuali,,,,MZ070602,Larde,,,,MZ0706,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1109.19550665,V_01,pt,,,,Mozambique,Mucuali,-16.29318365,39.41667828,4993.54674613476
+Muculoene,,,,MZ071702,Muecate,,,,MZ0717,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,978.04825151,V_01,pt,,,,Mozambique,Muculoene,-14.75180891,39.39397562,1764.31823994219
+Muecate,,,,MZ071703,Muecate,,,,MZ0717,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1908.1833297,V_01,pt,,,,Mozambique,Muecate,-14.70266827,39.65452756,31296.8339730501
+Mueda,,,,MZ011203,Mueda,,,,MZ0112,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1147.64864717,V_01,pt,,,,Mozambique,Mueda,-11.62006297,39.52039855,33046.859356463
+Muembe,,,,MZ081602,Muembe,,,,MZ0816,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,1704.73064134,V_01,pt,,,,Mozambique,Muembe,-13.12350449,35.73076759,7986.88236761093
+Mugazine,,,,MZ050603,Matutuine,,,,MZ0506,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,430.66242141,V_01,pt,,,,Mozambique,Mugazine,-26.15907416,32.53502782,3858.73746645451
+Mugeba,,,,MZ111402,Mocuba,,,,MZ1114,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,2106.64246946,V_01,pt,,,,Mozambique,Mugeba,-16.64027383,37.25328695,15925.0283718407
+Muidumbe,,,,MZ011303,Muidumbe,,,,MZ0113,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1096.21243539,V_01,pt,,,,Mozambique,Muidumbe,-11.85647338,39.82045791,15880.344583869
+Muipite,,,,MZ081801,Nipepe,,,,MZ0818,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,1057.04404861,V_01,pt,,,,Mozambique,Muipite,-13.72830628,38.02677275,531.515998125076
+Muite,,,,MZ071003,Mecuburi,,,,MZ0710,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1497.56813269,V_01,pt,,,,Mozambique,Muite,-14.15936534,38.84393196,4799.73906648159
+Mukumbura,,,,MZ100903,Magoe,,,,MZ1009,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,3571.86915514,V_01,pt,,,,Mozambique,Mukumbura,-16.03460741,31.63758134,9135.14631547034
+Mulevala,,,,MZ111901,Mulevala,,,,MZ1119,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,2700.98490853,V_01,pt,,,,Mozambique,Mulevala,-16.37289785,37.59052582,30086.1828664988
+Mulima,,,,MZ090303,Chemba,,,,MZ0903,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,1598.62036513,V_01,pt,,,,Mozambique,Mulima,-17.36946083,34.64255738,4507.21872994304
+Mungari,,,,MZ040403,Guro,,,,MZ0404,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,3241.30370355,V_01,pt,,,,Mozambique,Mungari,-17.08850638,33.54881677,3308.79662975669
+Munhamade,,,,MZ111003,Lugela,,,,MZ1110,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,1649.60043132,V_01,pt,,,,Mozambique,Munhamade,-16.49322288,37.01435973,31657.2615153194
+Muoha,,,,MZ041002,Sussundenga,,,,MZ0410,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,927.52263917,V_01,pt,,,,Mozambique,Muoha,-19.36346193,33.11298441,3214.28605528176
+Murraça,,,,MZ090202,Caia,,,,MZ0902,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,681.78305147,V_01,pt,,,,Mozambique,Murraca,-17.6906188,35.0120356,3406.29011541605
+Murrebue,,,,MZ010702,Mecufi,,,,MZ0107,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,614.92964735,V_01,pt,,,,Mozambique,Murrebue,-13.17042736,40.37042607,8722.18178078532
+Murrupula,,,,MZ071802,Murrupula,,,,MZ0718,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1957.96743683,V_01,pt,,,,Mozambique,Murrupula,-15.38259246,38.66900781,32888.1003939807
+Mutivasse,,,,MZ072202,Rapale,,,,MZ0722,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,809.61403846,V_01,pt,,,,Mozambique,Mutivasse,-15.02821727,38.84116777,5903.25558903813
+Mutuali,,,,MZ070803,Malema,,,,MZ0708,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,2007.26874218,V_01,pt,,,,Mozambique,Mutuali,-14.81298311,37.09660621,13794.395517379
+Muxungue,,,,MZ090503,Chibabava,,,,MZ0905,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,3822.31692534,V_01,pt,,,,Mozambique,Muxungue,-20.60513996,34.02165068,21397.4816901982
+Muze,,,,MZ101501,Zumbu,,,,MZ1015,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,3320.31792527,V_01,pt,,,,Mozambique,Muze,-15.00468267,31.20024402,3851.49494871497
+N'Cumpe,,,,MZ011404,Namuno,,,,MZ0114,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,720.64576997,V_01,pt,,,,Mozambique,NCumpe,-13.78317638,38.63627766,6015.77030402422
+N'Gapa,,,,MZ011204,Mueda,,,,MZ0112,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,4492.71226844,V_01,pt,,,,Mozambique,NGapa,-11.43884848,39.15185232,7354.03896948695
+Naburi,,,,MZ112302,Pebane,,,,MZ1123,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,3507.62459166,V_01,pt,,,,Mozambique,Naburi,-16.5926077,38.86225011,9490.90212234855
+Nacala,,,,MZ071901,Nacala,,,,MZ0719,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,319.04633594,V_01,pt,,,,Mozambique,Nacala,-14.54667004,40.71799334,87360.4230901599
+Nacala-A-Velha,,,,MZ072002,Nacala-A-Velha,,,,MZ0720,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,845.05191889,V_01,pt,,,,Mozambique,Nacala-A-Velha,-14.56299871,40.52377391,30117.2064260244
+Nacaroa,,,,MZ072102,Nacaroa,,,,MZ0721,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,934.03060712,V_01,pt,,,,Mozambique,Nacaroa,-14.38320722,39.90027437,19721.8781604767
+Nacumua,,,,MZ081502,Metarica,,,,MZ0815,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,2245.64333697,V_01,pt,,,,Mozambique,Nacumua,-14.41568809,37.16255545,4909.84753766656
+Nairoto,,,,MZ011104,Montepuez,,,,MZ0111,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,12079.67895694,V_01,pt,,,,Mozambique,Nairoto,-12.45268952,38.65049922,437.855094898492
+Nairrubi,,,,MZ080803,Majune,,,,MZ0808,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,3070.6907651,V_01,pt,,,,Mozambique,Nairrubi,-13.66152201,36.15081939,1302.04750049114
+Nalazi,,,,MZ020804,Guija,,,,MZ0208,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,2215.28384097,V_01,pt,,,,Mozambique,Nalazi,-24.04149996,33.1570289,980.798330627382
+Namaacha,,,,MZ050802,Namaacha,,,,MZ0508,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,1372.93077403,V_01,pt,,,,Mozambique,Namaacha,-25.94804141,32.1216682,13812.4085085019
+Namacurra,,,,MZ112002,Namacurra,,,,MZ1120,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,1375.63780559,V_01,pt,,,,Mozambique,Namacurra,-17.41279346,37.0055802,47666.3087629676
+Namaita,,,,MZ072203,Rapale,,,,MZ0722,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,821.76692485,V_01,pt,,,,Mozambique,Namaita,-15.23295807,38.96642871,13668.0073413551
+Namanhumbir,,,,MZ011105,Montepuez,,,,MZ0111,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,653.87655498,V_01,pt,,,,Mozambique,Namanhumbir,-13.01791677,39.29504539,3287.1283108741
+Namanjavira,,,,MZ111403,Mocuba,,,,MZ1114,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,3015.72225618,V_01,pt,,,,Mozambique,Namanjavira,-16.86219533,36.49828818,6523.51196116209
+Namapa,,,,MZ070302,Erati,,,,MZ0703,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,2259.36282276,V_01,pt,,,,Mozambique,Namapa,-13.70864862,39.94006233,69975.2635434866
+Namaponda,,,,MZ070104,Angoche,,,,MZ0701,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,740.18951794,V_01,pt,,,,Mozambique,Namaponda,-15.87835154,39.84533354,10113.8230101466
+Namarroi,,,,MZ112101,Namarroi,,,,MZ1121,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,1373.35756564,V_01,pt,,,,Mozambique,Namarroi,-16.02469936,36.93591159,29140.4090218097
+Nametil,,,,MZ071304,Mogovolas,,,,MZ0713,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,911.45889013,V_01,pt,,,,Mozambique,Nametil,-15.74638018,39.37042313,44504.1236427426
+Namialo,,,,MZ070904,Meconta,,,,MZ0709,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,347.83495058,V_01,pt,,,,Mozambique,Namialo,-14.9531924,39.90810007,31869.1156986952
+Namige,,,,MZ071201,Mogincual,,,,MZ0712,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,847.60213948,V_01,pt,,,,Mozambique,Namige,-15.60505418,40.26718516,14796.7273270488
+Namina,,,,MZ071004,Mecuburi,,,,MZ0710,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,775.72447763,V_01,pt,,,,Mozambique,Namina,-14.74292649,38.60519818,9504.55059587956
+Namiroa,,,,MZ070303,Erati,,,,MZ0703,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1528.18980518,V_01,pt,,,,Mozambique,Namiroa,-14.08727699,39.46359531,10303.2388956845
+Namogelia,,,,MZ010305,Chiure,,,,MZ0103,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,711.59886081,V_01,pt,,,,Mozambique,Namogelia,-13.71700926,39.44304202,3841.99316084385
+Namuno,,,,MZ011405,Namuno,,,,MZ0114,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1239.09579886,V_01,pt,,,,Mozambique,Namuno,-13.55609342,38.81001748,31491.529555738
+Nangade,,,,MZ011502,Nangade,,,,MZ0115,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1939.90163189,V_01,pt,,,,Mozambique,Nangade,-11.11566136,39.77446123,19100.9118002951
+Nanhupo Rio,,,,MZ071305,Mogovolas,,,,MZ0713,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,718.92536517,V_01,pt,,,,Mozambique,Nanhupo Rio,-15.94066669,39.46702795,5583.3554995954
+Nante,,,,MZ111102,Maganja Da Costa,,,,MZ1111,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,1324.83589158,V_01,pt,,,,Mozambique,Nante,-17.3495524,37.2485119,11581.0396093726
+Nauela,,,,MZ110102,Alto Molocue,,,,MZ1101,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,2601.15864188,V_01,pt,,,,Mozambique,Nauela,-15.41507864,37.6009323,25988.3782614023
+Ndelane,,,,MZ050604,Matutuine,,,,MZ0506,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,161.98252877,V_01,pt,,,,Mozambique,Ndelane,-26.21740686,32.90622721,167.917647443712
+Negomano,,,,MZ011205,Mueda,,,,MZ0112,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,3023.24239476,V_01,pt,,,,Mozambique,Negomano,-11.53084305,38.65891966,466.567141249776
+Netia,,,,MZ071503,Monapo,,,,MZ0715,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1039.62705028,V_01,pt,,,,Mozambique,Netia,-14.69571772,39.99992929,24699.1017907858
+Nguawala,,,,MZ040702,Macossa,,,,MZ0407,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,2258.53867375,V_01,pt,,,,Mozambique,Nguawala,-18.37191314,33.66134647,710.928328379989
+Nguzene,,,,MZ020603,Chongoene,,,,MZ0206,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,433.75765647,V_01,pt,,,,Mozambique,Nguzene,-24.93476828,34.01582563,3420.78394283354
+Nhacafula,,,,MZ041102,Tambara,,,,MZ0411,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,1267.62733309,V_01,pt,,,,Mozambique,Nhacafula,-16.86983938,33.97138758,2728.16234904528
+Nhacolo,,,,MZ041103,Tambara,,,,MZ0411,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,1036.60171465,V_01,pt,,,,Mozambique,Nhacolo,-16.75529159,34.2783789,8528.98517373204
+Nhamadze,,,,MZ090802,Gorongosa,,,,MZ0908,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,2025.2136686,V_01,pt,,,,Mozambique,Nhamadze,-18.52724688,33.93285256,8118.11954648793
+Nhamagua,,,,MZ040703,Macossa,,,,MZ0407,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,1696.62932214,V_01,pt,,,,Mozambique,Nhamagua,-17.7308058,33.49540202,5768.27715605497
+Nhamassonge,,,,MZ040404,Guro,,,,MZ0404,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,1405.80546834,V_01,pt,,,,Mozambique,Nhamassonge,-16.77979269,33.57948063,899.255506157875
+Nhamatanda,,,,MZ091301,Nhamatanda,,,,MZ0913,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,2467.0937126,V_01,pt,,,,Mozambique,Nhamatanda,-19.3051282,34.1020497,52087.9162067249
+Nhamayabue,,,,MZ101303,Mutarara,,,,MZ1013,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,1330.78066511,V_01,pt,,,,Mozambique,Nhamayabue,-17.11293984,34.96888492,29219.8131005764
+Nhampassa,,,,MZ040103,Barue,,,,MZ0401,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,1986.44043098,V_01,pt,,,,Mozambique,Nhampassa,-17.56803262,33.19541926,11748.1391209066
+Nicoadala,,,,MZ112201,Nicoadala,,,,MZ1122,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,2763.43640006,V_01,pt,,,,Mozambique,Nicoadala,-17.57301843,36.65683567,48258.9683527499
+Nihessiue,,,,MZ071803,Murrupula,,,,MZ0718,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,563.57159394,V_01,pt,,,,Mozambique,Nihessiue,-15.64866843,38.70519182,13653.5518464446
+Nipepe,,,,MZ081802,Nipepe,,,,MZ0818,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,3943.22510311,V_01,pt,,,,Mozambique,Nipepe,-14.04351554,37.89173096,11668.4266808629
+Nova Mambone,,,,MZ030301,Govuro,,,,MZ0303,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,1681.79912468,V_01,pt,,,,Mozambique,Nova Mambone,-21.23151306,34.9113307,7625.20032922924
+Nsadzu,,,,MZ100403,Chifunde,,,,MZ1004,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,2585.29131508,V_01,pt,,,,Mozambique,Nsadzu,-14.56344081,32.5173819,3760.93481498957
+Ntengo-Wa-Mbalame,,,,MZ101401,Tsangano,,,,MZ1014,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,1368.40859359,V_01,pt,,,,Mozambique,Ntengo-Wa-Mbalame,-14.89478488,34.40175963,31079.1414154172
+Ntlavene,,,,MZ021003,Mabalane,,,,MZ0210,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,1747.95182644,V_01,pt,,,,Mozambique,Ntlavene,-23.7802489,32.53449932,835.268162667751
+Nungo,,,,MZ081003,Marrupa,,,,MZ0810,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,3265.01409579,V_01,pt,,,,Mozambique,Nungo,-13.49976997,37.77217764,1338.62260183692
+Ocua,,,,MZ010306,Chiure,,,,MZ0103,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1048.47833392,V_01,pt,,,,Mozambique,Ocua,-13.60070875,39.6969705,9404.00051319599
+Olumbi,,,,MZ011601,Palma,,,,MZ0116,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,1232.23692228,V_01,pt,,,,Mozambique,Olumbi,-11.04468751,40.3904858,1097.20067346096
+Pafuri,,,,MZ020301,Chicualacuala,,,,MZ0203,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,7060.85016048,V_01,pt,,,,Mozambique,Pafuri,-22.98335712,31.78236557,1154.79387317598
+Palma,,,,MZ011602,Palma,,,,MZ0116,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,898.66302041,V_01,pt,,,,Mozambique,Palma,-10.77741209,40.31563615,14194.2237924337
+Palmeira,,,,MZ050405,Manhiça,,,,MZ0504,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,566.28398686,V_01,pt,,,,Mozambique,Palmeira,-25.20298666,32.80964605,17047.8339311481
+Panda,,,,MZ031202,Panda,,,,MZ0312,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,2775.01057351,V_01,pt,,,,Mozambique,Panda,-24.09832692,34.61020736,8381.21642632783
+Panjane,,,,MZ050305,Magude,,,,MZ0503,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,662.95500933,V_01,pt,,,,Mozambique,Panjane,-24.8835037,32.40583992,182.195245198905
+Papai,,,,MZ011406,Namuno,,,,MZ0114,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,922.53657256,V_01,pt,,,,Mozambique,Papai,-13.98760852,38.59045877,3490.86437612772
+Pebane,,,,MZ112303,Pebane,,,,MZ1123,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,1470.81669491,V_01,pt,,,,Mozambique,Pebane,-16.89044228,38.06525771,28797.7991868854
+Pembe,,,,MZ030402,Homoine,,,,MZ0304,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,879.62713675,V_01,pt,,,,Mozambique,Pembe,-23.77099763,34.94244665,2793.35921685398
+Pessene,,,,MZ050702,Moamba,,,,MZ0507,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,546.3176937,V_01,pt,,,,Mozambique,Pessene,-25.70363373,32.37808642,9576.60447825491
+Praia De Bilene,,,,MZ020105,Bilene,,,,MZ0201,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,291.13767971,V_01,pt,,,,Mozambique,Praia De Bilene,-25.28476126,33.22999434,11918.7355147153
+Pundanhar,,,,MZ011603,Palma,,,,MZ0116,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,784.67171035,V_01,pt,,,,Mozambique,Pundanhar,-10.91958049,40.06103396,546.404737532139
+Quinga,,,,MZ070702,Liúpo,,,,MZ0707,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,758.10106266,V_01,pt,,,,Mozambique,Quinga,-15.78510564,40.1870976,6838.53535985947
+Quionga,,,,MZ011604,Palma,,,,MZ0116,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,606.91937544,V_01,pt,,,,Mozambique,Quionga,-10.58582895,40.37561573,1166.88374495506
+Quirimba,,,,MZ010502,Ibo,,,,MZ0105,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,15.51979668,V_01,pt,,,,Mozambique,Quirimba,-12.43395269,40.60726209,538.147537946701
+Quissanga,,,,MZ011803,Quissanga,,,,MZ0118,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,455.29837275,V_01,pt,,,,Mozambique,Quissanga,-12.39243057,40.33988157,3172.25221073628
+Quissico,,,,MZ031401,Zavala,,,,MZ0314,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,1054.92948289,V_01,pt,,,,Mozambique,Quissico,-24.64088784,34.82368685,29563.3797633052
+Quiterajo,,,,MZ010604,Macomia,,,,MZ0106,Cabo Delgado,,,,MZ01,Moçambique,,,,MZ,2019-06-07,,642.38004281,V_01,pt,,,,Mozambique,Quiterajo,-11.82439221,40.35070863,1529.79231488705
+Quixaxe,,,,MZ071202,Mogincual,,,,MZ0712,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1435.47435674,V_01,pt,,,,Mozambique,Quixaxe,-15.30035687,40.02275223,7726.17770156264
+Rapale,,,,MZ072204,Rapale,,,,MZ0722,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,712.90925732,V_01,pt,,,,Mozambique,Rapale,-14.97500238,39.17862084,17839.3471939862
+Regone,,,,MZ112102,Namarroi,,,,MZ1121,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,1687.4463938,V_01,pt,,,,Mozambique,Regone,-15.75328965,36.72034601,11841.0602783263
+Ressano Garcia,,,,MZ050703,Moamba,,,,MZ0507,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,185.77956256,V_01,pt,,,,Mozambique,Ressano Garcia,-25.53092272,32.05871254,6893.09892983735
+Ribaue,,,,MZ072303,Ribaue,,,,MZ0723,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,2201.48957146,V_01,pt,,,,Mozambique,Ribaue,-14.89063886,38.37472396,34887.5305401087
+Rotanda,,,,MZ041003,Sussundenga,,,,MZ0410,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,1694.95718156,V_01,pt,,,,Mozambique,Rotanda,-19.46160404,32.91226798,4545.40724843741
+Sabie,,,,MZ050704,Moamba,,,,MZ0507,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,2379.70434363,V_01,pt,,,,Mozambique,Sabie,-25.1812385,32.21505797,2388.53879952431
+Saua-Saua,,,,MZ072103,Nacaroa,,,,MZ0721,Nampula,,,,MZ07,Moçambique,,,,MZ,2019-06-07,,1095.05765356,V_01,pt,,,,Mozambique,Saua-Saua,-14.28549786,39.66762804,5878.83959774673
+Save,,,,MZ030302,Govuro,,,,MZ0303,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,2284.99871413,V_01,pt,,,,Mozambique,Save,-21.38413423,34.49563113,1572.84096174687
+Save,,,,MZ040602,Machaze,,,,MZ0406,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,5035.14135176,V_01,pt,,,,Mozambique,Save,-21.28161051,33.23253674,9722.21944478154
+Sena,,,,MZ090203,Caia,,,,MZ0902,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,887.95390024,V_01,pt,,,,Mozambique,Sena,-17.52949526,34.95338166,9088.78816789389
+Socone,,,,MZ110702,Ile,,,,MZ1107,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,862.89102875,V_01,pt,,,,Mozambique,Socone,-15.77339509,37.23958993,9636.20868112147
+Sofala,,,,MZ090103,Buzi,,,,MZ0901,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,2333.4084121,V_01,pt,,,,Mozambique,Sofala,-20.28376372,34.53930133,6883.28046299517
+Songo,,,,MZ100203,Cahora Bassa,,,,MZ1002,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,594.93199124,V_01,pt,,,,Mozambique,Songo,-15.6576145,32.75703498,23439.623393625
+Subwe,,,,MZ091003,Maringue,,,,MZ0910,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,2242.10578288,V_01,pt,,,,Mozambique,Subwe,-18.16989286,34.55711879,8381.30518334359
+Sussundenga,,,,MZ041004,Sussundenga,,,,MZ0410,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,1286.54181794,V_01,pt,,,,Mozambique,Sussundenga,-19.5013126,33.32981447,27779.256584391
+Tacuane,,,,MZ111004,Lugela,,,,MZ1110,Zambezia,,,,MZ11,Moçambique,,,,MZ,2019-06-07,,1316.86192073,V_01,pt,,,,Mozambique,Tacuane,-16.38696045,36.49641292,4763.56587518752
+Tica,,,,MZ091302,Nhamatanda,,,,MZ0913,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,1548.61973732,V_01,pt,,,,Mozambique,Tica,-19.3182141,34.40095808,23892.2564826608
+Tome,,,,MZ030202,Funhalouro,,,,MZ0302,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,4824.36095073,V_01,pt,,,,Mozambique,Tome,-22.66495794,34.16862245,2402.55703692138
+Tsangano,,,,MZ101402,Tsangano,,,,MZ1014,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,2293.66645291,V_01,pt,,,,Mozambique,Tsangano,-15.2632247,34.3161194,26310.4516924471
+Ulongue,,,,MZ100102,Angonia,,,,MZ1001,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,1139.35551467,V_01,pt,,,,Mozambique,Ulongue,-14.67029243,34.3919429,76659.0607715845
+Unango,,,,MZ081904,Sanga,,,,MZ0819,Niassa,,,,MZ08,Moçambique,,,,MZ,2019-06-07,,2025.00570163,V_01,pt,,,,Mozambique,Unango,-12.82329882,35.32080063,11431.4271386266
+Urrene,,,,MZ031203,Panda,,,,MZ0312,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,1297.20804173,V_01,pt,,,,Mozambique,Urrene,-23.86107483,34.59098724,1221.34012283385
+Vanduzi,,,,MZ041202,Vanduzi,,,,MZ0412,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,1852.62525328,V_01,pt,,,,Mozambique,Vanduzi,-18.89866234,33.25587434,21574.1381913424
+Vanduzi,,,,MZ090803,Gorongosa,,,,MZ0908,Sofala,,,,MZ09,Moçambique,,,,MZ,2019-06-07,,1756.64826208,V_01,pt,,,,Mozambique,Vanduzi,-18.423248,34.39188464,4167.33744075894
+Vila Eduardo Mondlane,,,,MZ020302,Chicualacuala,,,,MZ0203,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,4330.89902334,V_01,pt,,,,Mozambique,Vila Eduardo Mondlane,-22.21345706,31.94619144,6492.6101192832
+Vilankulo,,,,MZ031302,Vilankulo,,,,MZ0313,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,1806.07239171,V_01,pt,,,,Mozambique,Vilankulo,-22.15852125,35.26260194,36057.5779923722
+Xhalala,,,,MZ021105,Mandlakaze,,,,MZ0211,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,171.51286537,V_01,pt,,,,Mozambique,Xhalala,-24.62344805,33.90395022,1678.86364242435
+Xilembene,,,,MZ020504,Chokwe,,,,MZ0205,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,441.47295344,V_01,pt,,,,Mozambique,Xilembene,-24.73909702,33.29825225,10488.3485717922
+Xinavane,,,,MZ050406,Manhiça,,,,MZ0504,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,155.38368103,V_01,pt,,,,Mozambique,Xinavane,-25.04386663,32.80938581,7283.36977508664
+Zambue,,,,MZ101502,Zumbu,,,,MZ1015,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,3766.39738296,V_01,pt,,,,Mozambique,Zambue,-15.08818905,30.59217199,2426.14789512754
+Zandamela,,,,MZ031402,Zavala,,,,MZ0314,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,956.1972058,V_01,pt,,,,Mozambique,Zandamela,-24.66145575,34.49939583,11072.1663308591
+Zembe,,,,MZ040502,Macate,,,,MZ0405,Manica,,,,MZ04,Moçambique,,,,MZ,2019-06-07,,346.58669023,V_01,pt,,,,Mozambique,Zembe,-19.2489417,33.36240569,4202.17197164893
+Zimane,,,,MZ030802,Mabote,,,,MZ0308,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,5635.26056775,V_01,pt,,,,Mozambique,Zimane,-22.3002216,33.56686177,903.336777970195
+Zinave,,,,MZ030803,Mabote,,,,MZ0308,Inhambane,,,,MZ03,Moçambique,,,,MZ,2019-06-07,,4762.33666607,V_01,pt,,,,Mozambique,Zinave,-21.6540364,33.69196587,1314.91798250005
+Zitundo,,,,MZ050605,Matutuine,,,,MZ0506,Maputo,,,,MZ05,Moçambique,,,,MZ,2019-06-07,,864.71420408,V_01,pt,,,,Mozambique,Zitundo,-26.75659417,32.69568566,4875.76096734405
+Zobue,,,,MZ101203,Moatize,,,,MZ1012,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,2744.0551186,V_01,pt,,,,Mozambique,Zobue,-15.64200711,34.11840647,14843.2423938066
+Zongoene,,,,MZ020903,Limpopo,,,,MZ0209,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,555.52338998,V_01,pt,,,,Mozambique,Zongoene,-25.14909604,33.49949193,4049.80085101724
+Zulo,,,,MZ021403,Massingir,,,,MZ0214,Gaza,,,,MZ02,Moçambique,,,,MZ,2019-06-07,,936.54528997,V_01,pt,,,,Mozambique,Zulo,-24.0778952,32.45717785,503.788745880127
+Zumbu,,,,MZ101503,Zumbu,,,,MZ1015,Tete,,,,MZ10,Moçambique,,,,MZ,2019-06-07,,4908.6283491,V_01,pt,,,,Mozambique,Zumbu,-15.48974822,30.96805295,15071.8404144347
