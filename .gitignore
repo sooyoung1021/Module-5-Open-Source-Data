@@ -1,6 +1,7 @@
 # History files
 .Rhistory
 .Rapp.history
+.RProj
 
 # Session Data files
 .RData
@@ -50,3 +51,4 @@ rsconnect/
 
 # Source script 
 Module 5_Example script.qmd
+README.html
