@@ -50,5 +50,5 @@ po/*~
 rsconnect/
 
 # Source script 
-Module 5_Example script.qmd
+*.qmd
 README.html
