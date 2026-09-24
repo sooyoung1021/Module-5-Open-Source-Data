@@ -1,0 +1,1478 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Kivara Outbreak Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;800;900&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --ground:#EEF1EE; --panel:#FFFFFF; --panel2:#F6F8F6; --line:#D5DCD7; --ink:#18221E; --muted:#5B6B64;
+  --accent:#D99A00; --accent-ink:#3B2A00; --green:#1F6F5C; --red:#B8402B; --blue:#2A5DA8;
+  --code-bg:#FBFCFB; --sel:#FFE9A8; --shadow:0 1px 2px rgba(20,40,30,.08),0 4px 16px rgba(20,40,30,.06);
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace; --sans:"Chivo",system-ui,Segoe UI,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  color-scheme:dark; --ground:#0F1412; --panel:#161D1A; --panel2:#1B2420; --line:#2B3833; --ink:#E3EAE6; --muted:#93A59D;
+  --accent:#F2B42A; --accent-ink:#2A1E00; --green:#4FB896; --red:#EF7A63; --blue:#7FA8F0; --code-bg:#121916; --sel:#4A3B10;
+  --shadow:0 1px 2px rgba(0,0,0,.4);
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark; --ground:#0F1412; --panel:#161D1A; --panel2:#1B2420; --line:#2B3833; --ink:#E3EAE6; --muted:#93A59D;
+  --accent:#F2B42A; --accent-ink:#2A1E00; --green:#4FB896; --red:#EF7A63; --blue:#7FA8F0; --code-bg:#121916; --sel:#4A3B10;
+  --shadow:0 1px 2px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+code,pre,textarea,#src,#cin,#console,.editor{font-variant-ligatures:none!important;font-feature-settings:"liga" 0,"calt" 0!important}
+html,body{height:100%}
+body{background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:14px;padding-inline:12px;padding-block:10px}
+button{font-family:var(--sans);cursor:pointer}
+button:focus-visible,textarea:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.app{display:grid;grid-template-rows:auto 1fr;gap:10px;height:100%;min-height:640px}
+header.top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand h1{font-size:19px;font-weight:900;letter-spacing:-.01em;margin:0}
+.brand .tag{font:600 11px var(--mono);color:var(--accent-ink);background:var(--accent);padding:2px 7px;border-radius:3px;letter-spacing:.04em}
+.stats{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:4px 10px;display:flex;flex-direction:column;min-width:86px}
+.stat b{font:600 15px var(--mono);font-variant-numeric:tabular-nums}
+.stat span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.stat.clock b{color:var(--red)}
+.iconbtn{background:var(--panel);border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:6px 10px;font-size:12px}
+.grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:10px;min-height:0}
+.pane{background:var(--panel);border:1px solid var(--line);border-radius:8px;display:flex;flex-direction:column;min-height:0;overflow:hidden;box-shadow:var(--shadow)}
+.tabs{display:flex;align-items:center;gap:2px;background:var(--panel2);border-bottom:1px solid var(--line);padding:0 6px;min-height:34px;flex-wrap:wrap}
+.tab{background:none;border:0;padding:8px 10px;font-size:12px;color:var(--muted);border-bottom:2px solid transparent;font-weight:600}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tabs .spacer{flex:1}
+.tbtn{background:none;border:1px solid var(--line);color:var(--ink);border-radius:4px;padding:3px 8px;font-size:11.5px;margin-left:4px}
+.tbtn.run{background:var(--green);color:#fff;border-color:transparent}
+.body{flex:1;min-height:0;overflow:auto;position:relative}
+/* editor */
+.editor{display:flex;height:100%;font:13px/1.55 var(--mono);background:var(--code-bg)}
+.gutter{padding:8px 6px 8px 10px;color:var(--muted);text-align:right;user-select:none;opacity:.6;white-space:pre;overflow:hidden}
+#src{flex:1;border:0;resize:none;background:transparent;color:var(--ink);font:inherit;padding:8px 10px;white-space:pre;overflow:auto;tab-size:2}
+#src::selection{background:var(--sel)}
+/* console */
+#console{font:12.5px/1.5 var(--mono);padding:8px 10px;background:var(--code-bg);white-space:pre-wrap;word-break:break-word;height:100%;overflow:auto}
+#console .in{color:var(--blue)}
+#console .err{color:var(--red)}
+#console .warn{color:var(--accent)}
+#console .msg{color:var(--muted)}
+#console .ok{color:var(--green)}
+.prompt-row{display:flex;gap:6px;align-items:flex-start}
+.prompt-row .p{color:var(--blue);font-weight:600}
+#cin{flex:1;border:0;background:transparent;color:var(--ink);font:inherit;padding:0;outline:none;resize:none;height:1.5em;overflow:hidden}
+/* mission */
+.mission{padding:14px 16px;display:flex;flex-direction:column;gap:12px}
+.mhead{display:flex;align-items:flex-start;gap:12px}
+.mnum{font:800 11px var(--mono);color:var(--accent-ink);background:var(--accent);border-radius:4px;padding:3px 6px;white-space:nowrap}
+.mhead h2{margin:0;font-size:18px;font-weight:900;text-wrap:balance;line-height:1.2}
+.mhead .src{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
+.brief{line-height:1.55;max-width:68ch;margin:0}
+.brief code,.task code,.card code{font:12px var(--mono);background:var(--panel2);border:1px solid var(--line);padding:0 4px;border-radius:3px}
+.tasks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.task{display:flex;gap:9px;align-items:flex-start;line-height:1.45;padding:7px 9px;border-radius:6px;background:var(--panel2)}
+.task .box{flex:none;width:18px;height:18px;border:2px solid var(--line);border-radius:4px;margin-top:1px;display:grid;place-items:center;font-size:12px;font-weight:900;color:#fff}
+.task.done .box{background:var(--green);border-color:var(--green)}
+.task.done .t{color:var(--muted)}
+.answer{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.answer input{font:13px var(--mono);border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:4px;padding:4px 8px;width:140px}
+.answer button,.choice{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:4px;padding:4px 10px;font-size:12.5px}
+.choices{display:flex;flex-direction:column;gap:5px;margin-top:6px}
+.choice{text-align:left}
+.choice.right{background:var(--green);color:#fff;border-color:var(--green)}
+.choice.wrong{text-decoration:line-through;opacity:.6}
+.mfoot{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:6px;padding:7px 12px;font-size:12.5px;font-weight:600}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.hintbox{border-left:0;background:var(--panel2);border:1px dashed var(--line);border-radius:6px;padding:9px 11px;font-size:13px;line-height:1.5}
+.hintbox pre{font:12px/1.5 var(--mono);margin:6px 0 0;white-space:pre-wrap}
+.steps{display:flex;gap:4px;flex-wrap:wrap}
+.step{width:26px;height:6px;border-radius:3px;background:var(--line)}
+.step.done{background:var(--green)}.step.cur{background:var(--accent)}
+/* env */
+table.env{width:100%;border-collapse:collapse;font:12px var(--mono)}
+table.env td{padding:5px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+table.env td:first-child{font-weight:600;white-space:nowrap}
+table.env td:last-child{color:var(--muted)}
+.files{padding:8px 0}
+.empty{padding:16px;color:var(--muted);font-size:13px}
+/* plot */
+.plotwrap{height:100%;display:flex;align-items:center;justify-content:center;background:var(--panel);padding:6px}
+#plot{max-width:100%;max-height:100%;background:#fff;border-radius:4px}
+.checklist{display:flex;gap:6px;flex-wrap:wrap;padding:6px 8px;border-top:1px solid var(--line);background:var(--panel2);font-size:11.5px}
+.chip{padding:2px 8px;border-radius:10px;border:1px solid var(--line);color:var(--muted)}
+.chip.on{background:var(--green);color:#fff;border-color:var(--green)}
+/* modal & toast */
+.modal{position:fixed;inset:0;background:rgba(10,15,12,.55);display:grid;place-items:center;padding:16px;z-index:20}
+.card{background:var(--panel);color:var(--ink);border-radius:10px;max-width:640px;width:100%;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.3);max-height:90vh;overflow:auto;line-height:1.55}
+.card h2{margin:0 0 6px;font-size:22px;font-weight:900;text-wrap:balance}
+.card img{width:100%;border:1px solid var(--line);border-radius:6px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--ground);padding:9px 16px;border-radius:8px;font-weight:600;z-index:30;box-shadow:var(--shadow)}
+.badges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font:600 11px var(--mono);padding:3px 8px;border-radius:4px;background:var(--panel2);border:1px solid var(--line)}
+.badge.got{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+#console .explain{color:var(--green);font-style:italic}
+.task .t{flex:1;min-width:0}
+.why{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.tplbtn{margin-top:5px;border:1px dashed var(--green);background:transparent;color:var(--green);border-radius:4px;padding:2px 8px;font:600 11.5px var(--mono)}
+.task.done .tplbtn{display:none}
+.stepbtns{display:flex;gap:6px;flex-wrap:wrap}
+.revbtn{margin-top:5px;border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:4px;padding:2px 8px;font:600 11.5px var(--sans)}
+.revbtn:hover{color:var(--ink);border-color:var(--accent)}
+button.step{border:0;padding:0;cursor:pointer}button.step:hover{outline:2px solid var(--accent)}
+.banner{position:fixed;left:50%;top:10px;transform:translateX(-50%);z-index:25;background:var(--accent);color:var(--accent-ink);padding:9px 14px;border-radius:8px;font-weight:600;box-shadow:var(--shadow);display:flex;gap:10px;align-items:center;max-width:min(680px,92vw)}
+.banner button{border:0;background:rgba(0,0,0,.12);color:inherit;border-radius:4px;padding:3px 8px;font-weight:700}
+.syncpill{font:600 11px var(--mono);padding:3px 8px;border-radius:10px;border:1px solid var(--line);color:var(--muted)}
+.syncpill.on{color:var(--green);border-color:var(--green)}.syncpill.off{color:var(--red);border-color:var(--red)}
+.joinform{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.joinform label{font-size:12px;font-weight:600;color:var(--muted)}
+.joinform input{font:15px var(--sans);padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink);width:100%}
+.reuse{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:9px 11px;font-size:13px;line-height:1.5}
+.reuse b{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--green);display:block;margin-bottom:2px}
+.optional{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.sheetTabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin:10px 0 0;flex-wrap:wrap}
+.sheetTabs button{border:1px solid var(--line);border-bottom:0;background:var(--panel2);color:var(--ink);padding:5px 12px;font:600 12px var(--mono);border-radius:4px 4px 0 0}
+.sheetTabs button[aria-selected="true"]{background:#e8f3ec;color:#14532d}
+.xl{overflow:auto;max-height:50vh;border:1px solid var(--line)}
+.xl table{border-collapse:collapse;font:12px var(--mono);background:#fff;color:#1b1b1b}
+.xl th{background:#eef0ee;color:#555;font-weight:600;border:1px solid #d6d9d6;padding:3px 8px;position:sticky;top:0}
+.xl td{border:1px solid #e1e3e1;padding:3px 8px;white-space:nowrap}
+.xl td.rn{background:#eef0ee;color:#777;text-align:right}
+.pb{padding:14px 16px;display:flex;flex-direction:column;gap:12px;line-height:1.5}
+.pb h2{margin:0;font-size:18px;font-weight:900}
+.pbstep{display:grid;grid-template-columns:28px 1fr;gap:10px}
+.pbn{width:26px;height:26px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:800 12px var(--mono)}
+.pbstep pre{font:12px/1.5 var(--mono);background:var(--code-bg);border:1px solid var(--line);border-radius:6px;padding:8px 10px;margin:6px 0 0;overflow-x:auto;white-space:pre}
+.swap{overflow-x:auto}.swap table{border-collapse:collapse;font-size:12.5px;min-width:560px}
+.swap th,.swap td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+.swap th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+@media (max-width:900px){
+  .app{height:auto}
+  .grid{grid-template-columns:1fr;grid-template-rows:auto}
+  .pane{min-height:340px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="app">
+  <header class="top">
+    <div class="brand"><h1>Kivara Outbreak Console</h1><span class="tag">R · YELLOW FEVER IMT</span></div>
+    <div class="stats">
+      <div class="stat"><b id="xp">0</b><span>XP</span></div>
+      <div class="stat"><b id="rank">Intern</b><span>Rank</span></div>
+      <div class="stat clock"><b id="clock">48h 00m</b><span>To IMT briefing</span></div>
+      <span class="syncpill" id="syncPill" hidden></span>
+      <button class="iconbtn" id="explainBtn" aria-pressed="true" title="Print a plain-English note the first time you use each function">Explain as I go: On</button>
+      <button class="iconbtn" id="resetBtn" title="Start over">Restart</button>
+    </div>
+  </header>
+  <div class="grid">
+    <section class="pane" aria-label="Script editor">
+      <div class="tabs">
+        <button class="tab" aria-selected="true">yf_response.R</button>
+        <span class="spacer"></span>
+        <button class="tbtn run" id="runLine" title="Ctrl+Enter">▶ Run line / selection</button>
+        <button class="tbtn" id="runAll" title="Ctrl+Shift+Enter">Run all</button>
+        <button class="tbtn" id="clearSrc">Clear</button>
+      </div>
+      <div class="body"><div class="editor"><div class="gutter" id="gutter">1</div><textarea id="src" spellcheck="false" aria-label="R script"></textarea></div></div>
+    </section>
+    <section class="pane" aria-label="Mission and environment">
+      <div class="tabs" role="tablist">
+        <button class="tab" data-tab="mission" aria-selected="true">Mission</button>
+        <button class="tab" data-tab="env" aria-selected="false">Environment</button>
+        <button class="tab" data-tab="files" aria-selected="false">Files</button>
+        <button class="tab" data-tab="playbook" aria-selected="false">Playbook</button>
+        <span class="spacer"></span>
+        <div class="steps" id="steps"></div>
+      </div>
+      <div class="body" id="rightTop"></div>
+    </section>
+    <section class="pane" aria-label="Console">
+      <div class="tabs"><button class="tab" aria-selected="true">Console</button><span class="spacer"></span><button class="tbtn" id="clearCon">Clear</button></div>
+      <div class="body" id="console" aria-live="polite"><div id="conOut"></div><div class="prompt-row"><span class="p" id="cprompt">&gt;</span><textarea id="cin" rows="1" spellcheck="false" aria-label="Console input"></textarea></div></div>
+    </section>
+    <section class="pane" aria-label="Plots">
+      <div class="tabs"><button class="tab" aria-selected="true">Plots</button><span class="spacer"></span><span id="plotTitle" style="font-size:11.5px;color:var(--muted)"></span></div>
+      <div class="body"><div class="plotwrap"><canvas id="plot" width="900" height="640"></canvas></div></div>
+      <div class="checklist" id="mapCheck" hidden></div>
+    </section>
+  </div>
+</div>
+<div id="modalRoot"></div>
+<script>
+// ===================== Synthetic district: Kivara (fictional) =====================
+const CRS = {epsg:32735, name:"WGS 84 / UTM zone 35S"};
+const GRID = {nx:200, ny:150, res:200, xmin:700000, ymax:9780000};
+GRID.xmax = GRID.xmin + GRID.nx*GRID.res; GRID.ymin = GRID.ymax - GRID.ny*GRID.res;
+
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const RNG = mulberry32(20260923);
+const rnd=(a=0,b=1)=>a+(b-a)*RNG();
+const gauss=()=>{let u=RNG()||1e-9,v=RNG();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)};
+
+function pointInPoly(x,y,ring){let ins=false;for(let i=0,j=ring.length-1;i<ring.length;j=i++){const[xi,yi]=ring[i],[xj,yj]=ring[j];if(((yi>y)!==(yj>y))&&(x<(xj-xi)*(y-yi)/(yj-yi)+xi))ins=!ins}return ins}
+function circlePoly(cx,cy,r,nv=28,jit=0){const out=[];for(let k=0;k<nv;k++){const a=2*Math.PI*k/nv;const rr=r*(1+(jit?jit*(RNG()-.5):0));out.push([cx+rr*Math.cos(a),cy+rr*Math.sin(a)])}out.push(out[0]);return out}
+
+const DATA = (function build(){
+  const cx=720000, cy=9765000;
+  // district boundary
+  const ring=[];for(let k=0;k<48;k++){const a=2*Math.PI*k/48;const r=1+0.09*Math.sin(3*a+1)+0.06*Math.sin(5*a+2)+0.03*(RNG()-.5);ring.push([cx+18300*r*Math.cos(a),cy+13300*r*Math.sin(a)])}ring.push(ring[0]);
+  const inside=(x,y)=>pointInPoly(x,y,ring);
+  const names=["Kivara Town","Mbere","Luhanga","Nyakisi","Rutobwe","Kasenge","Bwiza","Gatare","Mushimba","Rwamiko","Nkondo","Kabingo","Muyira","Tamba","Lusozi","Kigeme","Rugari","Ndekwe","Buhanda","Kiyovu","Masoro","Gisanze","Nyamata-East","Karama"];
+  const setts=[];
+  const fixed=[[714000,9768000,38000,1600],[731500,9764000,19000,1200],[708500,9759500,15000,1100],[724500,9774000,14000,1000],[735500,9759000,11000,950]];
+  fixed.forEach((f,i)=>setts.push({name:names[i],x:f[0],y:f[1],P:f[2],s:f[3]}));
+  while(setts.length<names.length){const x=rnd(703000,737000),y=rnd(9753000,9777500);if(!inside(x,y))continue;if(setts.some(s=>Math.hypot(s.x-x,s.y-y)<3200))continue;setts.push({name:names[setts.length],x,y,P:rnd(1800,7500),s:rnd(500,850)})}
+  // river (north -> south-east, east side)
+  const river=[];for(let k=0;k<=40;k++){const t=k/40;river.push([727000+9000*t+1800*Math.sin(t*7),9780500-31000*t])}
+  const distRiver=(x,y)=>{let m=1e9;for(let k=0;k<river.length-1;k++){const[a,b]=river[k],[c,d]=river[k+1];const dx=c-a,dy=d-b;let t=((x-a)*dx+(y-b)*dy)/(dx*dx+dy*dy);t=Math.max(0,Math.min(1,t));m=Math.min(m,Math.hypot(x-a-t*dx,y-b-t*dy))}return m};
+  const N=GRID.nx*GRID.ny;
+  const pop=new Float32Array(N),u5=new Float32Array(N),ndvi=new Float32Array(N),rain=new Float32Array(N),mask=new Uint8Array(N);
+  const storms=[[733000,9760000,6000,55],[726000,9756000,4000,35],[712000,9772000,4000,20]];
+  for(let r=0;r<GRID.ny;r++)for(let c=0;c<GRID.nx;c++){
+    const i=r*GRID.nx+c,x=GRID.xmin+(c+.5)*GRID.res,y=GRID.ymax-(r+.5)*GRID.res;
+    if(!inside(x,y)){pop[i]=u5[i]=ndvi[i]=rain[i]=NaN;continue}
+    mask[i]=1;let d=0,urb=0;
+    for(const s of setts){const g=Math.exp(-((x-s.x)**2+(y-s.y)**2)/(2*s.s*s.s));d+=s.P*g/(2*Math.PI*s.s*s.s)*GRID.res*GRID.res;urb+=g*(s.P>9000?1:.4)}
+    pop[i]=d+Math.max(0,4+3*gauss());
+    u5[i]=pop[i]*(0.15+0.03*Math.sin(x/3000)+0.01*gauss());
+    const dr=distRiver(x,y);
+    let n=0.34+0.36*Math.exp(-dr*dr/(2*1700*1700))+0.28/(1+Math.exp(-(x-731000)/1800))-0.25*Math.min(1,urb)+0.04*gauss();
+    ndvi[i]=Math.max(0.02,Math.min(0.92,n));
+    let p=45+60*(x-GRID.xmin)/40000+25*(GRID.ymax-y)/30000;for(const s of storms)p+=s[3]*Math.exp(-((x-s[0])**2+(y-s[1])**2)/(2*s[2]*s[2]));
+    rain[i]=Math.max(5,p+6*gauss());
+  }
+  // settlement extents (GRID3)
+  const settPolys=setts.map((s,k)=>({settlement_id:"SE"+String(k+1).padStart(3,"0"),name:s.name,type:s.P>14000?"Built-up area":s.P>4000?"Small settlement area":"Hamlet",pop_est:Math.round(s.P),geom:circlePoly(s.x,s.y,s.s*1.35,16,.35)}));
+  // health facilities (GRID3): 3 hospitals + 12 clinics
+  const facNames=["Kivara District Hospital","Mbere Hospital","Luhanga Hospital"];
+  const fac=[];
+  const pick=[0,1,2,3,4,5,6,7,8,9,10,11,13,15,18];
+  pick.forEach((si,k)=>{const s=setts[si];const hosp=k<3;const off=hosp?300:600;
+    fac.push({facility_id:"HF"+String(k+1).padStart(2,"0"),name:hosp?facNames[k]:s.name+" Health Centre",type:hosp?"Hospital":"Clinic",
+      beds:hosp?Math.round(rnd(60,180)):Math.round(rnd(0,12)),cold_chain:"yes",x:s.x+rnd(-off,off),y:s.y+rnd(-off,off)})});
+  // two cold chain gaps: busy town clinic + one rural
+  fac[1].cold_chain="no"; // Mbere Hospital: fridge broken -> a trap for the hub choice
+  [6,10,13].forEach(k=>fac[k].cold_chain="no");
+  // roads (OSM)
+  const roads=[];let rid=4400123;
+  const jline=(a,b,jit,seg=8)=>{const out=[a];for(let k=1;k<seg;k++){const t=k/seg;out.push([a[0]+(b[0]-a[0])*t+jit*gauss(),a[1]+(b[1]-a[1])*t+jit*gauss()])}out.push(b);return out};
+  const T=setts[0],P=(s)=>[s.x,s.y];
+  roads.push({osm_id:rid++,highway:"primary",name:"B-12",surface:"asphalt",geom:jline([701000,9767000],P(T),250,6)});
+  roads.push({osm_id:rid++,highway:"primary",name:"B-12",surface:"asphalt",geom:jline(P(T),P(setts[1]),350,10)});
+  roads.push({osm_id:rid++,highway:"primary",name:"B-12 (to Lomera)",surface:"asphalt",geom:jline(P(setts[1]),[739500,9765500],250,5)});
+  [2,3,4,5].forEach(k=>roads.push({osm_id:rid++,highway:"secondary",name:"R-"+(100+k),surface:"gravel",geom:jline(P(k===4?setts[1]:T),P(setts[k]),300,7)}));
+  for(let k=5;k<setts.length;k++){const s=setts[k];let best=null,bd=1e9;for(let j=0;j<setts.length;j++){if(j===k)continue;const dd=Math.hypot(setts[j].x-s.x,setts[j].y-s.y);if(dd<bd&&(j<k||j<5)){bd=dd;best=setts[j]}}
+    roads.push({osm_id:rid++,highway:"unclassified",name:"",surface:RNG()<.7?"dirt":"gravel",geom:jline(P(s),P(best),260,6)})}
+  // line list (cases cluster on the eastern border near the river / Lomera road)
+  const cases=[];const occ=["farmer","farmer","farmer","trader","student","child","herder","teacher"];
+  const clusters=[[734500,9762500,2200,26],[729800,9757000,1600,11],[731500,9771000,1500,5]];
+  let cid=1;for(const[cx2,cy2,sd,n]of clusters){let m=0;while(m<n){const x=cx2+sd*gauss(),y=cy2+sd*gauss();if(!inside(x,y))continue;
+    const onset=new Date(Date.UTC(2026,7,26+Math.floor(Math.max(0,Math.min(26,13+7*gauss())))));
+    const age=Math.max(1,Math.round(RNG()<.2?rnd(1,12):rnd(14,62)));
+    cases.push({case_id:"YF-"+String(cid++).padStart(3,"0"),onset_date:onset.toISOString().slice(0,10),age,sex:RNG()<.58?"M":"F",
+      classification:RNG()<.3?"confirmed":"suspected",vaccinated:RNG()<.12?"yes":RNG()<.6?"no":"unknown",occupation:age<6?"child":occ[Math.floor(RNG()*occ.length)],
+      outcome:RNG()<.08?"died":"alive",x_utm:Math.round(x),y_utm:Math.round(y)});m++}}
+  cases.sort((a,b)=>a.onset_date<b.onset_date?-1:1);cases.forEach((c,k)=>c.case_id="YF-"+String(k+1).padStart(3,"0"));
+  return {ring,setts,settPolys,fac,roads,cases,river,pop,u5,ndvi,rain,mask};
+})();
+
+// --- helpers to materialise objects the R code "reads" ---
+function mkRaster(arr,name,file,logical=false){return {type:"rast",nx:GRID.nx,ny:GRID.ny,xmin:GRID.xmin,ymax:GRID.ymax,res:GRID.res,data:new Float32Array(arr),name,file,logical}}
+function mkDF(rows,cols){const df={type:"df",names:cols.slice(),cols:{},nrow:rows.length,geom:null,geomType:null,crs:null};cols.forEach(c=>df.cols[c]=rows.map(r=>r[c]));return df}
+function mkSF(rows,cols,geomType,geomFn){const df=mkDF(rows,cols);df.geom=rows.map(geomFn);df.geomType=geomType;df.crs=CRS;return df}
+
+const API_KEY_VALUE="kv_live_7f3c9a21d4";
+const FILES = {
+  "kivara_boundary.geojson":{desc:"District boundary (GRID3 admin)",size:"18 KB",load:()=>mkSF([{district:"Kivara",province:"East",area_km2:762}],["district","province","area_km2"],"POLYGON",()=>DATA.ring)},
+  "worldpop_kivara_2020_200m.tif":{desc:"WorldPop population count, 2020, constrained, UN-adjusted",size:"118 KB",load:()=>mkRaster(DATA.pop,"population","worldpop_kivara_2020_200m.tif")},
+  "worldpop_kivara_u5_2020_200m.tif":{desc:"WorldPop children under 5 (sum of age bands 0 & 1-4)",size:"118 KB",load:()=>mkRaster(DATA.u5,"under5","worldpop_kivara_u5_2020_200m.tif")},
+  "grid3_health_facilities.geojson":{desc:"GRID3 health facility master list (15 points)",size:"6 KB",load:()=>mkSF(DATA.fac,["facility_id","name","type","beds","cold_chain"],"POINT",r=>[r.x,r.y])},
+  "grid3_settlement_extents.geojson":{desc:"GRID3 settlement extents (building clusters)",size:"41 KB",load:()=>mkSF(DATA.settPolys,["settlement_id","name","type","pop_est"],"POLYGON",r=>r.geom)},
+  "osm_roads.geojson":{desc:"OpenStreetMap roads: primary / secondary / unclassified",size:"33 KB",load:()=>mkSF(DATA.roads,["osm_id","highway","name","surface"],"LINESTRING",r=>r.geom)},
+  "gee_ndvi_last30d.tif":{desc:"Google Earth Engine export: MODIS NDVI, 30-day mean",size:"118 KB",load:()=>mkRaster(DATA.ndvi,"NDVI","gee_ndvi_last30d.tif")},
+  "gee_precip_last30d_mm.tif":{desc:"Google Earth Engine export: CHIRPS precipitation, 30-day total (mm)",size:"118 KB",load:()=>mkRaster(DATA.rain,"precipitation","gee_precip_last30d_mm.tif")},
+};
+const LL_SRC="kivara_yf_surveillance.xlsx#linelist";
+const LL_COLS=["case_id","onset_date","age","sex","classification","vaccinated","occupation","outcome","x_utm","y_utm"];
+function epiWeek(d){const t=new Date(d+"T00:00:00Z"),j=new Date(Date.UTC(t.getUTCFullYear(),0,1));return Math.floor((t-j)/864e5/7)+1}
+const WEEKLY=(()=>{const rows=[];const L=[[35,4,1,0],[36,8,3,1],[37,11,4,1],[38,14,6,1]];L.forEach(([w,s,c,d])=>rows.push({district:"Lomera",epi_week:w,suspected:s,confirmed:c,deaths:d}));
+  const wk={};DATA.cases.forEach(c=>{const w=epiWeek(c.onset_date);wk[w]=wk[w]||{s:0,c:0,d:0};if(c.classification==="confirmed")wk[w].c++;else wk[w].s++;if(c.outcome==="died")wk[w].d++});
+  Object.keys(wk).map(Number).sort((a,b)=>a-b).forEach(w=>rows.push({district:"Kivara",epi_week:w,suspected:wk[w].s,confirmed:wk[w].c,deaths:wk[w].d}));return rows})();
+FILES["kivara_yf_surveillance.xlsx"]={desc:"Excel workbook from the district surveillance officer — sheets: weekly_counts, linelist, notes",size:"38 KB",xlsx:true,
+  sheets:{weekly_counts:()=>mkDF(WEEKLY,["district","epi_week","suspected","confirmed","deaths"]),
+          linelist:()=>mkDF(DATA.cases,LL_COLS),
+          notes:()=>mkDF([{item:"Prepared by",detail:"District Surveillance Officer, Kivara"},{item:"Case definitions",detail:"WHO standard YF case definitions"},{item:"Coordinates",detail:"x_utm / y_utm in metres, EPSG:32735"},{item:"Lomera figures",detail:"shared by Lomera DHMT, weekly"}],["item","detail"])}};
+const API_BASE="https://api.kivara-moh.example/v1";
+// ===================== Mini-R: tokenizer + Pratt parser =====================
+class RError extends Error{constructor(msg,opts={}){super(msg);this.incomplete=!!opts.incomplete;this.tip=opts.tip||null}}
+const OPS=["<<-","%>%","|>","<-","->","<=",">=","==","!=","&&","||","::","=","<",">","!","&","|","+","-","*","/","^","$","@","(",")","[","]","{","}",",","~",":","?"];
+function tokenize(src){
+  const toks=[];let i=0;const n=src.length;
+  while(i<n){
+    const c=src[i];
+    if(c==="#"){while(i<n&&src[i]!=="\n")i++;continue}
+    if(c==="\n"||c===";"){toks.push({t:"nl",pos:i});i++;continue}
+    if(/\s/.test(c)){i++;continue}
+    if(/[0-9]/.test(c)||(c==="."&&/[0-9]/.test(src[i+1]||""))){const m=src.slice(i).match(/^(\d*\.?\d+(?:[eE][+-]?\d+)?|\d+\.)L?/);toks.push({t:"num",v:parseFloat(m[0]),pos:i});i+=m[0].length;continue}
+    if("“”‘’".includes(c)){
+      throw new RError("unexpected input  —  you typed curly quotes "+c,{tip:"R only accepts straight quotes \" or '. Curly quotes sneak in when you copy code from PowerPoint or Word (look closely at slide 30!)."})}
+    if(c==='"'||c==="'"){let j=i+1,s="";while(j<n&&src[j]!==c){if(src[j]==="\\"&&j+1<n){const e=src[j+1];s+=e==="n"?"\n":e==="t"?"\t":e;j+=2}else s+=src[j++]}
+      if(j>=n)throw new RError("unexpected end of input: unterminated string",{incomplete:true});toks.push({t:"str",v:s,pos:i});i=j+1;continue}
+    if(c==="`"){const j=src.indexOf("`",i+1);if(j<0)throw new RError("unterminated backtick",{incomplete:true});toks.push({t:"id",v:src.slice(i+1,j),pos:i});i=j+1;continue}
+    if(/[A-Za-z.]/.test(c)){const m=src.slice(i).match(/^[A-Za-z.][A-Za-z0-9._]*/);toks.push({t:"id",v:m[0],pos:i});i+=m[0].length;continue}
+    if(c==="%"){const j=src.indexOf("%",i+1);if(j<0)throw new RError("unexpected input '%'");toks.push({t:"op",v:src.slice(i,j+1),pos:i});i=j+1;continue}
+    const op=OPS.find(o=>src.startsWith(o,i));
+    if(!op)throw new RError("unexpected input '"+c+"'");
+    toks.push({t:"op",v:op,pos:i});i+=op.length;
+  }
+  toks.push({t:"eof",pos:n});return toks;
+}
+const BIN={"?":[0,1],"=":[1,0],"<-":[2,1],"<<-":[2,1],"->":[3,3],"~":[4,5],"||":[5,6],"|":[5,6],"&&":[6,7],"&":[6,7],
+  "==":[8,9],"!=":[8,9],"<":[8,9],">":[8,9],"<=":[8,9],">=":[8,9],"+":[10,11],"-":[10,11],"*":[12,13],"/":[12,13],"|>":[14,15],":":[16,17],"^":[20,19]};
+class Parser{
+  constructor(src){this.src=src;this.toks=tokenize(src);this.i=0;this.depth=0}
+  cur(){if(this.depth>0)while(this.toks[this.i].t==="nl")this.i++;return this.toks[this.i]}
+  skipNL(){while(this.toks[this.i].t==="nl")this.i++}
+  next(){const t=this.cur();this.i++;return t}
+  isOp(v){const t=this.cur();return t.t==="op"&&t.v===v}
+  expect(v){const t=this.cur();if(t.t==="eof")throw new RError("unexpected end of input",{incomplete:true});if(!(t.t==="op"&&t.v===v))throw new RError("unexpected '"+(t.v??t.t)+"' — expected '"+v+"'");this.i++}
+  program(){const out=[];for(;;){this.skipNL();if(this.cur().t==="eof")break;const start=this.cur().pos;const node=this.expr(0);const t=this.toks[this.i];
+      if(!(t.t==="nl"||t.t==="eof"))throw new RError("unexpected '"+(t.v??t.t)+"'",{tip:"Did you forget a comma or an operator between two things?"});
+      out.push({node,text:this.src.slice(start,t.pos).trim(),start,end:t.pos})}return out}
+  expr(minBP){
+    let lhs=this.prefix();
+    for(;;){
+      const t=this.cur();
+      if(t.t!=="op")break;
+      let op=t.v;let bp;
+      if(op==="("||op==="["||op==="$"||op==="@"){lhs=this.postfix(lhs);continue}
+      if(op.startsWith("%")&&op.length>1)bp=[14,15];else bp=BIN[op];
+      if(!bp||bp[0]<minBP)break;
+      this.i++;this.skipNL();
+      if(this.cur().t==="eof")throw new RError("unexpected end of input",{incomplete:true});
+      const rhs=this.expr(bp[1]);
+      if(op==="<-"||op==="<<-"||op==="=")lhs={k:"assign",target:lhs,value:rhs};
+      else if(op==="->")lhs={k:"assign",target:rhs,value:lhs};
+      else if(op==="%>%"||op==="|>")lhs={k:"pipe",l:lhs,r:rhs,op};
+      else lhs={k:"bin",op,l:lhs,r:rhs};
+    }
+    return lhs;
+  }
+  prefix(){
+    const t=this.next();
+    if(t.t==="eof")throw new RError("unexpected end of input",{incomplete:true});
+    if(t.t==="num")return {k:"num",v:t.v};
+    if(t.t==="str")return {k:"str",v:t.v};
+    if(t.t==="nl")throw new RError("unexpected end of line");
+    if(t.t==="id"){
+      const v=t.v;
+      if(v==="TRUE"||v==="T")return {k:"lit",v:true};if(v==="FALSE"||v==="F")return {k:"lit",v:false};
+      if(v==="NULL")return {k:"null"};if(v==="NA"||v==="NA_real_"||v==="NA_character_")return {k:"lit",v:null};
+      if(v==="Inf")return {k:"num",v:Infinity};
+      if(v==="function"||v==="for"||v==="while"||v==="if")throw new RError("'"+v+"' is not supported in this training console",{tip:"Stick to the functions from the mission — this sandbox runs a subset of R."});
+      if(this.isOp("::")){this.i++;const n2=this.next();if(n2.t!=="id")throw new RError("unexpected token after ::");return {k:"id",v:n2.v,pkg:v}}
+      return {k:"id",v};
+    }
+    if(t.t==="op"){
+      if(t.v==="("){this.depth++;const e=this.expr(0);this.expect(")");this.depth--;return {k:"paren",e}}
+      if(t.v==="-"||t.v==="+"){const e=this.expr(18);return t.v==="-"?{k:"neg",e}:e}
+      if(t.v==="!"){const e=this.expr(7);return {k:"not",e}}
+      if(t.v==="~"){const e=this.expr(5);return {k:"formula",e}}
+      if(t.v==="{"){const body=[];this.skipNL();while(!this.isOp("}")){if(this.cur().t==="eof")throw new RError("unexpected end of input",{incomplete:true});body.push(this.expr(0));this.skipNL()}this.i++;return {k:"block",body}}
+    }
+    throw new RError("unexpected '"+(t.v??t.t)+"'");
+  }
+  postfix(lhs){
+    const t=this.next();
+    if(t.v==="$"||t.v==="@"){const n=this.next();if(n.t!=="id"&&n.t!=="str")throw new RError("unexpected token after $");return {k:"dollar",obj:lhs,name:n.v}}
+    if(t.v==="("){this.depth++;const args=this.args(")");this.depth--;return {k:"call",fn:lhs,args}}
+    if(t.v==="["){let dbl=false;if(this.isOp("[")){this.i++;dbl=true}this.depth++;const args=this.args("]");this.depth--;if(dbl)this.expect("]");return {k:"index",obj:lhs,args,dbl}}
+  }
+  args(close){
+    const args=[];
+    if(this.isOp(close)){this.i++;return args}
+    for(;;){
+      let a={name:null,value:null};
+      const t=this.cur(),t2=this.toks.slice(this.i+1).find(x=>x.t!=="nl");
+      if((t.t==="id"||t.t==="str")&&t2&&t2.t==="op"&&t2.v==="="){this.i++;this.cur();this.i++;a.name=t.v}
+      if(this.isOp(",")||this.isOp(close))a.value={k:"empty"};else a.value=this.expr(2);
+      args.push(a);
+      if(this.cur().t==="eof")throw new RError("unexpected end of input",{incomplete:true});
+      if(this.isOp(",")){this.i++;continue}
+      this.expect(close);break;
+    }
+    return args;
+  }
+}
+function parseR(src){return new Parser(src).program()}
+// ===================== Mini-R: values, evaluator, printing =====================
+const isVec=v=>Array.isArray(v);
+const isDF=v=>v&&v.type==="df";
+const isSF=v=>isDF(v)&&!!v.geom;
+const isR=v=>v&&v.type==="rast";
+const isList=v=>v&&v.type==="list";
+const NULLV=null;
+function vec(x){if(x===null||x===undefined)return [];if(isVec(x))return x;return [x]}
+function sc(x,what="value"){if(isVec(x)){if(!x.length)throw new RError("argument of length 0 — "+what+" is empty");return x[0]}return x}
+function typeOf(v){if(v===null)return "NULL";if(isVec(v)){const f=v.find(e=>e!==null);if(f===undefined)return "logical";return typeof f==="string"?"character":typeof f==="boolean"?"logical":"numeric"}return v.type}
+
+class Env{constructor(parent=null){this.vars=new Map();this.parent=parent}
+  get(n){if(this.vars.has(n))return this.vars.get(n);if(this.parent)return this.parent.get(n);return undefined}
+  has(n){return this.vars.has(n)||(this.parent?this.parent.has(n):false)}
+  set(n,v){this.vars.set(n,v)}}
+
+const R={global:new Env(),loaded:new Set(["base","stats","utils","graphics","grDevices"]),out:null,hooks:[],apiCalls:[],penalties:[]};
+const FN={};
+function def(names,pkg,f,opts={}){for(const n of names.split(","))FN[n.trim()]={pkg,f,nse:!!opts.nse,name:n.trim()}}
+const PKG_DESC={terra:"terra 1.8-10",sf:"sf 1.0-19 · GEOS 3.12, GDAL 3.9, PROJ 9.4",dplyr:"dplyr 1.1.4",tmap:"tmap 4.0",httr2:"httr2 1.0.5",readxl:"readxl 1.4.3",writexl:"writexl 1.5.1",readr:"readr 2.1.5",jsonlite:"jsonlite 1.8.9",pacman:"pacman 0.5.1",tidyverse:"tidyverse 2.0.0",ggplot2:"ggplot2 3.5.1",rgee:"rgee 1.1.7"};
+function emit(ev,data){R.hooks.forEach(h=>h(ev,data))}
+
+// ---------- evaluation ----------
+function evalNode(node,env){
+  switch(node.k){
+    case "num":return [node.v];
+    case "str":return [node.v];
+    case "lit":return [node.v];
+    case "null":return null;
+    case "val":return node.v;
+    case "empty":return undefined;
+    case "paren":return evalNode(node.e,env);
+    case "block":{let v=null;for(const b of node.body)v=evalNode(b,env);return v}
+    case "formula":return {type:"formula"};
+    case "id":{
+      if(env.has(node.v)&&!node.pkg)return env.get(node.v);
+      if(FN[node.v])return {type:"fn",name:node.v,def:FN[node.v]};
+      throw new RError("object '"+node.v+"' not found",{tip:didYouMean(node.v)});
+    }
+    case "neg":{const v=evalNode(node.e,env);return arith("-",[0],v)}
+    case "not":{const v=evalNode(node.e,env);if(isR(v))return rmap(v,x=>x?0:1,true);return vec(v).map(x=>x===null?null:!x)}
+    case "assign":return doAssign(node,env);
+    case "pipe":{
+      const lv=evalNode(node.l,env);let r=node.r;
+      if(r.k==="id")r={k:"call",fn:r,args:[]};
+      if(r.k!=="call")throw new RError("The pipe operator requires a function call as RHS",{tip:"Write  x |> f()  with the brackets."});
+      return callFn(r.fn,[{name:null,value:{k:"val",v:lv}},...r.args],env);
+    }
+    case "call":return callFn(node.fn,node.args,env);
+    case "dollar":{const o=evalNode(node.obj,env);return dollar(o,node.name)}
+    case "index":return doIndex(evalNode(node.obj,env),node.args,env,node.dbl);
+    case "bin":{
+      const l=evalNode(node.l,env),r=evalNode(node.r,env);
+      if((l&&l.type==="tmap")||(r&&r.type==="tmap")){if(node.op!=="+")throw new RError("tmap layers are combined with +");return tmapAdd(l,r)}
+      if(node.op===":"){const a=sc(l),b=sc(r);const out=[];if(a<=b)for(let x=a;x<=b;x++)out.push(x);else for(let x=a;x>=b;x--)out.push(x);return out}
+      if(node.op==="%in%"){const s=new Set(vec(r));return vec(l).map(x=>s.has(x))}
+      if(node.op.startsWith("%"))throw new RError("could not find function \""+node.op+"\"");
+      return arith(node.op,l,r);
+    }
+  }
+  throw new RError("cannot evaluate this expression");
+}
+function didYouMean(n){
+  const all=[...R.global.vars.keys()];const low=n.toLowerCase();
+  const hit=all.find(a=>a.toLowerCase()===low);if(hit)return "R is case-sensitive — did you mean '"+hit+"'?";
+  if(!all.length)return "Nothing is in your Environment yet. Create it first with  name <- ...";
+  return "Objects you have: "+all.join(", ");
+}
+function dollar(o,name){
+  if(isDF(o)){if(name==="geometry"&&o.geom)return {type:"sfc",geom:o.geom,geomType:o.geomType,crs:o.crs};if(!(name in o.cols))return null;return o.cols[name]}
+  if(isList(o)){const i=o.names.indexOf(name);return i<0?null:o.vals[i]}
+  if(o&&o.type==="httr2_response"&&name==="status_code")return [o.status];
+  if(isVec(o))throw new RError("$ operator is invalid for atomic vectors");
+  if(o===null)return null;
+  throw new RError("$ operator not supported for a "+(o.type||typeof o));
+}
+function doAssign(node,env){
+  const t=node.target;const v=evalNode(node.value,env);
+  if(t.k==="id"||t.k==="str"){const name=t.v;if(FN[name]&&!env.has(name)&&["c","T","F","plot","sum","mean"].includes(name))R.warn("You overwrote the name '"+name+"' — it still works here but is a classic bug in real R.");
+    env.set(name,v);emit("assign",{name,value:v,node});return {invisible:true,v}}
+  if(t.k==="dollar"){
+    if(t.obj.k!=="id")throw new RError("only simple  obj$col <- value  assignments are supported");
+    const o=evalNode(t.obj,env);
+    if(isDF(o)){const cp=cloneDF(o);let val=v;if(isDF(val)&&val.names.length){val=val.cols[val.names[val.names.length-1]]}
+      val=vec(val);if(val.length===1)val=Array(cp.nrow).fill(val[0]);
+      if(val.length!==cp.nrow)throw new RError("replacement has "+val.length+" rows, data has "+cp.nrow,{tip:"The vector you assign needs one value per row."});
+      if(!cp.names.includes(t.name))cp.names.push(t.name);cp.cols[t.name]=val.slice();env.set(t.obj.v,cp);emit("assign",{name:t.obj.v,value:cp,col:t.name,node});return {invisible:true,v:cp}}
+    if(isList(o)){const cp={type:"list",names:o.names.slice(),vals:o.vals.slice()};const i=cp.names.indexOf(t.name);if(i<0){cp.names.push(t.name);cp.vals.push(v)}else cp.vals[i]=v;env.set(t.obj.v,cp);return {invisible:true,v:cp}}
+    throw new RError("cannot use $<- on this object");
+  }
+  if(t.k==="call"&&t.fn.k==="id"&&t.fn.v==="names")throw new RError("names<- is not supported here; use dplyr::rename()");
+  throw new RError("invalid assignment target");
+}
+function cloneDF(d){const c={...d,names:d.names.slice(),cols:{}};d.names.forEach(n=>c.cols[n]=d.cols[n].slice());if(d.geom)c.geom=d.geom.slice();return c}
+function subsetRows(d,idx){const c={...d,names:d.names.slice(),cols:{},nrow:idx.length};d.names.forEach(n=>c.cols[n]=idx.map(i=>d.cols[n][i]));if(d.geom)c.geom=idx.map(i=>d.geom[i]);return c}
+function doIndex(o,args,env,dbl){
+  const vals=args.map(a=>a.value.k==="empty"?undefined:evalNode(a.value,env));
+  if(isDF(o)){
+    if(dbl){const k=sc(vals[0]);if(typeof k==="number")return o.cols[o.names[k-1]]??null;return o.cols[k]??null}
+    if(vals.length===1){const cs=vec(vals[0]).map(x=>typeof x==="number"?o.names[x-1]:x);cs.forEach(c=>{if(!o.names.includes(c))throw new RError("undefined columns selected: "+c)});const n={...o,names:cs,cols:{}};cs.forEach(c=>n.cols[c]=o.cols[c]);return n}
+    let [ri,ci]=vals;let d=o;
+    if(ri!==undefined)d=subsetRows(d,rowIdx(vec(ri),d.nrow));
+    if(ci!==undefined){const cs=vec(ci).map(x=>typeof x==="number"?d.names[x-1]:x);
+      if(cs.length===1&&!d.geom)return d.cols[cs[0]]??(()=>{throw new RError("undefined columns selected")})();
+      if(cs.length===1&&d.geom){ /* sf keeps geometry, but [ ,2] on an extract() data.frame returns the vector */ }
+      if(cs.length===1)return d.cols[cs[0]];
+      const n={...d,names:cs,cols:{}};cs.forEach(c=>n.cols[c]=d.cols[c]);return n}
+    return d;
+  }
+  if(isList(o)){const k=sc(vals[0]);const i=typeof k==="number"?k-1:o.names.indexOf(k);if(dbl)return o.vals[i]??null;return {type:"list",names:[o.names[i]],vals:[o.vals[i]]}}
+  if(isVec(o)){const ix=vals[0];if(ix===undefined)return o;const idx=rowIdx(vec(ix),o.length);const out=idx.map(i=>o[i]??null);if(o.names)out.names=idx.map(i=>o.names[i]);return out}
+  if(isR(o))throw new RError("use global(), extract() or plot() with rasters in this console");
+  throw new RError("object of type '"+typeOf(o)+"' is not subsettable");
+}
+function rowIdx(ix,n){if(!ix.length)return [];if(typeof ix[0]==="boolean"){const o=[];for(let i=0;i<n;i++)if(ix[i%ix.length])o.push(i);return o}
+  if(ix.every(x=>typeof x==="number"&&x<0)){const drop=new Set(ix.map(x=>-x-1));return [...Array(n).keys()].filter(i=>!drop.has(i))}
+  return ix.map(x=>x-1)}
+
+// ---------- arithmetic ----------
+const OPF={"+":(a,b)=>a+b,"-":(a,b)=>a-b,"*":(a,b)=>a*b,"/":(a,b)=>a/b,"^":(a,b)=>a**b,"==":(a,b)=>a===b,"!=":(a,b)=>a!==b,"<":(a,b)=>a<b,">":(a,b)=>a>b,"<=":(a,b)=>a<=b,">=":(a,b)=>a>=b,"&":(a,b)=>!!a&&!!b,"&&":(a,b)=>!!a&&!!b,"|":(a,b)=>!!a||!!b,"||":(a,b)=>!!a||!!b};
+const LOGICAL_OPS=new Set(["==","!=","<",">","<=",">=","&","&&","|","||"]);
+function rmap(r,f,logical){const o={...r,data:new Float32Array(r.data.length),logical:!!logical,file:null};for(let i=0;i<r.data.length;i++){const x=r.data[i];o.data[i]=Number.isNaN(x)?NaN:+f(x)}return o}
+function arith(op,l,r){
+  const f=OPF[op];if(!f)throw new RError("operator "+op+" not supported");
+  if(isR(l)||isR(r)){
+    const lg=LOGICAL_OPS.has(op);
+    if(isR(l)&&isR(r)){const o={...l,data:new Float32Array(l.data.length),logical:lg,file:null,name:lg?"layer":l.name,srcs:[...new Set([...(l.srcs||[l.src]),...(r.srcs||[r.src])])]};for(let i=0;i<l.data.length;i++){const a=l.data[i],b=r.data[i];o.data[i]=(Number.isNaN(a)||Number.isNaN(b))?NaN:+f(a,b)}emit("rastop",{op,l,r,out:o});return o}
+    const rr=isR(l)?l:r,s=sc(isR(l)?r:l);const o=rmap(rr,x=>isR(l)?f(x,s):f(s,x),lg);o.name=lg?rr.name:rr.name;emit("rastop",{op,l,r,out:o});return o;
+  }
+  if(isDF(l)||isDF(r)){const d=isDF(l)?l:r;if(d.geom||!d.names.every(n=>typeOf(d.cols[n])==="numeric"))throw new RError("non-numeric argument to binary operator",{tip:"Pull a column out first, e.g.  df$column"});
+    const o={...d,names:d.names.slice(),cols:{}};d.names.forEach(n=>{o.cols[n]=isDF(l)?arith(op,d.cols[n],r):arith(op,l,d.cols[n])});return o}
+  const a=vec(l),b=vec(r);if(!a.length||!b.length)return [];
+  const n=Math.max(a.length,b.length),out=new Array(n);
+  for(let i=0;i<n;i++){const x=a[i%a.length],y=b[i%b.length];
+    if(!LOGICAL_OPS.has(op)&&(typeof x==="string"||typeof y==="string"))throw new RError("non-numeric argument to binary operator");
+    out[i]=(x===null||y===null)?null:f(x,y)}
+  return out;
+}
+
+// ---------- calls ----------
+function callFn(fnNode,rawArgs,env){
+  let def,name;
+  if(fnNode.k==="id"){name=fnNode.v;def=FN[name];
+    if(fnNode.pkg){if(!def)throw new RError("'"+name+"' is not an exported object from 'namespace:"+fnNode.pkg+"'");}
+    else if(!def){const v=env.get(name);if(v&&v.type==="fn")def=v.def;else throw new RError("could not find function \""+name+"\"",{tip:didYouMean(name)})}
+    else if(!R.loaded.has(def.pkg)&&!(def.pkg==="tidyverse")){
+      throw new RError("could not find function \""+name+"\"",{tip:"'"+name+"()' lives in the {"+def.pkg+"} package. Load it first:  library("+def.pkg+")  or  pacman::p_load("+def.pkg+")"})}
+  }else{const v=evalNode(fnNode,env);if(!v||v.type!=="fn")throw new RError("attempt to apply non-function");def=v.def;name=def.name}
+  if(R.onCall)R.onCall(name);
+  if(def.nse)return def.f(rawArgs,env,name);
+  const args=rawArgs.map(a=>({name:a.name,value:a.value.k==="empty"?undefined:evalNode(a.value,env)}));
+  return def.f(args,env,name);
+}
+// match args by name, then position
+function A(args,params){
+  const out={},used=new Set(),rest=[];
+  args.forEach((a,i)=>{if(a.name!==null){const p=params.find(p=>p===a.name)||params.find(p=>p.startsWith(a.name)&&a.name.length>1);if(p){out[p]=a.value;used.add(i)}else rest.push(a)}});
+  let pi=0;args.forEach((a,i)=>{if(used.has(i)||a.name!==null)return;while(pi<params.length&&(params[pi] in out||params[pi]==="..."))pi++;if(pi<params.length)out[params[pi++]]=a.value;else rest.push(a)});
+  out["..."]=rest;return out;
+}
+const bool=(v,d=false)=>v===undefined?d:!!sc(v);
+const num=(v,d)=>v===undefined?d:+sc(v);
+const str=(v,d)=>v===undefined?d:String(sc(v));
+
+// ---------- printing ----------
+function fmtNum(x){if(x===null||x===undefined||Number.isNaN(x))return "NA";if(x===Infinity)return "Inf";if(x===-Infinity)return "-Inf";if(Number.isInteger(x)&&Math.abs(x)<1e15)return String(x);const s=String(+x.toPrecision(7));return s.includes("e")?x.toExponential(4).replace("e+","e+0"):s}
+function fmtEl(x,quote=true){if(x===null||x===undefined)return "NA";if(typeof x==="boolean")return x?"TRUE":"FALSE";if(typeof x==="number")return fmtNum(x);return quote?'"'+x+'"':x}
+function printVec(v,quote=true){
+  if(!v.length)return typeOf(v)==="character"?"character(0)":"numeric(0)";
+  const els=v.map(x=>fmtEl(x,quote));
+  if(v.names){const w=v.map((x,i)=>Math.max(els[i].length,String(v.names[i]).length));const lines=[];let a=[],b=[],len=0;
+    v.forEach((x,i)=>{if(len+w[i]+1>72&&a.length){lines.push(a.join(" ")+"\n"+b.join(" "));a=[];b=[];len=0}a.push(String(v.names[i]).padStart(w[i]));b.push(els[i].padStart(w[i]));len+=w[i]+1});
+    lines.push(a.join(" ")+" \n"+b.join(" ")+" ");return lines.join("\n")}
+  const w=Math.max(...els.map(e=>e.length));const lab=`[${v.length}]`.length;const per=Math.max(1,Math.floor((74-lab)/(w+1)));const lines=[];
+  for(let i=0;i<els.length;i+=per){lines.push(`[${i+1}]`.padStart(lab)+" "+els.slice(i,i+per).map(e=>typeof v[0]==="string"?e.padEnd(w):e.padStart(w)).join(" "))}
+  return lines.join("\n");
+}
+function geomWKT(g,t){const p=c=>Math.round(c[0])+" "+Math.round(c[1]);
+  if(t==="POINT")return "POINT ("+p(g)+")";
+  const pts=g.slice(0,2).map(p).join(", ")+(g.length>2?", ...":"");
+  return t==="LINESTRING"?"LINESTRING ("+pts+")":"POLYGON (("+pts+"))"}
+function bbox(d){let x0=1e18,y0=1e18,x1=-1e18,y1=-1e18;const add=c=>{x0=Math.min(x0,c[0]);x1=Math.max(x1,c[0]);y0=Math.min(y0,c[1]);y1=Math.max(y1,c[1])};
+  if(isR(d))return [d.xmin,d.ymax-d.ny*d.res,d.xmin+d.nx*d.res,d.ymax];
+  const gs=d.geom||[];gs.forEach(g=>{if(d.geomType==="POINT")add(g);else g.forEach(add)});return [x0,y0,x1,y1]}
+function printDF(d,nmax=10){
+  const lines=[];
+  if(d.tibble&&!d.geom){const show=Math.min(d.nrow,nmax);const cols=d.names;const ty=cols.map(c=>{const t=typeOf(d.cols[c]);return t==="character"?"<chr>":t==="logical"?"<lgl>":"<dbl>"});
+    const data=cols.map(c=>d.cols[c].slice(0,show).map(x=>fmtEl(x,false)));const rw=String(show).length;const w=cols.map((c,j)=>Math.max(c.length,ty[j].length,...data[j].map(s=>s.length)));
+    lines.push(`# A tibble: ${d.nrow} × ${cols.length}`);let start=0;const shown=[];while(start<cols.length){let end=start,tot=rw+1;while(end<cols.length&&(tot+w[end]+1<=100||end===start)){tot+=w[end]+1;end++}shown.push([start,end]);if(start===0&&end<cols.length){break}start=end}
+    const [s0,e0]=shown[0];lines.push(" ".repeat(rw+1)+cols.slice(s0,e0).map((c,j)=>ty[s0+j]==="<dbl>"?c.padStart(w[s0+j]):c.padEnd(w[s0+j])).join(" "));lines.push(" ".repeat(rw+1)+ty.slice(s0,e0).map((c,j)=>ty[s0+j]==="<dbl>"?c.padStart(w[s0+j]):c.padEnd(w[s0+j])).join(" "));
+    for(let i=0;i<show;i++)lines.push(String(i+1).padStart(rw)+" "+data.slice(s0,e0).map((col,j)=>(typeof d.cols[cols[s0+j]][i]==="number"?col[i].padStart(w[s0+j]):col[i].padEnd(w[s0+j]))).join(" "));
+    const more=[];if(show<d.nrow)more.push(`${d.nrow-show} more rows`);if(e0<cols.length)more.push(`${cols.length-e0} more variables: ${cols.slice(e0).join(", ")}`);if(more.length)lines.push("# ℹ "+more.join("\n# ℹ "));return lines.join("\n")}
+  if(d.geom){const bb=bbox(d);lines.push(`Simple feature collection with ${d.nrow} feature${d.nrow===1?"":"s"} and ${d.names.length} field${d.names.length===1?"":"s"}`,`Geometry type: ${d.geomType}`,"Dimension:     XY",`Bounding box:  xmin: ${Math.round(bb[0])} ymin: ${Math.round(bb[1])} xmax: ${Math.round(bb[2])} ymax: ${Math.round(bb[3])}`,`Projected CRS: ${d.crs?d.crs.name:"NA"}`);
+    if(d.nrow>nmax)lines.push(`First ${nmax} features:`)}
+  const show=Math.min(d.nrow,d.nrow>20?nmax:d.nrow);
+  const cols=d.names.slice();const data=cols.map(c=>d.cols[c].slice(0,show).map(x=>fmtEl(x,false)));
+  if(d.geom){cols.push("geometry");data.push(d.geom.slice(0,show).map(g=>geomWKT(g,d.geomType)))}
+  const rn=d.rownames?d.rownames.slice(0,show):[...Array(show).keys()].map(i=>String(i+1));const rw=Math.max(1,...rn.map(s=>s.length));
+  const w=cols.map((c,j)=>Math.max(c.length,...data[j].map(s=>s.length)));
+  // wrap columns to width ~ 110
+  let start=0;while(start<cols.length){let end=start,tot=rw;while(end<cols.length&&(tot+w[end]+1<=118||end===start)){tot+=w[end]+1;end++}
+    lines.push(" ".repeat(rw)+" "+cols.slice(start,end).map((c,j)=>c.padStart(w[start+j])).join(" "));
+    for(let i=0;i<show;i++)lines.push(rn[i].padEnd(rw)+" "+data.slice(start,end).map((col,j)=>col[i].padStart(w[start+j])).join(" "));start=end}
+  if(show<d.nrow)lines.push(`# … with ${d.nrow-show} more rows  (use head(x, n = …) or View(x))`);
+  if(d.nrow===0)lines.push("<0 rows>");
+  return lines.join("\n");
+}
+function rstats(r){let mn=Infinity,mx=-Infinity,s=0,n=0;for(const x of r.data){if(Number.isNaN(x))continue;if(x<mn)mn=x;if(x>mx)mx=x;s+=x;n++}return {mn,mx,s,n}}
+function printRast(r){const st=rstats(r);const bb=bbox(r);
+  return ["class       : SpatRaster ",`dimensions  : ${r.ny}, ${r.nx}, 1  (nrow, ncol, nlyr)`,`resolution  : ${r.res}, ${r.res}  (x, y)`,`extent      : ${bb[0]}, ${bb[2]}, ${bb[1]}, ${bb[3]}  (xmin, xmax, ymin, ymax)`,
+    `coord. ref. : ${CRS.name} (EPSG:${CRS.epsg}) `,`source      : ${r.file||"memory"} `,`name        : ${r.name} `,`min value   : ${r.logical?"FALSE":fmtNum(+st.mn.toFixed(3))} `,`max value   : ${r.logical?"TRUE":fmtNum(+st.mx.toFixed(3))} `].join("\n")}
+function printList(l,prefix=""){const out=[];l.names.forEach((n,i)=>{const p=prefix+"$"+(/^[A-Za-z.][A-Za-z0-9._]*$/.test(n)?n:"`"+n+"`");const v=l.vals[i];
+  if(isList(v))out.push(printList(v,p));else{out.push(p);out.push(fmtValue(v));out.push("")}});return out.join("\n")}
+function fmtValue(v){
+  if(v===null||v===undefined)return "NULL";
+  if(isVec(v))return printVec(v);
+  if(isDF(v))return printDF(v);
+  if(isR(v))return printRast(v);
+  if(isList(v))return printList(v);
+  if(v.type==="fn")return `function (...) \n<environment: namespace:${v.def.pkg}>`;
+  if(v.type==="sfc")return `Geometry set for ${v.geom.length} features\nGeometry type: ${v.geomType}\n`+v.geom.slice(0,5).map(g=>geomWKT(g,v.geomType)).join("\n");
+  if(v.type==="httr2_request")return `<httr2_request>\nGET ${fullUrl(v)}\nHeaders:\n`+(Object.keys(v.headers).map(k=>`• ${k}: '<REDACTED>'`).join("\n")||"")+"\nBody: empty";
+  if(v.type==="httr2_response")return `<httr2_response>\nGET ${v.url}\nStatus: ${v.status} ${v.statusText}\nContent-Type: application/json\nBody: In memory (${v.bytes} bytes)`;
+  if(v.type==="sgbp")return `Sparse geometry binary predicate list of length ${v.list.length}, where the predicate was \`intersects'\n`+v.list.slice(0,6).map((x,i)=>` ${i+1}: ${x.length?x.map(k=>k+1).join(", "):"(empty)"}`).join("\n");
+  if(v.type==="crs")return `Coordinate Reference System:\n  User input: EPSG:${CRS.epsg} \n  wkt: PROJCRS["${CRS.name}", ...]`;
+  if(v.type==="formula")return "~formula";
+  return "<"+v.type+">";
+}
+// ===================== Built-in functions =====================
+const inv=v=>({invisible:true,v});
+function loadPkg(p){
+  if(!PKG_DESC[p]&&!["base","stats","utils"].includes(p))throw new RError(`there is no package called ‘${p}’`,{tip:"Packages in this lab: readxl, terra, sf, dplyr, tmap, pacman"});
+  if(p==="tidyverse"){["dplyr","readr","ggplot2"].forEach(x=>R.loaded.add(x))}
+  if(R.loaded.has(p))return;R.loaded.add(p);
+  if(p==="terra")R.msg("terra 1.8.10");
+  if(p==="sf")R.msg("Linking to GEOS 3.12.2, GDAL 3.9.3, PROJ 9.4.1; sf_use_s2() is TRUE");
+  if(p==="dplyr")R.msg("\nAttaching package: ‘dplyr’\n\nThe following objects are masked from ‘package:stats’:\n\n    filter, lag\n");
+  if(p==="tmap")R.msg("Breaking News: tmap 3.x is retiring. Please test v4, e.g. with\nlibrary(tmap4)... (you are on tmap 4.0 — both styles work here)");
+  emit("library",{pkg:p});
+}
+// ---- base ----
+def("library,require","base",(a,env)=>{const x=a[0]&&a[0].value;if(!x)throw new RError("argument 'package' is missing");const p=x.k==="id"?x.v:x.k==="str"?x.v:null;if(!p)throw new RError("invalid package name");loadPkg(p);return inv(null)},{nse:true});
+def("p_load","pacman",(a)=>{a.filter(x=>!x.name).forEach(x=>{const p=x.value.k==="id"||x.value.k==="str"?x.value.v:null;if(p)loadPkg(p)});return inv(null)},{nse:true});
+FN.p_load.pkg="base"; // callable as pacman::p_load() without library(pacman)
+def("install.packages","utils",(a)=>{R.msg("All lab packages are already installed on this machine. Load them with library() or pacman::p_load().");return inv(null)});
+def("c","base",(a)=>{const out=[];const nm=[];let named=false;a.forEach(x=>{if(isList(x.value))throw new RError("c() of lists not supported here");vec(x.value).forEach((e,i)=>{out.push(e);nm.push(x.name||(x.value&&x.value.names?x.value.names[i]:""));if(x.name)named=true})});
+  if(out.some(e=>typeof e==="string"))for(let i=0;i<out.length;i++)if(out[i]!==null&&typeof out[i]!=="string")out[i]=fmtEl(out[i],false);if(named)out.names=nm;return out});
+def("print","base",(a)=>{const v=a[0]&&a[0].value;R.show(v);return inv(v)});
+def("cat","base",(a)=>{const sep=a.find(x=>x.name==="sep");R.print(a.filter(x=>x.name!=="sep").map(x=>vec(x.value).map(e=>fmtEl(e,false)).join(" ")).join(sep?str(sep.value):" ").replace(/\\n/g,"\n"));return inv(null)});
+def("paste,paste0","base",(a,env,name)=>{const sepA=a.find(x=>x.name==="sep");const sep=name==="paste0"?"":sepA?str(sepA.value):" ";const parts=a.filter(x=>x.name!=="sep"&&x.name!=="collapse").map(x=>vec(x.value));const n=Math.max(...parts.map(p=>p.length));const out=[];for(let i=0;i<n;i++)out.push(parts.map(p=>fmtEl(p[i%p.length],false)).join(sep));const col=a.find(x=>x.name==="collapse");return col?[out.join(str(col.value))]:out});
+def("head,tail","utils",(a,env,name)=>{const p=A(a,["x","n"]);const x=p.x,n=num(p.n,6);if(isDF(x)){const N=Math.min(n,x.nrow);const idx=name==="head"?[...Array(N).keys()]:[...Array(N).keys()].map(i=>x.nrow-N+i);return subsetRows(x,idx)}if(isVec(x))return name==="head"?x.slice(0,n):x.slice(-n);if(isR(x))throw new RError("head() of a SpatRaster prints cell values — try  x  or  global(x, 'sum', na.rm = TRUE)");return x});
+def("slice_head","dplyr",(a)=>{const p=A(a,["x","n"]);const x=p.x;if(!isDF(x))throw new RError("slice_head() needs a data frame");return subsetRows(x,[...Array(Math.min(num(p.n,1),x.nrow)).keys()])});
+def("nrow,NROW","base",(a)=>{const x=a[0].value;if(isDF(x))return [x.nrow];if(isR(x))return [x.ny];return [vec(x).length]});
+def("ncol","base",(a)=>{const x=a[0].value;if(isDF(x))return [x.names.length+(x.geom?1:0)];if(isR(x))return [x.nx];return [1]});
+def("dim","base",(a)=>{const x=a[0].value;if(isDF(x))return [x.nrow,x.names.length+(x.geom?1:0)];if(isR(x))return [x.ny,x.nx,1];return null});
+def("length","base",(a)=>{const x=a[0].value;if(isDF(x))return [x.names.length];if(isList(x))return [x.vals.length];if(x&&x.type==="sgbp")return [x.list.length];return [vec(x).length]});
+def("names,colnames","base",(a)=>{const x=a[0].value;if(isDF(x))return x.geom?[...x.names,"geometry"]:x.names.slice();if(isList(x))return x.names.slice();if(isR(x))return [x.name];return x&&x.names?x.names.slice():null});
+def("class","base",(a)=>{const x=a[0].value;if(isSF(x))return ["sf","data.frame"];if(isDF(x))return ["data.frame"];if(isR(x))return ["SpatRaster"];if(isList(x))return ["list"];if(x&&x.type==="httr2_response")return ["httr2_response"];if(x&&x.type==="tmap")return ["tmap"];return [typeOf(x)]});
+function nums(v){return vec(v).filter(x=>x!==null&&!Number.isNaN(x)).map(Number)}
+function naCheck(a,fname){const x=vec(a.x);const rm=bool(a["na.rm"]);if(!rm&&x.some(e=>e===null||Number.isNaN(e)))return true;return false}
+def("sum","base",(a)=>{const p=A(a,["x","na.rm"]);if(isR(p.x))throw new RError("for rasters use  global(x, \"sum\", na.rm = TRUE)");if(naCheck(p))return [null];return [nums(p.x).reduce((s,x)=>s+x,0)]});
+def("mean","base",(a)=>{const p=A(a,["x","na.rm"]);if(naCheck(p))return [null];const n=nums(p.x);return [n.reduce((s,x)=>s+x,0)/n.length]});
+def("max,min","base",(a,env,name)=>{const p=A(a,["x","na.rm"]);if(naCheck(p))return [null];const n=nums(p.x);return [name==="max"?Math.max(...n):Math.min(...n)]});
+def("median","stats",(a)=>{const p=A(a,["x","na.rm"]);const n=nums(p.x).sort((x,y)=>x-y);const m=n.length>>1;return [n.length%2?n[m]:(n[m-1]+n[m])/2]});
+def("round","base",(a)=>{const p=A(a,["x","digits"]);const d=num(p.digits,0);const f=10**d;if(isDF(p.x))return p.x;return vec(p.x).map(x=>x===null?null:Math.round(x*f)/f)});
+def("sqrt,abs,log","base",(a,env,name)=>vec(a[0].value).map(x=>x===null?null:Math[name](x)));
+def("unique","base",(a)=>[...new Set(vec(a[0].value))]);
+def("sort","base",(a)=>{const p=A(a,["x","decreasing"]);const v=vec(p.x).slice().sort((x,y)=>x<y?-1:x>y?1:0);return bool(p.decreasing)?v.reverse():v});
+def("rev","base",(a)=>vec(a[0].value).slice().reverse());
+def("which.max","base",(a)=>{const v=vec(a[0].value);let b=0;v.forEach((x,i)=>{if(x>v[b])b=i});return [b+1]});
+def("is.na","base",(a)=>vec(a[0].value).map(x=>x===null||Number.isNaN(x)));
+def("as.numeric","base",(a)=>vec(a[0].value).map(x=>x===null?null:+x));
+def("as.character","base",(a)=>vec(a[0].value).map(x=>x===null?null:fmtEl(x,false)));
+def("nchar","base",(a)=>vec(a[0].value).map(x=>String(x).length));
+def("seq","base",(a)=>{const p=A(a,["from","to","by"]);const o=[];for(let x=num(p.from,1);x<=num(p.to,1)+1e-9;x+=num(p.by,1))o.push(x);return o});
+def("table","base",(a)=>{const v=vec(a[0].value);const m=new Map();v.forEach(x=>{const k=fmtEl(x,false);m.set(k,(m.get(k)||0)+1)});const ks=[...m.keys()].sort();const out=ks.map(k=>m.get(k));out.names=ks;R.print("");return out});
+def("lengths","base",(a)=>{const x=a[0].value;if(x&&x.type==="sgbp")return x.list.map(l=>l.length);if(isList(x))return x.vals.map(v=>vec(v).length);return vec(x).map(()=>1)});
+def("ls,objects","base",()=>[...R.global.vars.keys()].sort());
+def("rm","base",(a)=>{a.forEach(x=>{if(x.value.k==="id")R.global.vars.delete(x.value.v)});return inv(null)},{nse:true});
+def("list.files,dir","base",()=>Object.keys(FILES).filter(f=>!f.startsWith(".")));
+def("getwd","base",()=>["C:/Users/you/Documents/kivara_yf"]);
+def("setwd","base",()=>inv(["C:/Users/you/Documents/kivara_yf"]));
+def("Sys.time","base",()=>[new Date().toISOString().replace("T"," ").slice(0,19)+" CAT"]);
+def("Sys.getenv","base",(a)=>{const k=str(a[0]&&a[0].value,"");if(k==="MOH_API_KEY"){emit("getenv",{k});return [API_KEY_VALUE]}return [""]});
+def("set.seed","base",()=>inv(null));
+def("View","utils",(a)=>{R.show(a[0].value);return inv(null)});
+def("str","utils",(a)=>{const x=a[0].value;if(isDF(x)){R.print(`${isSF(x)?"Classes ‘sf’ and 'data.frame'":"'data.frame'"}:	${x.nrow} obs. of  ${x.names.length+(x.geom?1:0)} variables:`);x.names.forEach(n=>{const v=x.cols[n];const t=typeOf(v)==="character"?"chr":typeOf(v)==="logical"?"logi":"num";R.print(` $ ${n.padEnd(14)}: ${t}  ${v.slice(0,5).map(e=>fmtEl(e)).join(" ")} ...`)});if(x.geom)R.print(` $ geometry      :sfc_${x.geomType} of length ${x.nrow}`);return inv(null)}R.show(x);return inv(null)});
+function quant(n,p){const s=n.slice().sort((a,b)=>a-b);const h=(s.length-1)*p;const lo=Math.floor(h);return s[lo]+(s[Math.min(lo+1,s.length-1)]-s[lo])*(h-lo)}
+function summ(n){return [Math.min(...n),quant(n,.25),quant(n,.5),n.reduce((a,b)=>a+b,0)/n.length,quant(n,.75),Math.max(...n)]}
+def("summary","base",(a)=>{const x=a[0].value;
+  if(isR(x)){const n=[];for(const v of x.data)if(!Number.isNaN(v))n.push(v);const s=summ(n);const o=s.map(v=>+v.toFixed(3));o.names=["Min.","1st Qu.","Median","Mean","3rd Qu.","Max."];return o}
+  if(isDF(x)){x.names.forEach(nm=>{const v=x.cols[nm];if(typeOf(v)==="numeric"){const s=summ(nums(v)).map(q=>+q.toPrecision(5));R.print(`${nm}:  Min ${s[0]}  Q1 ${s[1]}  Median ${s[2]}  Mean ${s[3]}  Q3 ${s[4]}  Max ${s[5]}`)}else{const t={};v.forEach(e=>t[e]=(t[e]||0)+1);const ks=Object.keys(t);R.print(`${nm}:  `+(ks.length<=6?ks.map(k=>k+": "+t[k]).join("  "):`${v.length} values (character)`))}});return inv(null)}
+  const n=nums(x);const s=summ(n).map(v=>+v.toPrecision(5));s.names=["Min.","1st Qu.","Median","Mean","3rd Qu.","Max."];return s});
+def("help,?","utils",(a)=>{R.msg("Help pages aren't available offline here. Use the Hint button in the Mission panel, or ask your facilitator.");return inv(null)});
+def("hist","graphics",(a)=>{const p=A(a,["x","main","breaks","xlab","col"]);Plot.hist(nums(p.x),str(p.main,"Histogram"),str(p.xlab,""));return inv(null)});
+def("barplot","graphics",(a)=>{const p=A(a,["height","main","col"]);Plot.bar(vec(p.height),str(p.main,""));return inv(null)});
+
+// ---- readers ----
+function needFile(f){
+  if(!(f in FILES)){const close=Object.keys(FILES).find(k=>k.toLowerCase().includes(f.toLowerCase().split(/[._]/)[0]));
+    throw new RError(`cannot open file '${f}': No such file or directory`,{tip:(close?`Did you mean "${close}"? `:"")+"Check the Files tab for exact names — spelling and extension must match."})}
+  if(FILES[f].xlsx)throw new RError(`'${f}' is an Excel workbook`,{tip:`Read it with readxl:  read_excel("${f}", sheet = "sheet_name"). List its sheets with excel_sheets("${f}").`});
+  return {load:()=>{const o=FILES[f].load();o.src=f;return o}};
+}
+def("read.csv,read_csv","base",(a,env,name)=>{const f=str(A(a,["file"]).file);if(f.endsWith(".xlsx")||f.endsWith(".xls"))throw new RError("read.csv() can't read Excel files",{tip:`Use readxl:  library(readxl)  then  read_excel("${f}", sheet = "...")`});if(!f.endsWith(".csv"))throw new RError("this reader expects a .csv file");const d=needFile(f).load();emit("read",{file:f});if(name==="read_csv")R.msg(`Rows: ${d.nrow} Columns: ${d.names.length}\n── Column specification ──────────────\nDelimiter: ","\nchr  (8): case_id, onset_date, sex, classification, ...\ndbl  (2): age, x_utm, y_utm\n`);return d});
+FN.read_csv.pkg="readr";
+def("rast","terra",(a)=>{const f=str(A(a,["x"]).x);if(!f.endsWith(".tif"))throw new RError(`[rast] file does not exist or is not a raster: ${f}`,{tip:"rast() opens GeoTIFFs (.tif). Vector files (.geojson/.shp) use st_read()."});const r=needFile(f).load();emit("read",{file:f});return r});
+def("st_read,read_sf","sf",(a,env,name)=>{const p=A(a,["dsn","quiet"]);const f=str(p.dsn);if(f.endsWith(".tif"))throw new RError("Cannot open data source "+f,{tip:"That is a raster — use terra::rast()."});if(f.endsWith(".csv"))throw new RError("st_read() on a CSV gives no geometry here",{tip:"Use read.csv() then st_as_sf(x, coords = c(\"x_utm\",\"y_utm\"), crs = 32735)."});
+  const d=needFile(f).load();emit("read",{file:f});if(name==="st_read"&&!bool(p.quiet))R.msg(`Reading layer \`${f.replace(/\..*/,"")}' from data source \n  \`C:\\Users\\you\\Documents\\kivara_yf\\${f}' using driver \`GeoJSON'\nSimple feature collection with ${d.nrow} features and ${d.names.length} fields\nGeometry type: ${d.geomType}\nDimension:     XY\nProjected CRS: ${CRS.name}`);return d});
+// ---- readxl ----
+function needXlsx(f){if(!(f in FILES)){needFile(f)}if(!FILES[f].xlsx)throw new RError(`\`path\` does not appear to be an Excel file: ${f}`,{tip:f.endsWith(".csv")?"CSV files are read with read.csv().":f.endsWith(".tif")?"GeoTIFFs are read with rast().":"Vector files are read with st_read()."});return FILES[f]}
+def("excel_sheets","readxl",(a)=>{const f=str(A(a,["path"]).path);const X=needXlsx(f);emit("sheets",{f});return Object.keys(X.sheets)});
+def("read_excel,read_xlsx","readxl",(a)=>{const p=A(a,["path","sheet","range","col_names","col_types","na","trim_ws","skip"]);const f=str(p.path);const X=needXlsx(f);
+  const names=Object.keys(X.sheets);let sh=p.sheet===undefined?names[0]:sc(p.sheet);if(typeof sh==="number"){if(sh<1||sh>names.length)throw new RError(`Can't retrieve sheet in position ${sh}, only ${names.length} sheet(s) found.`);sh=names[sh-1]}
+  if(!X.sheets[sh]){const close=names.find(n=>n.toLowerCase()===String(sh).toLowerCase());throw new RError(`Sheet '${sh}' not found`,{tip:(close?`Sheet names are case-sensitive — did you mean "${close}"? `:"")+"Sheets in this file: "+names.map(n=>'"'+n+'"').join(", ")})}
+  if(p.sheet===undefined)R.msg(`(No sheet = given, so R read the first sheet: "${sh}")`);
+  const d=X.sheets[sh]();d.src=f+"#"+sh;d.tibble=true;emit("read",{file:d.src});emit("readsheet",{sheet:sh,d});return d});
+def("fromJSON","jsonlite",(a)=>{throw new RError("For web APIs use httr2 in this lab: request(url) |> req_perform() |> resp_body_json()")});
+
+// ---- terra ----
+def("global","terra",(a)=>{const p=A(a,["x","fun","na.rm"]);const r=p.x;if(!isR(r))throw new RError("global() needs a SpatRaster",{tip:"For data frame columns use sum(df$col)."});
+  const fun=str(p.fun,"mean");const rm=bool(p["na.rm"]);let s=0,n=0,hasNA=false,mn=Infinity,mx=-Infinity;for(const x of r.data){if(Number.isNaN(x)){hasNA=true;continue}s+=x;n++;mn=Math.min(mn,x);mx=Math.max(mx,x)}
+  let v;if(hasNA&&!rm)v=null;else v=fun==="sum"?s:fun==="mean"?s/n:fun==="max"?mx:fun==="min"?mn:(()=>{throw new RError("unknown fun: "+fun)})();
+  emit("global",{r,fun,value:v,rm});if(hasNA&&!rm)R.warn("Cells outside the district are NA → result is NA. Add  na.rm = TRUE");
+  const d={type:"df",names:[fun],cols:{[fun]:[v===null?null:(fun==="sum"?Math.round(v):+v.toFixed(4))]},nrow:1,geom:null,rownames:[r.name]};return d});
+def("res","terra",(a)=>[a[0].value.res,a[0].value.res]);
+def("ncell","terra",(a)=>[a[0].value.nx*a[0].value.ny]);
+def("ext","terra",(a)=>{const b=bbox(a[0].value);R.print(`SpatExtent : ${b[0]}, ${b[2]}, ${b[1]}, ${b[3]} (xmin, xmax, ymin, ymax)`);return inv(null)});
+def("crs,st_crs","sf",(a)=>({type:"crs"}));FN.crs.pkg="terra";
+def("ifel","terra",(a)=>{const p=A(a,["test","yes","no"]);const t=p.test;const y=sc(p.yes),n=sc(p.no);return rmap(t,x=>x?y:n,false)});
+def("extract","terra",(a)=>{const p=A(a,["x","y","fun","na.rm","ID"]);const r=p.x,v=p.y;
+  if(!isR(r))throw new RError("extract(): first argument must be a SpatRaster (e.g. pop)");if(!isSF(v))throw new RError("extract(): second argument must be sf polygons or points",{tip:"Buffers from st_buffer() are perfect here."});
+  const fn=p.fun&&p.fun.type==="fn"?p.fun.name:p.fun?str(p.fun):null;const out=[];
+  v.geom.forEach(g=>{
+    if(v.geomType==="POINT"){const c=Math.floor((g[0]-r.xmin)/r.res),rw=Math.floor((r.ymax-g[1])/r.res);const x=r.data[rw*r.nx+c];out.push(Number.isNaN(x)?null:x);return}
+    if(v.geomType!=="POLYGON")throw new RError("extract() with lines is not supported here");
+    const bb=[Infinity,Infinity,-Infinity,-Infinity];g.forEach(q=>{bb[0]=Math.min(bb[0],q[0]);bb[1]=Math.min(bb[1],q[1]);bb[2]=Math.max(bb[2],q[0]);bb[3]=Math.max(bb[3],q[1])});
+    let s=0,n=0,m=-Infinity;const c0=Math.max(0,Math.floor((bb[0]-r.xmin)/r.res)),c1=Math.min(r.nx-1,Math.floor((bb[2]-r.xmin)/r.res)),r0=Math.max(0,Math.floor((r.ymax-bb[3])/r.res)),r1=Math.min(r.ny-1,Math.floor((r.ymax-bb[1])/r.res));
+    for(let rr=r0;rr<=r1;rr++)for(let cc=c0;cc<=c1;cc++){const x=r.xmin+(cc+.5)*r.res,y=r.ymax-(rr+.5)*r.res;if(!pointInPoly(x,y,g))continue;const val=r.data[rr*r.nx+cc];if(Number.isNaN(val))continue;s+=val;n++;m=Math.max(m,val)}
+    out.push(fn==="sum"?Math.round(s):fn==="mean"?+(s/n).toFixed(4):fn==="max"?m:Math.round(s));
+  });
+  if(!fn)R.warn("No fun= given: in real terra you'd get one row per cell. Here we summed — pass  fun = sum  explicitly.");
+  emit("extract",{r,v,fn,out});
+  return {type:"df",names:["ID",r.name],cols:{ID:out.map((_,i)=>i+1),[r.name]:out},nrow:out.length,geom:null};
+});
+
+// ---- sf ----
+def("st_as_sf","sf",(a)=>{const p=A(a,["x","coords","crs"]);const d=p.x;if(!isDF(d))throw new RError("st_as_sf() needs a data frame");if(isSF(d))return d;
+  const co=vec(p.coords);if(co.length!==2)throw new RError("coords must name 2 columns: c(\"x_utm\", \"y_utm\")");co.forEach(c=>{if(!d.names.includes(c))throw new RError(`coords column '${c}' not found`,{tip:"Columns: "+d.names.join(", ")})});
+  if(co[0].startsWith("y")&&co[1].startsWith("x"))R.warn("coords are in (x, y) order — you gave y first, points will land in the wrong place!");
+  const crs=p.crs===undefined?null:sc(p.crs);if(crs===null)R.warn("No crs given — your points have no coordinate reference system. Use crs = 32735");
+  else if(+crs===4326)R.warn("crs = 4326 means longitude/latitude in degrees, but x_utm/y_utm are metres in UTM zone 35S → use crs = 32735");
+  const c=cloneDF(d);c.names=c.names.filter(n=>!co.includes(n));co.forEach(n=>delete c.cols[n]);c.geom=d.cols[co[0]].map((x,i)=>[x,d.cols[co[1]][i]]);c.geomType="POINT";c.crs=+crs===32735?CRS:{epsg:crs,name:"EPSG:"+crs};c.badCrs=+crs!==32735;emit("st_as_sf",{d:c,crs});return c});
+def("st_buffer","sf",(a)=>{const p=A(a,["x","dist"]);const d=p.x;if(!isSF(d))throw new RError("st_buffer() needs an sf object");const dist=num(p.dist);if(dist===undefined)throw new RError("argument \"dist\" is missing",{tip:"Distance is in CRS units — metres here. 5 km = 5000"});
+  if(dist<50)R.warn(`dist = ${dist} metres is tiny. Our CRS is in metres (5 km = 5000).`);
+  const c=cloneDF(d);c.geom=d.geom.map(g=>{if(d.geomType!=="POINT")throw new RError("st_buffer() here works on points");return circlePoly(g[0],g[1],dist,40)});c.geomType="POLYGON";c.bufferDist=dist;emit("buffer",{dist});return c});
+def("st_geometry","sf",(a)=>{const d=a[0].value;if(!isSF(d))throw new RError("no geometry");return {type:"sfc",geom:d.geom,geomType:d.geomType,crs:d.crs}});
+def("st_drop_geometry","sf",(a)=>{const c=cloneDF(a[0].value);c.geom=null;c.geomType=null;return c});
+def("st_transform","sf",(a)=>{const p=A(a,["x","crs"]);R.msg("(Everything in this lab is already in EPSG:32735 — no transform needed.)");return p.x});
+def("st_intersects","sf",(a)=>{const p=A(a,["x","y"]);const x=p.x,y=p.y;if(!isSF(x)||!isSF(y))throw new RError("st_intersects() needs two sf objects");
+  if(x.geomType!=="POLYGON"||y.geomType!=="POINT")throw new RError("Here st_intersects(x, y) supports x = polygons (e.g. buffers), y = points (e.g. cases_sf)");
+  return {type:"sgbp",list:x.geom.map(g=>{const o=[];y.geom.forEach((pt,j)=>{if(pointInPoly(pt[0],pt[1],g))o.push(j)});return o})}});
+def("st_distance","sf",(a)=>{throw new RError("st_distance() isn't enabled in this lab — use st_buffer() + st_intersects() instead")});
+
+// ---- dplyr (non-standard evaluation) ----
+function maskEnv(d,env){const e=new Env(env);d.names.forEach(n=>e.set(n,d.cols[n]));e.set("n",{type:"fn",name:"n",def:{pkg:"dplyr",f:()=>[d.nrow],name:"n"}});return e}
+function nseData(a,env){if(!a.length)throw new RError("missing data argument");const d=evalNode(a[0].value,env);if(!isDF(d))throw new RError("this dplyr verb needs a data frame (got "+typeOf(d)+")");return d}
+def("filter","dplyr",(a,env)=>{const d=nseData(a,env);const m=maskEnv(d,env);let keep=Array(d.nrow).fill(true);
+  a.slice(1).forEach(x=>{if(x.name)throw new RError(`We detected a named input.\nThis usually means that you've used \`=\` instead of \`==\`.`,{tip:`Did you mean \`${x.name} == ...\`?`});const v=vec(evalNode(x.value,m));keep=keep.map((k,i)=>k&&v[i%v.length]===true)});
+  const r=subsetRows(d,keep.map((k,i)=>k?i:-1).filter(i=>i>=0));emit("filter",{d:r});return r},{nse:true});
+def("mutate","dplyr",(a,env)=>{let d=cloneDF(nseData(a,env));a.slice(1).forEach(x=>{if(!x.name)throw new RError("mutate() needs name = value");const m=maskEnv(d,env);let v=evalNode(x.value,m);if(isDF(v))v=v.cols[v.names[v.names.length-1]];v=vec(v);if(v.length===1)v=Array(d.nrow).fill(v[0]);if(v.length!==d.nrow)throw new RError(`\`${x.name}\` must be size ${d.nrow} or 1, not ${v.length}.`);if(!d.names.includes(x.name))d.names.push(x.name);d.cols[x.name]=v;emit("assigncol",{col:x.name,d})});return d},{nse:true});
+def("select","dplyr",(a,env)=>{const d=nseData(a,env);const cs=[];a.slice(1).forEach(x=>{if(x.value.k==="id"||x.value.k==="str"){if(!d.names.includes(x.value.v)&&x.value.v!=="geometry")throw new RError(`Column \`${x.value.v}\` doesn't exist.`);if(x.value.v!=="geometry")cs.push(x.value.v)}else if(x.value.k==="neg"){}});const n={...d,names:cs,cols:{}};cs.forEach(c=>n.cols[c]=d.cols[c]);return n},{nse:true});
+def("desc","dplyr",(a)=>vec(a[0].value).map(x=>x===null?null:typeof x==="number"?-x:x));
+def("arrange","dplyr",(a,env)=>{const d=nseData(a,env);const m=maskEnv(d,env);const keys=a.slice(1).map(x=>{const desc=x.value.k==="call"&&x.value.fn.v==="desc";const v=vec(evalNode(desc?x.value.args[0].value:x.value,m));return {v,desc}});
+  const idx=[...Array(d.nrow).keys()].sort((i,j)=>{for(const k of keys){const x=k.v[i],y=k.v[j];if(x===y)continue;if(x===null)return 1;if(y===null)return -1;const c=x<y?-1:1;return k.desc?-c:c}return i-j});
+  const r=subsetRows(d,idx);r.sortedBy=keys;emit("arrange",{d:r,keys:a.slice(1)});return r},{nse:true});
+def("slice_max","dplyr",(a,env)=>{const d=nseData(a,env);const p=A(a.slice(1),["order_by","n"]);const m=maskEnv(d,env);const v=vec(evalNode(p.order_by,m));const n=p.n?+sc(evalNode(p.n,env)):1;const idx=[...Array(d.nrow).keys()].sort((i,j)=>(v[j]??-Infinity)-(v[i]??-Infinity)).slice(0,n);const r=subsetRows(d,idx);emit("arrange",{d:r});return r},{nse:true});
+def("count","dplyr",(a,env)=>{const d=nseData(a,env);const col=a[1]&&a[1].value.v;if(!col||!d.names.includes(col))throw new RError("count(df, column): column not found");const t=new Map();d.cols[col].forEach(x=>t.set(x,(t.get(x)||0)+1));const ks=[...t.keys()].sort();return {type:"df",names:[col,"n"],cols:{[col]:ks,n:ks.map(k=>t.get(k))},nrow:ks.length,geom:null}},{nse:true});
+def("pull","dplyr",(a,env)=>{const d=nseData(a,env);const c=a[1].value.v;return d.cols[c]},{nse:true});
+
+// ---- httr2 (simulated web API) ----
+function fullUrl(q){const qs=Object.entries(q.query).map(([k,v])=>k+"="+encodeURIComponent(v)).join("&");return q.url+(qs?"?"+qs:"")}
+def("request","httr2",(a)=>{const u=str(a[0].value);return {type:"httr2_request",url:u,query:{},headers:{}}});
+def("req_url_query","httr2",(a)=>{const q={...a[0].value,query:{...a[0].value.query}};a.slice(1).forEach(x=>{if(x.name)q.query[x.name]=fmtEl(sc(x.value),false)});return q});
+def("req_headers","httr2",(a,env)=>{const q0=evalNode(a[0].value,env);const q={...q0,headers:{...q0.headers}};a.slice(1).forEach(x=>{if(!x.name)return;const lit=x.value.k==="str";const v=str(evalNode(x.value,env));q.headers[x.name]=v;if(lit&&v===API_KEY_VALUE)emit("hardcoded",{})});return q},{nse:true});
+def("req_perform","httr2",(a)=>{const q=a[0].value;if(!q||q.type!=="httr2_request")throw new RError("req_perform() needs a request made with request()");
+  const now=Date.now();R.apiCalls=R.apiCalls.filter(t=>now-t<60000);R.apiCalls.push(now);
+  const url=fullUrl(q);
+  if(!q.url.startsWith(API_BASE)){throw new RError(`Failed to perform HTTP request.\nCaused by error in \`curl::curl_fetch_memory()\`:\n! Could not resolve host`,{tip:`The lab API lives at ${API_BASE}/alerts`})}
+  if(R.apiCalls.length>5){emit("ratelimit",{});throw new RError("HTTP 429 Too Many Requests.",{tip:"Gatekeeper! This API allows 5 requests per minute. Save the response in an object (resp <- ...) and reuse it instead of calling again. Wait a minute or two."})}
+  const key=Object.entries(q.headers).find(([k])=>k.toLowerCase()==="x-api-key");
+  if(!key){emit("api401",{});throw new RError("HTTP 401 Unauthorized.",{tip:"This API needs a key. Keys live in .Renviron (see Files). Add  |> req_headers(`X-API-Key` = Sys.getenv(\"MOH_API_KEY\"))  — never paste the key itself into a script."})}
+  if(key[1]!==API_KEY_VALUE)throw new RError("HTTP 403 Forbidden: invalid API key.");
+  const path=q.url.slice(API_BASE.length);
+  if(path!=="/alerts")throw new RError("HTTP 404 Not Found.",{tip:"Available endpoint: "+API_BASE+"/alerts"});
+  const dz=q.query.disease;if(dz&&dz!=="yellow_fever")throw new RError("HTTP 400 Bad Request: unknown disease '"+dz+"'. Try disease = \"yellow_fever\"");
+  const body={source:"Kivara MoH Surveillance API",updated:"2026-09-22T06:00:00Z",disease:"yellow_fever",
+    neighbour:{district:"Lomera",confirmed_cases:14,suspected_cases:37,deaths:3,border_with_kivara:"east"},
+    kivara:{suspected_cases:DATA.cases.length,confirmed_cases:DATA.cases.filter(c=>c.classification==="confirmed").length,last_report:"2026-09-21"},
+    advice:{target_group:"everyone aged 9 months and older",vaccine_doses_available:60000,hubs_needed:3}};
+  emit("api200",{q});
+  return {type:"httr2_response",url,status:200,statusText:"OK",bytes:JSON.stringify(body).length,body};
+});
+def("resp_status","httr2",(a)=>[a[0].value.status]);
+function toR(x){if(x===null)return null;if(Array.isArray(x))return {type:"list",names:x.map((_,i)=>String(i+1)),vals:x.map(toR)};if(typeof x==="object")return {type:"list",names:Object.keys(x),vals:Object.values(x).map(toR)};return [x]}
+def("resp_body_json","httr2",(a)=>{const r=a[0].value;if(!r||r.type!=="httr2_response")throw new RError("resp_body_json() needs a response from req_perform()");emit("json",{});return toR(r.body)});
+def("resp_body_string","httr2",(a)=>[JSON.stringify(a[0].value.body,null,2)]);
+
+// ---- plot ----
+def("plot","graphics",(a)=>{const p=A(a,["x","y","main","col"]);const x=p.x;
+  if(isR(x)){Plot.raster(x,{main:str(p.main,x.name)});emit("plot",{x});return inv(null)}
+  if(isSF(x)){const col=p.y!==undefined&&isVec(p.y)?String(p.y[0]):null;Plot.sf(x,{main:str(p.main,""),col});emit("plot",{x});return inv(null)}
+  if(x&&x.type==="sfc"){Plot.sf({type:"df",names:[],cols:{},nrow:x.geom.length,geom:x.geom,geomType:x.geomType},{main:""});return inv(null)}
+  if(isDF(x))throw new RError("plot() on a plain data.frame isn't a map",{tip:"Convert it first: st_as_sf(x, coords = c(\"x_utm\", \"y_utm\"), crs = 32735)"});
+  if(isVec(x)){Plot.hist(nums(x),"",""); return inv(null)}
+  throw new RError("don't know how to plot this object");
+});
+// ===================== Plotting + tmap =====================
+const PAL={viridis:["#440154","#3b528b","#21918c","#5ec962","#fde725"],magma:["#000004","#51127c","#b73779","#fc8961","#fcfdbf"],plasma:["#0d0887","#7e03a8","#cc4778","#f89540","#f0f921"],
+  ylgn:["#ffffe5","#d9f0a3","#78c679","#238443","#004529"],ylorrd:["#ffffb2","#fecc5c","#fd8d3c","#f03b20","#bd0026"],ylorbr:["#ffffd4","#fed98e","#fe9929","#d95f0e","#993404"],
+  greens:["#f7fcf5","#c7e9c0","#74c476","#238b45","#00441b"],blues:["#f7fbff","#c6dbef","#6baed6","#2171b5","#08306b"],reds:["#fff5f0","#fcbba1","#fb6a4a","#cb181d","#67000d"],
+  oranges:["#fff5eb","#fdd0a2","#fd8d3c","#d94801","#7f2704"],purples:["#fcfbfd","#dadaeb","#9e9ac8","#6a51a3","#3f007d"],bugn:["#f7fcfd","#ccece6","#66c2a4","#238b45","#00441b"],
+  orrd:["#fff7ec","#fdd49e","#fc8d59","#d7301f","#7f0000"],pubu:["#fff7fb","#d0d1e6","#74a9cf","#0570b0","#023858"],rdylgn:["#d73027","#fc8d59","#ffffbf","#91cf60","#1a9850"],
+  spectral:["#d7191c","#fdae61","#ffffbf","#abdda4","#2b83ba"],greys:["#ffffff","#d9d9d9","#969696","#525252","#000000"],terrain:["#00a600","#63c600","#e6e600","#eab64e","#f2f2f2"]};
+const CAT=["#1b9e77","#d95f02","#7570b3","#e7298a","#66a61e","#e6ab02","#a6761d","#666666"];
+const _cc=document.createElement("canvas").getContext("2d");
+function rcol(c){if(c===null||c===undefined)return null;c=String(c);let m=c.match(/^gr[ae]y(\d{1,3})$/i);if(m){const v=Math.round(+m[1]*2.55);return `rgb(${v},${v},${v})`}
+  if(c==="transparent"||c==="NA")return "rgba(0,0,0,0)";const base=c.replace(/[1-4]$/,"");_cc.fillStyle="#010203";_cc.fillStyle=base;if(_cc.fillStyle==="#010203"&&base.toLowerCase()!=="#010203")return null;return _cc.fillStyle}
+function palette(spec){ // returns array of css colors or null
+  if(spec===undefined||spec===null)return null;
+  if(spec&&spec.type==="tmscale")return palette(spec.values);
+  const v=vec(spec);if(v.length>1){const cs=v.map(rcol);if(cs.some(x=>!x))throw new RError("unknown colour in palette: "+v[cs.indexOf(null)]);return cs}
+  let s=String(v[0]);let rev=false;if(s.startsWith("-")){rev=true;s=s.slice(1)}
+  const k=s.toLowerCase().replace(/^(brewer|viridis|hcl)\./,"").replace(/[^a-z]/g,"");
+  if(PAL[k]){const p=PAL[k].slice();return rev?p.reverse():p}
+  const one=rcol(s);if(one)return [one];
+  throw new RError(`palette '${s}' not found`,{tip:"Try \"YlGn\", \"YlOrRd\", \"Blues\", \"viridis\" or c(\"white\", \"darkgreen\")"});
+}
+function hexRGB(c){_cc.fillStyle=c;const h=_cc.fillStyle;if(h.startsWith("#"))return [parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];const m=h.match(/[\d.]+/g);return m.slice(0,3).map(Number)}
+function ramp(pal,t){t=Math.max(0,Math.min(1,t));if(pal.length===1)return hexRGB(pal[0]);const f=t*(pal.length-1),i=Math.min(pal.length-2,Math.floor(f)),u=f-i;const a=hexRGB(pal[i]),b=hexRGB(pal[i+1]);return a.map((x,j)=>Math.round(x+(b[j]-x)*u))}
+function prettyBreaks(mn,mx,n=5){const span=mx-mn||1;const raw=span/n;const mag=10**Math.floor(Math.log10(raw));const step=[1,2,2.5,5,10].map(s=>s*mag).find(s=>span/s<=n+.5)||raw;const out=[];for(let x=Math.floor(mn/step)*step;x<mx+step*.999;x+=step)out.push(+x.toPrecision(10));return out}
+const fmtK=x=>Math.abs(x)>=1000?(x/1000).toLocaleString("en",{maximumFractionDigits:1})+"k":String(+x.toPrecision(4));
+
+const Plot={
+  cv:null,ctx:null,
+  init(){this.cv=document.getElementById("plot");this.ctx=this.cv.getContext("2d");this.blank()},
+  blank(ctx=this.ctx,W=900,H=640){ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle="#fff";ctx.fillRect(0,0,W,H)},
+  frame(bb,area){const [x0,y0,x1,y1]=bb;const sx=area.w/(x1-x0),sy=area.h/(y1-y0),s=Math.min(sx,sy);const ox=area.x+(area.w-(x1-x0)*s)/2,oy=area.y+(area.h-(y1-y0)*s)/2;
+    return {s,X:x=>ox+(x-x0)*s,Y:y=>oy+(y1-y)*s,box:[ox,oy,(x1-x0)*s,(y1-y0)*s]}},
+  pad(bb,f=.04){const dx=(bb[2]-bb[0])*f||800,dy=(bb[3]-bb[1])*f||800;return [bb[0]-dx,bb[1]-dy,bb[2]+dx,bb[3]+dy]},
+  drawRaster(ctx,r,F,colorFn){const img=document.createElement("canvas");img.width=r.nx;img.height=r.ny;const ic=img.getContext("2d");const id=ic.createImageData(r.nx,r.ny);
+    for(let i=0;i<r.data.length;i++){const v=r.data[i];if(Number.isNaN(v))continue;const c=colorFn(v);if(!c)continue;id.data[i*4]=c[0];id.data[i*4+1]=c[1];id.data[i*4+2]=c[2];id.data[i*4+3]=c[3]??255}
+    ic.putImageData(id,0,0);ctx.imageSmoothingEnabled=false;const x=F.X(r.xmin),y=F.Y(r.ymax);ctx.drawImage(img,x,y,r.nx*r.res*F.s,r.ny*r.res*F.s)},
+  path(ctx,pts,F,close){ctx.beginPath();pts.forEach((p,i)=>i?ctx.lineTo(F.X(p[0]),F.Y(p[1])):ctx.moveTo(F.X(p[0]),F.Y(p[1])));if(close)ctx.closePath()},
+  axes(ctx,F,bb){ctx.strokeStyle="#333";ctx.lineWidth=1;ctx.strokeRect(...F.box);ctx.fillStyle="#333";ctx.font="11px sans-serif";ctx.textAlign="center";
+    prettyBreaks(bb[0],bb[2],5).forEach(x=>{if(x<bb[0]||x>bb[2])return;const px=F.X(x);ctx.beginPath();ctx.moveTo(px,F.box[1]+F.box[3]);ctx.lineTo(px,F.box[1]+F.box[3]+5);ctx.stroke();ctx.fillText(Math.round(x),px,F.box[1]+F.box[3]+17)});
+    ctx.textAlign="right";prettyBreaks(bb[1],bb[3],5).forEach(y=>{if(y<bb[1]||y>bb[3])return;const py=F.Y(y);ctx.beginPath();ctx.moveTo(F.box[0],py);ctx.lineTo(F.box[0]-5,py);ctx.stroke();ctx.save();ctx.translate(F.box[0]-8,py);ctx.rotate(-Math.PI/2);ctx.textAlign="center";ctx.fillText(Math.round(y),0,0);ctx.restore()})},
+  title(t){document.getElementById("plotTitle").textContent=t},
+  raster(r,{main}){const ctx=this.ctx;this.blank();const bb=bbox(r);const F=this.frame(bb,{x:70,y:40,w:680,h:560});
+    const st=rstats(r);
+    if(r.logical){const cols=[[235,235,235],[217,95,2]];this.drawRaster(ctx,r,F,v=>cols[v?1:0]);this.legendCat(ctx,770,90,["FALSE","TRUE"],cols.map(c=>`rgb(${c})`),"")}
+    else{const pal=PAL.viridis;this.drawRaster(ctx,r,F,v=>ramp(pal,(v-st.mn)/(st.mx-st.mn||1)));this.legendBar(ctx,770,90,pal,st.mn,st.mx)}
+    this.axes(ctx,F,bb);ctx.fillStyle="#111";ctx.font="bold 15px sans-serif";ctx.textAlign="center";ctx.fillText(main||"",F.box[0]+F.box[2]/2,28);this.title("plot("+(r.name)+")");this.showCheck(null)},
+  legendBar(ctx,x,y,pal,mn,mx){const h=260;for(let i=0;i<h;i++){const c=ramp(pal,1-i/h);ctx.fillStyle=`rgb(${c})`;ctx.fillRect(x,y+i,18,1)}ctx.strokeStyle="#666";ctx.strokeRect(x,y,18,h);ctx.fillStyle="#333";ctx.font="11px sans-serif";ctx.textAlign="left";
+    prettyBreaks(mn,mx,5).forEach(b=>{if(b<mn||b>mx)return;const py=y+h-(b-mn)/(mx-mn||1)*h;ctx.fillText(fmtK(b),x+24,py+4)})},
+  legendCat(ctx,x,y,labels,cols,title,kind="box"){ctx.font="bold 12px sans-serif";ctx.fillStyle="#222";ctx.textAlign="left";let yy=y;if(title){ctx.fillText(title,x,yy);yy+=16}
+    ctx.font="12px sans-serif";labels.forEach((l,i)=>{ctx.fillStyle=cols[i];if(kind==="dot"){ctx.beginPath();ctx.arc(x+8,yy+6,5.5,0,7);ctx.fill();ctx.strokeStyle="#222";ctx.lineWidth=.8;ctx.stroke()}else if(kind==="line"){ctx.strokeStyle=cols[i];ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(x,yy+6);ctx.lineTo(x+18,yy+6);ctx.stroke()}else{ctx.fillRect(x,yy,16,12);ctx.strokeStyle="#666";ctx.lineWidth=.6;ctx.strokeRect(x,yy,16,12)}
+      ctx.fillStyle="#222";ctx.fillText(l,x+24,yy+10);yy+=17});return yy+8},
+  sf(d,{main,col}){const ctx=this.ctx;this.blank();const bb=this.pad(bbox(d));const F=this.frame(bb,{x:40,y:40,w:720,h:570});
+    const c=col||d.names.find(n=>n!=="osm_id")||null;let colorOf=()=>"#6b8fb3",labels=[],cols=[];
+    if(c){const v=d.cols[c];if(typeOf(v)==="numeric"){const n=nums(v);const mn=Math.min(...n),mx=Math.max(...n);colorOf=i=>`rgb(${ramp(PAL.viridis,(v[i]-mn)/(mx-mn||1))})`;this.legendBar(ctx,790,90,PAL.viridis,mn,mx)}
+      else{labels=[...new Set(v.map(x=>fmtEl(x,false)))].sort();cols=labels.map((_,i)=>CAT[i%CAT.length]);colorOf=i=>cols[labels.indexOf(fmtEl(v[i],false))];if(labels.length<=12)this.legendCat(ctx,780,90,labels,cols,"",d.geomType==="POINT"?"dot":d.geomType==="LINESTRING"?"line":"box")}}
+    d.geom.forEach((g,i)=>this.drawGeom(ctx,g,d.geomType,F,{fill:colorOf(i),col:"#333",size:5,lwd:2}));
+    ctx.strokeStyle="#999";ctx.strokeRect(...F.box);ctx.fillStyle="#111";ctx.font="bold 15px sans-serif";ctx.textAlign="center";ctx.fillText(main||c||"",F.box[0]+F.box[2]/2,28);this.title("plot(sf)"+(c?" — coloured by "+c:""));this.showCheck(null)},
+  drawGeom(ctx,g,t,F,o){if(t==="POINT"){ctx.beginPath();ctx.arc(F.X(g[0]),F.Y(g[1]),o.size,0,7);ctx.fillStyle=o.fill;ctx.globalAlpha=o.alpha??1;ctx.fill();ctx.globalAlpha=1;if(o.col){ctx.strokeStyle=o.col;ctx.lineWidth=.9;ctx.stroke()}}
+    else if(t==="LINESTRING"){this.path(ctx,g,F,false);ctx.strokeStyle=o.fill||o.col;ctx.lineWidth=o.lwd||1.5;ctx.lineJoin="round";ctx.stroke()}
+    else{this.path(ctx,g,F,true);if(o.fill){ctx.globalAlpha=o.alpha??1;ctx.fillStyle=o.fill;ctx.fill();ctx.globalAlpha=1}if(o.col){ctx.strokeStyle=o.col;ctx.lineWidth=o.lwd||1;ctx.stroke()}}},
+  hist(n,main,xlab){const ctx=this.ctx;this.blank();if(!n.length)return;const mn=Math.min(...n),mx=Math.max(...n);const br=prettyBreaks(mn,mx,10);const counts=br.slice(0,-1).map((b,i)=>n.filter(x=>x>=b&&(x<br[i+1]||(i===br.length-2&&x<=br[i+1]))).length);
+    const cm=Math.max(...counts);const X=v=>80+(v-br[0])/(br[br.length-1]-br[0])*760,Y=v=>580-v/cm*500;ctx.fillStyle="#bcc9d6";ctx.strokeStyle="#333";counts.forEach((c,i)=>{ctx.fillRect(X(br[i]),Y(c),X(br[i+1])-X(br[i]),580-Y(c));ctx.strokeRect(X(br[i]),Y(c),X(br[i+1])-X(br[i]),580-Y(c))});
+    ctx.fillStyle="#333";ctx.font="11px sans-serif";ctx.textAlign="center";br.forEach(b=>ctx.fillText(fmtK(b),X(b),598));ctx.font="bold 15px sans-serif";ctx.fillText(main||"Histogram",450,40);ctx.font="12px sans-serif";ctx.fillText(xlab,450,625);this.title("hist()");this.showCheck(null)},
+  bar(v,main){const ctx=this.ctx;this.blank();const n=v.length,mx=Math.max(...nums(v));const w=700/n;v.forEach((x,i)=>{const h=x/mx*480;ctx.fillStyle="#9fb4c8";ctx.fillRect(100+i*w+w*.15,560-h,w*.7,h);ctx.fillStyle="#333";ctx.font="12px sans-serif";ctx.textAlign="center";ctx.fillText(v.names?v.names[i]:i+1,100+i*w+w/2,580);ctx.fillText(fmtEl(x),100+i*w+w/2,552-h)});ctx.font="bold 15px sans-serif";ctx.fillText(main,450,40);this.title("barplot()");this.showCheck(null)},
+  showCheck(items){const el=document.getElementById("mapCheck");if(!items){el.hidden=true;return}el.hidden=false;el.innerHTML=items.map(i=>`<span class="chip ${i.on?"on":""}">${i.on?"✓ ":""}${i.label}</span>`).join("")},
+};
+
+function rTrim(r){let c0=r.nx,c1=-1,r0=r.ny,r1=-1;for(let i=0;i<r.data.length;i++){if(Number.isNaN(r.data[i]))continue;const c=i%r.nx,w=(i/r.nx)|0;if(c<c0)c0=c;if(c>c1)c1=c;if(w<r0)r0=w;if(w>r1)r1=w}
+  if(c1<0)return bbox(r);return [r.xmin+c0*r.res,r.ymax-(r1+1)*r.res,r.xmin+(c1+1)*r.res,r.ymax-r0*r.res]}
+// ---- tmap objects ----
+const TM=(o)=>({type:"tmap",groups:[],loose:[],extras:{},...o});
+function tmapAdd(l,r){if(!(l&&l.type==="tmap")||!(r&&r.type==="tmap"))throw new RError("only tmap elements can be added with + (did you mean to combine tm_shape() + tm_...()?)");
+  const out=TM({groups:l.groups.map(g=>({...g,layers:g.layers.slice()})),loose:l.loose.slice(),extras:{...l.extras,...r.extras}});
+  if(r.groups.length){r.groups.forEach(g=>out.groups.push({...g,layers:g.layers.slice()}))}
+  if(r.loose.length){if(!out.groups.length)throw new RError("A tm_"+r.loose[0].kind+"() layer needs a tm_shape() in front of it",{tip:"Start with  tm_shape(object) + tm_"+r.loose[0].kind+"()"});out.groups[out.groups.length-1].layers.push(...r.loose)}
+  return out}
+function layerFn(kind){return (a)=>{const o={};a.forEach(x=>{if(x.name)o[x.name]=x.value});const pos=a.filter(x=>!x.name).map(x=>x.value);
+  if(pos.length&&kind!=="text"&&kind!=="raster")o.fill??=pos[0];if(pos.length&&kind==="raster")o.col??=pos[0];if(pos.length&&kind==="text")o.text??=pos[0];return TM({loose:[{kind,o}]})}}
+def("tm_shape","tmap",(a)=>{const s=a[0]&&a[0].value;if(!(isR(s)||isSF(s)))throw new RError("tm_shape() needs a SpatRaster or sf object (got "+typeOf(s)+")",{tip:isDF(s)?"A plain data.frame has no geometry — st_as_sf() it first.":""});return TM({groups:[{shape:s,layers:[]}]})});
+["raster","polygons","fill","borders","lines","dots","symbols","bubbles","text"].forEach(k=>def("tm_"+k,"tmap",layerFn(k==="fill"?"polygons":k==="symbols"||k==="bubbles"?"dots":k)));
+def("tm_title","tmap",(a)=>TM({extras:{title:str(a[0].value)}}));
+def("tm_layout","tmap",(a)=>{const p=A(a,["title"]);const e={};const t=p.title||(p["..."].find(x=>x.name==="main.title")||{}).value;if(t)e.title=str(t);return TM({extras:e})});
+def("tm_compass","tmap",()=>TM({extras:{compass:true}}));
+def("tm_scalebar,tm_scale_bar","tmap",()=>TM({extras:{scalebar:true}}));
+def("tm_credits","tmap",(a)=>TM({extras:{credits:str(a[0].value)}}));
+def("tm_legend","tmap",(a)=>{const p=A(a,["title"]);return {type:"tmlegend",title:p.title!==undefined?str(p.title):undefined}});
+def("tm_scale,tm_scale_continuous,tm_scale_intervals,tm_scale_categorical","tmap",(a)=>{const p=A(a,["values"]);return {type:"tmscale",values:p.values}});
+def("tmap_mode","tmap",(a)=>{const m=str(a[0]&&a[0].value,"plot");if(m==="view")R.msg("ℹ tmap mode set to \"view\" — interactive maps are not available in this console, staying in \"plot\" mode (that's what you'd export for a briefing anyway).");else R.msg("ℹ tmap mode set to \"plot\".");return inv(null)});
+
+function resolveAes(layer,shape,{fillKey,defaultFill}){
+  const o=layer.o;const key=fillKey.map(k=>o[k]).find(v=>v!==undefined);
+  const palSpec=o.palette??o["fill.scale"]??o["col.scale"];const legendT=(o["fill.legend"]||o["col.legend"])?.title??(o.title!==undefined?str(o.title):undefined);
+  const alpha=num(o.alpha??o.fill_alpha??o.col_alpha,1);
+  if(key===undefined)return {constant:defaultFill,alpha};
+  const v0=vec(key);
+  if(v0.length===1&&typeof v0[0]==="string"&&isDF(shape)&&shape.names.includes(v0[0])){
+    const colname=v0[0];const v=shape.cols[colname];
+    if(typeOf(v)==="numeric"){const n=nums(v);const br=prettyBreaks(Math.min(...n),Math.max(...n),5);const pal=palette(palSpec)||PAL.ylorbr;const k=br.length-1;const cols=[...Array(k).keys()].map(i=>`rgb(${ramp(pal,k===1?1:i/(k-1))})`);
+      return {byIndex:i=>{if(v[i]===null)return "#bbb";let j=br.findIndex((b,jj)=>jj<k&&v[i]>=b&&v[i]<=br[jj+1]);return cols[Math.max(0,j)]},legend:{title:legendT??colname,labels:cols.map((_,i)=>`${fmtK(br[i])} to ${fmtK(br[i+1])}`),cols},alpha,varname:colname}}
+    const labels=[...new Set(v.map(x=>fmtEl(x,false)))].sort();const pal=palette(palSpec);const cols=labels.map((_,i)=>pal?(pal.length>=labels.length?pal[i]:`rgb(${ramp(pal,labels.length===1?1:i/(labels.length-1))})`):CAT[i%CAT.length]);
+    return {byIndex:i=>cols[labels.indexOf(fmtEl(v[i],false))],legend:{title:legendT??colname,labels,cols},alpha,varname:colname};
+  }
+  if(v0.length===1&&typeof v0[0]==="string"){const c=rcol(v0[0]);if(!c){if(isDF(shape))throw new RError(`'${v0[0]}' is neither a column of this shape nor a colour`,{tip:"Columns: "+shape.names.join(", ")});throw new RError("unknown colour '"+v0[0]+"'")}return {constant:c,alpha,legendTitle:legendT}}
+  throw new RError("colour arguments take a column name (in quotes) or a colour");
+}
+function renderTmap(tm,ctx,W,H){
+  if(!tm.groups.length)throw new RError("this tmap has no tm_shape() — nothing to draw");
+  Plot.blank(ctx,W,H);const k=W/900;ctx.save();ctx.scale(k,k);
+  const master=tm.groups[0].shape;const bb=isR(master)?Plot.pad(rTrim(master),.03):Plot.pad(bbox(master),.06);
+  const F=Plot.frame(bb,{x:24,y:tm.extras.title?60:24,w:630,h:tm.extras.title?560:596});
+  ctx.save();ctx.beginPath();ctx.rect(...F.box);ctx.clip();
+  const legends=[];const info={layers:[]};
+  tm.groups.forEach(g=>{const s=g.shape;if(!g.layers.length)R.warn("tm_shape() without a layer draws nothing — add e.g. + tm_dots()");
+    g.layers.forEach(L=>{
+      const kind=L.kind;info.layers.push({kind,shape:s});
+      if(kind==="raster"){if(!isR(s))throw new RError("tm_raster() needs a raster in tm_shape()",{tip:"For sf objects use tm_polygons(), tm_lines() or tm_dots()."});
+        const st=rstats(s);const pal=palette(L.o.palette??L.o["col.scale"])||(s.logical?["#eeeeee","#1a9850"]:PAL.ylorbr);const lg=(L.o["col.legend"]||{}).title??(L.o.title!==undefined?str(L.o.title):s.name);const alpha=num(L.o.alpha??L.o.col_alpha,1);
+        if(s.logical){const c0=hexRGB(pal[0]),c1=hexRGB(pal[pal.length-1]);Plot.drawRaster(ctx,s,F,v=>[...(v?c1:c0),Math.round(alpha*255)]);legends.push({title:lg,labels:["FALSE","TRUE"],cols:[pal[0],pal[pal.length-1]],kind:"box"})}
+        else{const br=prettyBreaks(st.mn,st.mx,5);const n=br.length-1;const cols=[...Array(n).keys()].map(i=>ramp(pal,n===1?1:i/(n-1)));
+          Plot.drawRaster(ctx,s,F,v=>{let j=0;while(j<n-1&&v>br[j+1])j++;return [...cols[j],Math.round(alpha*255)]});legends.push({title:lg,labels:cols.map((_,i)=>`${fmtK(br[i])} to ${fmtK(br[i+1])}`),cols:cols.map(c=>`rgb(${c})`),kind:"box"})}
+        return}
+      if(!isSF(s))throw new RError(`tm_${kind}() needs an sf object in tm_shape(), not a raster`,{tip:"Rasters use tm_raster()."});
+      if(kind==="lines"&&s.geomType!=="LINESTRING")throw new RError("tm_lines() needs line geometries (roads)");
+      if((kind==="polygons"||kind==="borders")&&s.geomType!=="POLYGON")throw new RError(`tm_${kind}() needs polygons — for points use tm_dots()`);
+      if(kind==="text"){const col=str(L.o.text);if(!s.names.includes(col))throw new RError("tm_text(): column '"+col+"' not found");ctx.fillStyle=rcol(str(L.o.col,"black"))||"#000";ctx.font=`600 ${Math.round(11*num(L.o.size,1))}px sans-serif`;ctx.textAlign="center";ctx.strokeStyle="rgba(255,255,255,.85)";ctx.lineWidth=3;
+        s.geom.forEach((g,i)=>{const c=s.geomType==="POINT"?g:[g.reduce((a,p)=>a+p[0],0)/g.length,g.reduce((a,p)=>a+p[1],0)/g.length];const t=fmtEl(s.cols[col][i],false);const y=F.Y(c[1])+num(L.o.ymod,-1.2)*12;ctx.strokeText(t,F.X(c[0]),y);ctx.fillText(t,F.X(c[0]),y)});return}
+      const fillKey=kind==="lines"?["col","fill"]:kind==="borders"?["col"]:["fill","col"];
+      const def0=kind==="lines"?"#555":kind==="borders"?"#333":kind==="dots"?"#222":"#d9d9d9";
+      const aes=resolveAes(L,s,{fillKey,defaultFill:def0});
+      const border=kind==="dots"||kind==="polygons"?(rcol(str(kind==="polygons"?(L.o["border.col"]??(L.o.fill!==undefined?L.o.col:undefined)):L.o["border.col"]??undefined,"#333"))||"#333"):null;
+      const size=num(L.o.size,kind==="dots"?0.6:1);const lwd=num(L.o.lwd,kind==="lines"?2:1);
+      s.geom.forEach((g,i)=>{const fill=aes.constant??aes.byIndex(i);
+        if(kind==="borders")Plot.drawGeom(ctx,g,"POLYGON",F,{fill:null,col:fill,lwd});
+        else if(kind==="lines")Plot.drawGeom(ctx,g,"LINESTRING",F,{fill,lwd});
+        else Plot.drawGeom(ctx,g,s.geomType,F,{fill,col:kind==="dots"?"#1a1a1a":border,alpha:aes.alpha,size:3+size*7,lwd:1})});
+      if(aes.legend)legends.push({...aes.legend,kind:kind==="dots"?"dot":kind==="lines"?"line":"box"});
+    })});
+  ctx.restore();ctx.strokeStyle="#444";ctx.lineWidth=1;ctx.strokeRect(...F.box);
+  // extras
+  const e=tm.extras;
+  if(e.title){ctx.fillStyle="#111";ctx.font="800 20px Chivo, sans-serif";ctx.textAlign="left";ctx.fillText(e.title,24,38)}
+  if(e.compass){const x=F.box[0]+F.box[2]-34,y=F.box[1]+16;ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(x,y+22,20,0,7);ctx.fill();ctx.fillStyle="#111";ctx.beginPath();ctx.moveTo(x,y+4);ctx.lineTo(x+9,y+32);ctx.lineTo(x,y+26);ctx.lineTo(x-9,y+32);ctx.closePath();ctx.fill();ctx.font="bold 12px sans-serif";ctx.textAlign="center";ctx.fillText("N",x,y+48)}
+  if(e.scalebar){const km=[1,2,5,10,20].find(v=>v*1000*F.s>90)||20;const px=km*1000*F.s;const x=F.box[0]+14,y=F.box[1]+F.box[3]-22;ctx.fillStyle="rgba(255,255,255,.8)";ctx.fillRect(x-6,y-16,px+44,30);for(let i=0;i<4;i++){ctx.fillStyle=i%2?"#fff":"#222";ctx.fillRect(x+i*px/4,y,px/4,6)}ctx.strokeStyle="#222";ctx.strokeRect(x,y,px,6);ctx.fillStyle="#222";ctx.font="11px sans-serif";ctx.textAlign="center";ctx.fillText("0",x,y-4);ctx.fillText(km+" km",x+px,y-4)}
+  if(e.credits){ctx.fillStyle="#555";ctx.font="10.5px sans-serif";ctx.textAlign="right";ctx.fillText(e.credits,F.box[0]+F.box[2]-6,F.box[1]+F.box[3]+16)}
+  let ly=F.box[1]+4;legends.forEach(l=>{if(ly>600)return;ly=Plot.legendCat(ctx,F.box[0]+F.box[2]+22,ly+12,l.labels.slice(0,8),l.cols.slice(0,8),l.title,l.kind)});
+  ctx.restore();
+  info.extras=e;info.legends=legends.length;return info;
+}
+function mapChecklist(info){
+  const has=(kind,test)=>info.layers.some(l=>(!kind||kind.includes(l.kind))&&test(l.shape));
+  return [
+    {key:"risk",label:"Risk or population layer",on:has(["raster"],s=>true)||has(["polygons"],s=>s.src==="grid3_settlement_extents.geojson")},
+    {key:"roads",label:"OSM roads",on:has(["lines"],s=>s.src==="osm_roads.geojson")},
+    {key:"cases",label:"Cases",on:has(["dots"],s=>s.src===LL_SRC)},
+    {key:"hubs",label:"3 vaccination hubs",on:has(["dots","text"],s=>s.src==="grid3_health_facilities.geojson"&&s.nrow===3)},
+    {key:"title",label:"Title",on:!!info.extras.title},
+    {key:"legend",label:"Legend",on:info.legends>0},
+    {key:"nav",label:"Compass + scale bar",on:!!(info.extras.compass&&info.extras.scalebar)},
+  ];
+}
+R.lastMap=null;
+function showTmap(tm){const info=renderTmap(tm,Plot.ctx,900,640);Plot.title("tmap");const cl=mapChecklist(info);Plot.showCheck(cl);R.lastMap={tm,info,cl};emit("tmap",{info,cl})}
+def("tmap_save","tmap",(a)=>{const p=A(a,["tm","filename","width","height","dpi"]);const tm=p.tm;if(!tm||tm.type!=="tmap")throw new RError("tmap_save(): first argument must be a tmap object",{tip:"Store your map first:  yf_map <- tm_shape(...) + ...  then  tmap_save(yf_map, \"yf_hubs.png\")"});
+  const fn=str(p.filename,"tmap.png");if(!/\.png$/i.test(fn))throw new RError("In this lab tmap_save() writes .png files — end the filename with .png");
+  const c=document.createElement("canvas");c.width=1800;c.height=1280;const info=renderTmap(tm,c.getContext("2d"),1800,1280);const cl=mapChecklist(info);
+  showTmap(tm);R.msg(`Map saved to ${fn}\nResolution: 1800 by 1280 pixels\nSize: 6 by 4.27 inches (300 dpi)`);emit("tmap_save",{fn,canvas:c,cl});return inv(null)});
+// ===================== Plain-English explanations + reusable playbook =====================
+const EXPLAIN={
+  library:"opens a package so its functions can be used (like opening an app).",p_load:"opens several packages at once and installs any that are missing.",
+  excel_sheets:"lists the sheet (tab) names inside an Excel file.",read_excel:"reads one sheet of an Excel file into a table (data frame). Pick the tab with sheet = \"name\".",
+  "read.csv":"reads a .csv file into a table (data frame).",head:"shows the first 6 rows, a quick look without printing everything.",
+  filter:"keeps only the rows where your condition is TRUE, like Excel's filter dropdown. Use == for 'equals'.",arrange:"sorts rows. desc() sorts biggest first.",
+  desc:"reverses the sort order: biggest first.",slice_head:"keeps the first n rows.",mutate:"adds or changes a column.",select:"keeps only the columns you name.",count:"counts rows per category.",
+  sum:"adds up numbers. Add na.rm = TRUE to skip blanks.",mean:"average of the numbers.",table:"counts how many times each value appears, like a quick pivot table.",
+  nrow:"number of rows.",names:"column names.",summary:"quick statistics: min, max, median, mean.",
+  rast:"opens a raster (a grid .tif file such as population or rainfall).",plot:"draws a quick map or chart of an object, to check it.",
+  global:"summarises every cell in a raster into one number (sum, mean, max…). na.rm = TRUE skips empty cells.",
+  extract:"reads raster values inside each shape (e.g. adds up population inside each circle). Returns a table: ID + value.",
+  st_read:"reads map files (.geojson, .shp, .gpkg) as an sf table where each row has a shape.",st_as_sf:"turns a normal table with x/y columns into map points. crs = the coordinate system code.",
+  st_buffer:"draws a circle (buffer) of the given distance around each feature. Distance is in metres here.",st_intersects:"checks which points fall inside which shapes.",lengths:"counts the items in each element of a list, e.g. cases per circle.",
+  tm_shape:"starts a map layer: which data to draw.",tm_raster:"draws a raster layer.",tm_dots:"draws points. fill = a colour or a column name.",tm_lines:"draws lines such as roads.",tm_polygons:"draws filled shapes.",
+  tm_text:"writes labels from a column.",tm_title:"adds a map title.",tm_compass:"adds a north arrow.",tm_scalebar:"adds a distance scale bar.",tm_credits:"adds a data-source credit line.",tmap_save:"exports the map as an image file.",
+  c:"combines values into one vector: c(\"a\", \"b\").",print:"shows an object in the console.",
+};
+R.seenFns=new Set();
+R.onCall=name=>{if(!S.explain||R.seenFns.has(name)||!EXPLAIN[name])return;R.seenFns.add(name);out(`ⓘ ${name}() ${EXPLAIN[name]}`,"explain")};
+
+const PLAYBOOK=[
+ {n:1,title:"Set up",what:"Open the packages you need, once, at the top of the script.",code:`pacman::p_load(readxl, dplyr, terra, sf, tmap)`},
+ {n:2,title:"Read your data",what:"Bring each source into R and look at it before using it.",code:`cases <- read_excel("YOUR_linelist.xlsx", sheet = "YOUR_sheet")
+pop   <- rast("YOUR_worldpop.tif")              # population grid
+fac   <- st_read("YOUR_facilities.geojson")     # points or shapes
+head(cases); plot(pop)`},
+ {n:3,title:"Make it spatial",what:"Turn tables with coordinates into map points. Lat/long in degrees → crs = 4326.",code:`cases_sf <- st_as_sf(cases, coords = c("YOUR_x", "YOUR_y"), crs = 4326)`},
+ {n:4,title:"Build a risk layer",what:"Combine environmental grids with simple rules: TRUE where risk is high.",code:`risk <- layer_a > THRESHOLD_A & layer_b > THRESHOLD_B
+global(risk, "mean", na.rm = TRUE) * 100          # % of area at risk`},
+ {n:5,title:"Answer the decision question",what:"Buffer, count people or cases, rank, filter by what's feasible.",code:`catch <- st_buffer(fac, dist = DISTANCE_IN_METRES)
+fac$pop_near   <- extract(pop, catch, fun = sum, na.rm = TRUE)[, 2]
+fac$cases_near <- lengths(st_intersects(catch, cases_sf))
+top <- fac |> filter(YOUR_CONDITION) |> arrange(desc(pop_near)) |> slice_head(n = N)`},
+ {n:6,title:"Map it and share it",what:"Layer the result with tmap and export a PNG for the briefing.",code:`my_map <- tm_shape(risk) + tm_raster() +
+  tm_shape(cases_sf) + tm_dots(fill = "YOUR_column") +
+  tm_shape(top) + tm_dots(fill = "gold", size = 1.2) +
+  tm_title("YOUR TITLE") + tm_compass() + tm_scalebar() +
+  tm_credits("Data: ... , © OpenStreetMap contributors")
+tmap_save(my_map, "YOUR_map.png")`},
+];
+const SWAPS=[
+ ["Yellow fever (this lab)","NDVI > 0.6 & rain > 100 mm","All ages; vaccination hubs with cold chain","5 km"],
+ ["Cholera","Flood extent, distance to water, IDP sites","ORS points / hygiene-kit sites near cases","2–3 km"],
+ ["Malaria","Temperature, rainfall, NDVI (weeks before peak)","RDT + bed-net pre-positioning","5 km"],
+ ["Measles / polio SIA","Low-coverage settlements (GRID3)","Children under 5 per catchment","5 km or travel time"],
+ ["PMTCT","Settlements with high ANC gaps","Women 15–49 (WorldPop age/sex)","Facility catchment"],
+];
+function playbookScript(){return `# =====================================================
+#  Open-data decision workflow: reusable template
+#  Replace every YOUR_... / CAPITALS placeholder.
+#  Works for any disease or programme (see the Playbook tab).
+# =====================================================
+`+PLAYBOOK.map(s=>`\n# ---- Step ${s.n}: ${s.title} ----\n# ${s.what}\n${s.code}`).join("\n")+"\n"}
+// ===================== Missions =====================
+const TRUTH=(()=>{let p=0,u=0,b=0,n=0;for(let i=0;i<DATA.pop.length;i++){if(Number.isNaN(DATA.pop[i]))continue;p+=DATA.pop[i];u+=DATA.u5[i];n++;if(DATA.ndvi[i]>0.6&&DATA.rain[i]>100)b++}
+  return {pop:Math.round(p),u5:Math.round(u),breedPct:100*b/n,confirmed:DATA.cases.filter(c=>c.classification==="confirmed").length,lomera:WEEKLY.filter(r=>r.district==="Lomera").reduce((s,r)=>s+r.confirmed,0)}})();
+const S={flags:{},xp:0,mi:0,done:{},answered:{},quiz:{},hints:{},sol:{},badges:{},minutes:48*60,started:false,finished:false,explain:true};
+const envVals=()=>[...R.global.vars.values()];
+const findEnv=f=>envVals().find(v=>{try{return f(v)}catch(e){return false}});
+const isFac=v=>isSF(v)&&v.src==="grid3_health_facilities.geojson";
+const FAC_COLS=["facility_id","name","type","beds","cold_chain"];
+const XL="kivara_yf_surveillance.xlsx";
+const BADGES={excel:"Excel to R",cold:"Cold-chain aware",cases:"Outbreak-aware hub",credits:"Credit where due",cartographer:"Cartographer",selfmade:"Wrote it myself",nohints:"No hints needed"};
+
+// Each task: t = what to do, why = plain-English reason, tpl = fill-in-the-blank starter (___ = your part)
+const MISSIONS=[
+{code:"M1",title:"Load your toolkit",src:"Slides 5–6 · R packages",step:1,
+ brief:`The National Yellow Fever IMT expects a data-driven deployment plan in <b>48 hours</b>. Everything you need is on this computer: an Excel workbook from the surveillance officer, WorldPop, GRID3, Google Earth Engine exports and OpenStreetMap. First, load the R packages — think of them as apps you open before you start working.`,
+ reuse:`Every project starts the same way: one <code>pacman::p_load()</code> line at the top of your script with every package you need.`,
+ tasks:[
+  {t:"Load <code>readxl</code> — reads Excel files",why:"Your line list and weekly counts live in Excel.",c:()=>R.loaded.has("readxl"),tpl:`library(readxl)   # reads .xlsx / .xls files`},
+  {t:"Load <code>dplyr</code> — filter, sort, add columns",why:"Like Excel's filter and sort buttons, but written down so you can repeat them.",c:()=>R.loaded.has("dplyr"),tpl:`library(dplyr)    # filter(), arrange(), mutate()`},
+  {t:"Load <code>terra</code> and <code>sf</code> — maps data",why:"terra handles grids (rasters: population, rainfall); sf handles points, lines and shapes.",c:()=>R.loaded.has("terra")&&R.loaded.has("sf"),tpl:`library(terra)    # rasters: .tif grids
+library(sf)       # vectors: points, lines, polygons`},
+  {t:"Load <code>tmap</code> — draws the final map",why:"Builds a publication-ready map layer by layer.",c:()=>R.loaded.has("tmap"),tpl:`library(tmap)     # thematic maps`}],
+ quiz:{q:"Why script your analysis in R instead of clicking through Excel?",opts:["Every step is written down, so you (or a colleague) can re-run it next week on new data in seconds","R files are smaller than Excel files","Excel cannot open health data"],a:0,why:"A script is a recipe. When next week's line list arrives, you press Run all instead of redoing every click."},
+ hint:`Load several at once with <code>pacman::p_load(readxl, dplyr, terra, sf, tmap)</code>.`,
+ sol:`pacman::p_load(readxl, dplyr, terra, sf, tmap)`},
+
+{code:"M2",title:"Read your Excel surveillance report",src:"Slides 3–4 · structured, machine-readable data",step:2,
+ brief:`The District Surveillance Officer emailed <code>${XL}</code>. It has several sheets (tabs), just like in Excel. Open it from the <b>Files</b> tab to preview it, then read the <b>weekly_counts</b> sheet into R and find out how many cases are confirmed in Lomera, the district across the border.`,
+ reuse:`Any Excel file: <code>excel_sheets("file.xlsx")</code> to list its tabs, then <code>read_excel("file.xlsx", sheet = "tab name")</code>. Keep one table per sheet, one row per record, and headers in the first row.`,
+ tasks:[
+  {t:"List the sheets in the workbook",why:"You need the exact sheet name, and spelling and capital letters must match.",c:()=>S.flags.sheets,tpl:`excel_sheets("___")   # the .xlsx file name from the Files tab`},
+  {t:"Read the <b>weekly_counts</b> sheet into <code>weekly</code>",why:"Once it's in R it's a data frame: rows = records, columns = variables.",c:()=>!!findEnv(v=>isDF(v)&&v.src===XL+"#weekly_counts"),tpl:`weekly <- read_excel("${XL}", sheet = "___")
+weekly    # print it to check it looks like the Excel tab`},
+  {t:"Keep only Lomera's rows with <code>filter()</code>",why:"Same as Excel's filter dropdown, but written down.",c:()=>!!findEnv(v=>isDF(v)&&v.src===XL+"#weekly_counts"&&v.nrow>0&&v.cols.district.every(x=>x==="Lomera")),tpl:`lomera <- weekly |> filter(district == "___")   # == means "equals"
+lomera`}],
+ answer:{label:"Total confirmed cases in Lomera",check:v=>+v===TRUTH.lomera,tpl:`sum(lomera$___)   # $ picks one column`},
+ quiz:{q:"Why is a well-structured Excel sheet (or CSV) easier to use than a PDF report?",opts:["It's machine-readable: R can read the rows and columns directly, with no copying by hand","PDFs can't contain numbers","Excel files are always open-licensed"],a:0,why:"Open, structured, machine-readable data (.xlsx, .csv, .json, .tif) can go straight into analysis. A PDF has to be retyped."},
+ hint:`<code>excel_sheets("${XL}")</code> shows the tab names. Then <code>weekly &lt;- read_excel("${XL}", sheet = "weekly_counts")</code>, <code>lomera &lt;- weekly |&gt; filter(district == "Lomera")</code> and <code>sum(lomera$confirmed)</code>.`,
+ sol:`excel_sheets("${XL}")
+weekly <- read_excel("${XL}", sheet = "weekly_counts")
+weekly
+lomera <- weekly |> filter(district == "Lomera")
+sum(lomera$confirmed)`},
+
+{code:"M3",title:"Count the people",src:"Slides 11–15 · WorldPop",step:2,
+ brief:`Vaccination needs a denominator. Kivara's last census is 11 years old, so use the <b>WorldPop</b> 2020 population raster (a GeoTIFF). A raster is a grid, like a giant Excel sheet laid over the map: each cell (200 m × 200 m) holds an estimated number of people. Cells outside the district are empty (<code>NA</code>).`,
+ reuse:`Any WorldPop country or age group works the same way: download the .tif, then <code>rast()</code> and <code>global(x, "sum", na.rm = TRUE)</code>. For PMTCT, use the women aged 15–49 layers.`,
+ tasks:[
+  {t:"Read the population GeoTIFF into <code>pop</code>",why:"rast() opens any .tif grid.",c:()=>!!findEnv(v=>isR(v)&&v.src==="worldpop_kivara_2020_200m.tif"&&!v.srcs),tpl:`pop <- rast("___")   # the worldpop ... .tif from Files`},
+  {t:"Look at it with <code>plot(pop)</code>",why:"Always look before you calculate: does it look like your district?",c:()=>S.flags.plotPop,tpl:`plot(pop)`},
+  {t:"Add up every cell with <code>global()</code>",why:"na.rm = TRUE means 'ignore empty cells'. Without it the total is NA.",c:()=>S.flags.popTotal!=null,tpl:`global(pop, "sum", na.rm = ___)   # TRUE or FALSE?`},
+  {t:"Do the same for children under 5",why:"The same recipe works on any layer: that's the point of scripting.",c:()=>S.flags.u5Total!=null,tpl:`u5 <- rast("worldpop_kivara_u5_2020_200m.tif")
+global(u5, "sum", na.rm = TRUE)`}],
+ answer:{label:"Total population (people)",check:v=>Math.abs(+String(v).replace(/[, ]/g,"")-TRUTH.pop)/TRUTH.pop<0.01,tpl:null},
+ quiz:{q:"WorldPop also offers an API. Why is downloading the GeoTIFF fine here?",opts:["Population estimates change about once a year, so a downloaded file stays current","APIs can't serve raster data","Downloads are always higher resolution"],a:0,why:"APIs are worth it for data that changes often, like surveillance counts or rainfall. For yearly layers a downloaded file is fine."},
+ hint:`<code>pop &lt;- rast("worldpop_kivara_2020_200m.tif")</code>, then <code>global(pop, "sum", na.rm = TRUE)</code>. Type the number shown (commas are fine).`,
+ sol:`pop <- rast("worldpop_kivara_2020_200m.tif")
+pop
+plot(pop)
+global(pop, "sum", na.rm = TRUE)
+u5 <- rast("worldpop_kivara_u5_2020_200m.tif")
+global(u5, "sum", na.rm = TRUE)`},
+
+{code:"M4",title:"Put the cases on the map",src:"Scenario · line list in Excel",step:3,
+ brief:`The line list is the <b>linelist</b> sheet of the same Excel workbook. Each case has household coordinates in two columns, <code>x_utm</code> and <code>y_utm</code>, in metres (UTM zone 35S, code <b>32735</b>). To R that's still just a table. Tell R which columns hold the coordinates to turn the rows into points on a map.`,
+ reuse:`Any table with coordinates (cases, water points, schools, GPS survey data) can become map points: <code>st_as_sf(table, coords = c("x_column", "y_column"), crs = code)</code>. If your coordinates are latitude/longitude in degrees, the code is 4326.`,
+ tasks:[
+  {t:"Read the <b>linelist</b> sheet into <code>cases</code>",why:"Same function as before, just a different sheet.",c:()=>!!findEnv(v=>isDF(v)&&!v.geom&&v.src===LL_SRC),tpl:`cases <- read_excel("${XL}", sheet = "___")
+head(cases)   # first 6 rows`},
+  {t:"Make it spatial with <code>st_as_sf()</code> and the right CRS",why:"coords = which columns are x and y; crs = how the numbers were measured.",c:()=>!!findEnv(v=>isSF(v)&&v.src===LL_SRC&&v.nrow===DATA.cases.length&&!v.badCrs),tpl:`cases_sf <- st_as_sf(cases, coords = c("x_utm", "y_utm"), crs = ___)   # UTM 35S code`},
+  {t:"Plot the points",why:"The square brackets pick which column colours the dots.",c:()=>S.flags.plotCases,tpl:`plot(cases_sf["classification"])`}],
+ answer:{label:"Confirmed cases in Kivara",check:v=>+v===TRUTH.confirmed,tpl:`table(cases$___)   # counts each category, like a pivot table`},
+ quiz:{q:"The coordinates are in metres (x_utm, y_utm). Which crs do you give st_as_sf()?",opts:["32735: WGS 84 / UTM zone 35S","4326: longitude/latitude in degrees","Leave it out, R will guess"],a:0,why:"The CRS has to describe how the numbers were recorded. GPS phones usually record 4326 (degrees); this file uses UTM metres."},
+ hint:`<code>cases &lt;- read_excel("${XL}", sheet = "linelist")</code>, then <code>table(cases$classification)</code>, then <code>cases_sf &lt;- st_as_sf(cases, coords = c("x_utm", "y_utm"), crs = 32735)</code>.`,
+ sol:`cases <- read_excel("${XL}", sheet = "linelist")
+head(cases)
+table(cases$classification)
+cases_sf <- st_as_sf(cases, coords = c("x_utm", "y_utm"), crs = 32735)
+plot(cases_sf["classification"])`},
+
+{code:"M5",title:"Find the breeding grounds",src:"Slides 19–22 · Google Earth Engine",step:4,
+ brief:`No entomological survey, no problem. <i>Aedes</i> mosquitoes breed where it's <b>green and wet</b>. You exported two 30-day layers from Google Earth Engine: NDVI (greenness, 0–1) and rainfall (mm). Compare grids like an Excel formula applied to every cell: TRUE where <b>NDVI &gt; 0.6</b> <b>and</b> <b>rain &gt; 100</b>.`,
+ reuse:`Swap the layers and thresholds for other diseases. Malaria: temperature, rainfall and NDVI. Cholera: flood extent or distance to water. Heat stress: land surface temperature. The pattern is always <code>risk &lt;- layerA &gt; x &amp; layerB &gt; y</code>.`,
+ tasks:[
+  {t:"Read the NDVI raster into <code>ndvi</code>",why:"Same rast() as for population.",c:()=>!!findEnv(v=>isR(v)&&v.src==="gee_ndvi_last30d.tif"),tpl:`ndvi <- rast("gee_ndvi_last30d.tif")`},
+  {t:"Read the rainfall raster into <code>rain</code>",why:"",c:()=>!!findEnv(v=>isR(v)&&(v.src==="gee_precip_last30d_mm.tif"||(v.srcs||[]).includes("gee_precip_last30d_mm.tif"))),tpl:`rain <- rast("___")   # the precip .tif`},
+  {t:"Create <code>breeding</code>: NDVI &gt; 0.6 <b>and</b> rain &gt; 100",why:"& means AND: both conditions must be true in the same cell.",c:()=>!!findEnv(isBreeding),tpl:`breeding <- ndvi > ___ & rain > ___`},
+  {t:"Plot it",why:"",c:()=>S.flags.plotBreeding,tpl:`plot(breeding)`}],
+ answer:{label:"% of district flagged high-risk",check:v=>Math.abs(+String(v).replace("%","")-TRUTH.breedPct)<=1.5,tpl:`global(breeding, "mean", na.rm = TRUE) * 100   # mean of TRUE/FALSE = share TRUE`},
+ quiz:{q:"In the GEE catalogue, what's the difference between an Image and an ImageCollection?",opts:["An ImageCollection is a stack of images over time (e.g. daily rainfall); an Image is a single layer","They are the same thing","An Image is vector data"],a:0,why:"Time series such as daily rainfall come as ImageCollections. You reduce them (sum or mean) to one Image before exporting."},
+ hint:`Comparisons on grids give TRUE/FALSE grids: <code>breeding &lt;- ndvi &gt; 0.6 &amp; rain &gt; 100</code>. The share of TRUE cells is <code>global(breeding, "mean", na.rm = TRUE)</code>. Multiply by 100 for a percentage.`,
+ sol:`ndvi <- rast("gee_ndvi_last30d.tif")
+rain <- rast("gee_precip_last30d_mm.tif")
+breeding <- ndvi > 0.6 & rain > 100
+plot(breeding)
+global(breeding, "mean", na.rm = TRUE) * 100`},
+
+{code:"M6",title:"Choose 3 vaccination hubs",src:"Slides 16–18, 28 · GRID3 decision",step:5,
+ brief:`The IMT will fund <b>3 of the 15</b> GRID3 health facilities as vaccination hubs. Draw a 5 km circle around each facility, count the people inside each circle, and keep the top 3. A hub is useless if it can't keep vaccine cold, so check the <code>cold_chain</code> column too.`,
+ reuse:`Catchment population works for any facility decision: vaccination sites, ORS points in a cholera response, PMTCT sites, bed-net distribution. Buffer, then <code>extract(population, buffers, fun = sum)</code>, then rank.`,
+ tasks:[
+  {t:"Read the facilities into <code>fac</code>",why:".geojson files hold points or shapes: read them with st_read().",c:()=>!!findEnv(v=>isFac(v)&&v.nrow===15),tpl:`fac <- st_read("grid3_health_facilities.geojson")
+fac`},
+  {t:"Draw 5 km circles with <code>st_buffer()</code>",why:"Distances are in metres, so 5 km is 5000.",c:()=>S.flags.buffer5,tpl:`catch <- st_buffer(fac, dist = ___)   # metres`},
+  {t:"Count the people in each circle and store it as a column in <code>fac</code>",why:"extract() adds up the population cells inside each circle. [, 2] takes the second column of its result.",c:()=>!!findEnv(v=>isFac(v)&&v.nrow===15&&v.names.some(n=>!FAC_COLS.includes(n)&&typeOf(v.cols[n])==="numeric"&&Math.max(...nums(v.cols[n]))>5000)),tpl:`fac$pop_5km <- extract(pop, catch, fun = sum, na.rm = TRUE)[, 2]
+fac`},
+  {t:"Save your top 3 as <code>hubs</code>, all with a working cold chain",why:"filter, then sort biggest-first, then keep 3. Each |> passes the result to the next step.",c:()=>{const h=R.global.get("hubs");return isFac(h)&&h.nrow===3&&h.cols.cold_chain.every(x=>x==="yes")},tpl:`hubs <- fac |>
+  filter(cold_chain == "___") |>
+  arrange(desc(pop_5km)) |>
+  slice_head(n = 3)
+hubs`}],
+ quiz:{q:"Why is a 5 km straight-line circle only a first approximation of access?",opts:["It ignores roads, rivers and terrain. Travel-time maps built on OSM roads show the real 'service deserts'","Buffers only work with rasters","5 km is always the WHO standard"],a:0,why:"A community can be close to a clinic and still be cut off by poor roads or a river (use case 4 in the slides)."},
+ hint:`Bonus: <code>fac$cases_5km &lt;- lengths(st_intersects(catch, cases_sf))</code> counts the cases in each circle. Compare it with <code>pop_5km</code>: do your hubs cover the outbreak?`,
+ sol:`fac <- st_read("grid3_health_facilities.geojson")
+table(fac$cold_chain)
+catch <- st_buffer(fac, dist = 5000)
+fac$pop_5km <- extract(pop, catch, fun = sum, na.rm = TRUE)[, 2]
+fac$cases_5km <- lengths(st_intersects(catch, cases_sf))
+hubs <- fac |>
+  filter(cold_chain == "yes") |>
+  arrange(desc(pop_5km)) |>
+  slice_head(n = 3)
+hubs`},
+
+{code:"M7",title:"Brief the IMT: deliver the map",src:"Slides 23–24 · OpenStreetMap + tmap",step:6,
+ brief:`Your final deliverable is one map the Incident Manager can read in ten seconds. tmap builds it in layers with <code>+</code>, like stacking transparent sheets: each layer is <code>tm_shape(data)</code> + how to draw it. Put risk underneath, then roads, cases and your 3 hubs on top, add a title, and save it as a PNG. The checklist under the Plots pane lights up as you go.`,
+ reuse:`This map recipe works for any project: change the objects inside <code>tm_shape()</code> and the title. Save the script, and next week's map takes one click.`,
+ tasks:[
+  {t:"Read the OSM roads into <code>roads</code>",why:"",c:()=>!!findEnv(v=>isSF(v)&&v.src==="osm_roads.geojson"),tpl:`roads <- st_read("osm_roads.geojson")`},
+  {t:"Map risk + roads + cases + hubs",why:"Print the map after each + to see it grow.",c:()=>mapOK(["risk","roads","cases","hubs"]),tpl:`yf_map <- tm_shape(breeding) + tm_raster() +
+  tm_shape(roads) + tm_lines(col = "highway") +
+  tm_shape(cases_sf) + tm_dots(fill = "classification") +
+  tm_shape(___) + tm_dots(fill = "gold", size = 1.2)
+yf_map`},
+  {t:"Add a title",why:"Legends appear automatically when you colour by a column.",c:()=>mapOK(["title","legend"]),tpl:`yf_map <- yf_map + tm_title("___") + tm_compass() + tm_scalebar()
+yf_map`},
+  {t:"Save it as a PNG with <code>tmap_save()</code>",why:"This is the file you paste into the IMT slide deck.",c:()=>S.flags.saved,tpl:`tmap_save(yf_map, "kivara_yf_hubs.png")`}],
+ quiz:{q:"OpenStreetMap is licensed under the ODbL. You may…",opts:["Use it for any purpose, as long as you credit '© OpenStreetMap contributors'","Only use it for non-commercial research","Use it without any attribution"],a:0,why:"Open doesn't mean you can skip the licence. Credit your sources with tm_credits() for a bonus badge."},
+ hint:`Build it step by step and print after each addition. For the final touch: <code>+ tm_credits("Data: WorldPop, GRID3, GEE, © OpenStreetMap contributors")</code>.`,
+ sol:`roads <- st_read("osm_roads.geojson")
+yf_map <- tm_shape(breeding) +
+    tm_raster(col.scale = tm_scale(values = c("grey95", "darkgreen")),
+              col.legend = tm_legend(title = "Breeding risk")) +
+  tm_shape(roads) + tm_lines(col = "highway", lwd = 2) +
+  tm_shape(cases_sf) + tm_dots(fill = "classification", size = 0.4) +
+  tm_shape(hubs) + tm_dots(fill = "gold", size = 1.2) +
+    tm_text("name", size = 0.9) +
+  tm_title("Kivara YF response: proposed vaccination hubs") +
+  tm_compass() + tm_scalebar() +
+  tm_credits("Data: WorldPop, GRID3, GEE (MODIS, CHIRPS), © OpenStreetMap contributors")
+yf_map
+tmap_save(yf_map, "kivara_yf_hubs.png")`},
+];
+function isBreeding(v){return isR(v)&&v.logical&&(v.srcs||[]).includes("gee_ndvi_last30d.tif")&&(v.srcs||[]).includes("gee_precip_last30d_mm.tif")&&(()=>{let t=0,n=0;for(const x of v.data){if(Number.isNaN(x))continue;n++;t+=x}const pct=100*t/n;return Math.abs(pct-TRUTH.breedPct)<3})()}
+function mapOK(keys){return !!(R.lastMap&&keys.every(k=>R.lastMap.cl.find(c=>c.key===k).on))}
+
+// ---- event hooks -> flags ----
+R.hooks.push((ev,d)=>{
+  const F=S.flags;
+  if(ev==="sheets")F.sheets=true;
+  if(ev==="readsheet")award("excel");
+  if(ev==="global"){if(d.r.src==="worldpop_kivara_2020_200m.tif"&&!d.r.srcs&&d.fun==="sum"&&d.value!==null&&!d.r.logical)F.popTotal=d.value;if(d.r.src==="worldpop_kivara_u5_2020_200m.tif"&&d.fun==="sum"&&d.value!==null)F.u5Total=d.value}
+  if(ev==="plot"){const x=d.x;if(isR(x)&&x.src==="worldpop_kivara_2020_200m.tif"&&!x.logical)F.plotPop=true;if(isSF(x)&&x.src===LL_SRC)F.plotCases=true;if(isR(x)&&isBreeding(x))F.plotBreeding=true}
+  if(ev==="buffer"&&d.dist>=4000&&d.dist<=6000)F.buffer5=true;
+  if(ev==="tmap_save"){F.saved=true;S.savedCanvas=d.canvas;S.savedName=d.fn;if(d.cl.every(c=>c.on))award("cartographer")}
+  if(ev==="tmap"){const e=d.info.extras;if(e.credits&&/openstreetmap/i.test(e.credits))award("credits")}
+  if(ev==="assign"&&isFac(d.value)&&d.value.nrow===3&&d.value.cols.cold_chain.every(x=>x==="yes")){award("cold");const near=d.value.geom.some(g=>DATA.cases.filter(c=>Math.hypot(c.x_utm-g[0],c.y_utm-g[1])<=5000).length>=10);if(near)award("cases")}
+});
+// ===================== Reveal answers + catch-up (nobody gets stuck) =====================
+// What goes in each ___ blank, per mission and task
+const FILLS={M2:[[XL],["weekly_counts"],["Lomera"]],M3:[["worldpop_kivara_2020_200m.tif"],[],["TRUE"],[]],M4:[["linelist"],["32735"],[]],
+  M5:[[],["gee_precip_last30d_mm.tif"],["0.6","100"],[]],M6:[[],["5000"],[],["yes"]],M7:[[],["hubs"],["Kivara YF response: proposed vaccination hubs"],[]]};
+const ANS_FILLS={M2:["confirmed"],M4:["classification"]};
+const ANS_VALUE={M2:()=>TRUTH.lomera,M3:()=>TRUTH.pop,M4:()=>TRUTH.confirmed,M5:()=>+TRUTH.breedPct.toFixed(1)};
+// Objects each mission leaves in the Environment (used to rebuild after a reload or a jump)
+const PROVIDES={M1:[],M2:["weekly","lomera"],M3:["pop","u5"],M4:["cases","cases_sf"],M5:["ndvi","rain","breeding"],M6:["fac","catch","hubs"],M7:["roads","yf_map"]};
+MISSIONS.forEach(m=>{
+  m.tasks.forEach((t,k)=>{let c=t.tpl||"";((FILLS[m.code]||[])[k]||[]).forEach(v=>{c=c.replace("___",v)});t.full=c});
+  if(m.answer){let c=m.answer.tpl||(m.code==="M3"?`global(pop, "sum", na.rm = TRUE)`:"");(ANS_FILLS[m.code]||[]).forEach(v=>{c=c.replace("___",v)});m.answer.full=c}
+});
+S.revealed=S.revealed||{};S.stats=S.stats||{runs:0,errors:0,streak:0,lastError:"",lastCode:"",lastProgressAt:0};
+let MUTE=false;
+function missionBuilt(j){const m=MISSIONS[j];if(m.code==="M1")return ["readxl","dplyr","terra","sf","tmap"].every(p=>R.loaded.has(p));return PROVIDES[m.code].every(n=>R.global.has(n))}
+// Quietly re-run the model solution of every earlier mission whose objects are missing
+function catchUp(upto,{announce=true}={}){
+  const rebuilt=[];
+  for(let j=0;j<upto;j++){if(missionBuilt(j))continue;MUTE=true;try{runSource(MISSIONS[j].sol,{echo:false,stats:false})}finally{MUTE=false}rebuilt.push(MISSIONS[j].code)}
+  if(rebuilt.length&&announce)out(`✔ Caught up: rebuilt the objects from ${rebuilt.join(", ")} using the model answers. You can carry on from here.`,"ok");
+  renderEnv();return rebuilt;
+}
+function revealTask(k,depth=0){
+  const m=MISSIONS[S.mi];catchUp(S.mi);
+  m.tasks.forEach((t,i)=>{if(i<k&&!S.done[S.mi+"t"+i]&&t.full){S.revealed[S.mi+"t"+i]=true;MUTE=true;try{runSource(t.full,{echo:false,stats:false})}finally{MUTE=false}}});
+  const t=m.tasks[k];S.revealed[S.mi+"t"+k]=true;
+  appendSrc(`# revealed: ${t.t.replace(/<[^>]+>/g,"")}\n${t.full}`);
+  out("── Revealed answer (read it, then compare with what you tried) ──","ok");
+  runSource(t.full,{stats:false});
+  if(!S.done[S.mi+"t"+k]){const pending=m.tasks.findIndex((x,i)=>!S.done[S.mi+"t"+i]);if(pending>=0&&pending!==k&&depth<3)revealTask(pending,depth+1)}
+}
+function revealAnswer(){
+  const m=MISSIONS[S.mi];catchUp(S.mi);
+  m.tasks.forEach((t,i)=>{if(!S.done[S.mi+"t"+i]&&t.full){S.revealed[S.mi+"t"+i]=true;MUTE=true;try{runSource(t.full,{echo:false,stats:false})}finally{MUTE=false}}});
+  if(m.answer.full){appendSrc(`# revealed: ${m.answer.label}\n${m.answer.full}`);runSource(m.answer.full,{stats:false})}
+  const v=ANS_VALUE[m.code]();S.answered[S.mi]=String(v)+" (revealed)";S.revealed[S.mi+"ans"]=true;
+  out(`→ ${m.answer.label}: ${v}`,"ok");checkMission();renderRight();save();
+}
+function revealQuiz(){const q=S.quiz[S.mi]=S.quiz[S.mi]||{wrong:[]};q.right=true;q.revealed=true;renderRight();save()}
+function jumpTo(i){if(i===S.mi)return;catchUp(i);if(!S.started)S.started=true;startMission(i)}
+// ===================== UI: console, editor, panels =====================
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const conOut=$("conOut");
+function out(text,cls=""){if(typeof MUTE!=="undefined"&&MUTE&&cls!=="err")return;const d=document.createElement("div");if(cls)d.className=cls;d.textContent=text;conOut.appendChild(d);const c=$("console");c.scrollTop=c.scrollHeight}
+R.print=t=>out(t);R.msg=t=>out(t,"msg");R.warn=t=>out("Warning message:\n"+t,"warn");
+R.show=v=>{if(v&&v.type==="tmap"){showTmap(v);return}out(fmtValue(v))};
+
+const RANKS=[[0,"Intern"],[150,"Data Analyst"],[350,"Epi Intel Officer"],[600,"Incident GIS Lead"],[850,"Chief Data Strategist"]];
+const rankOf=xp=>RANKS.filter(r=>xp>=r[0]).pop()[1];
+function toast(t){const d=document.createElement("div");d.className="toast";d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2200)}
+function addXP(n,why){S.xp=Math.max(0,S.xp+n);const old=$("rank").textContent;$("xp").textContent=S.xp;const r=rankOf(S.xp);$("rank").textContent=r;if(n>0&&why)toast(`+${n} XP · ${why}`);if(r!==old&&n>0)setTimeout(()=>toast("Promoted: "+r),900);save()}
+function award(k){if(S.badges[k])return;S.badges[k]=true;addXP(25,"Badge: "+BADGES[k])}
+function tick(min){S.minutes=Math.max(0,S.minutes-min);const h=Math.floor(S.minutes/60),m=S.minutes%60;$("clock").textContent=`${h}h ${String(m).padStart(2,"0")}m`}
+
+// ---- run code ----
+let pending="";
+function runSource(src,{echo=true,stats=true}={}){
+  const ST=S.stats;if(stats){ST.runs++;ST.lastCode=src.trim().slice(0,160)}
+  const fail=msg=>{if(stats){ST.errors++;ST.streak++;ST.lastError=msg.slice(0,200)}};
+  if(/___/.test(src)){const line=src.split("\n").find(l=>l.includes("___"));if(echo)out("> "+line.trim(),"in");out("Error: there's still a blank ___ to fill in","err");fail("blank ___ not filled");out("Hint: Replace ___ with your answer. Look at the comment after # on that line, the Files tab, or the mission text. Then run it again.","msg");after();return false}
+  let stmts;
+  try{stmts=parseR(src)}catch(e){
+    if(echo)src.split("\n").forEach((l,i)=>out((i?"+ ":"> ")+l,"in"));
+    out("Error: "+e.message,"err");if(e.tip)out("Hint: "+e.tip,"msg");fail(e.message);tick(15);after();return false}
+  for(const s of stmts){
+    if(echo)s.text.split("\n").forEach((l,i)=>out((i?"+ ":"> ")+l,"in"));
+    try{const v=evalNode(s.node,R.global);if(!(v&&v.invisible))R.show(v);tick(5)}
+    catch(e){if(!(e instanceof RError))console.error(e);out("Error"+(s.node.k==="call"&&s.node.fn.v?` in ${s.node.fn.v}()`:"")+": "+e.message,"err");if(e.tip)out("Hint: "+e.tip,"msg");fail(e.message);tick(15);after();return false}
+  }
+  if(stats)ST.streak=0;
+  after();return true;
+}
+function after(){renderEnv();checkMission();save()}
+
+// ---- console input ----
+const cin=$("cin");const hist=[];let hi=0;
+cin.addEventListener("keydown",e=>{
+  if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();const line=cin.value;cin.value="";const src=pending?pending+"\n"+line:line;
+    if(!src.trim()){out(">","in");return}
+    try{parseR(src)}catch(err){if(err.incomplete){out((pending?"+ ":"> ")+line,"in");pending=src;$("cprompt").textContent="+";return}}
+    if(pending)out("+ "+line,"in");else out("> "+line,"in");
+    hist.push(src);hi=hist.length;pending="";$("cprompt").textContent=">";runSource(src,{echo:false})}
+  else if(e.key==="ArrowUp"&&hist.length){e.preventDefault();hi=Math.max(0,hi-1);cin.value=hist[hi]}
+  else if(e.key==="ArrowDown"){e.preventDefault();hi=Math.min(hist.length,hi+1);cin.value=hist[hi]||""}
+  else if(e.key==="Escape"){pending="";$("cprompt").textContent=">";cin.value="";out("> ","in")}
+});
+$("console").addEventListener("click",e=>{if(!window.getSelection().toString())cin.focus()});
+$("clearCon").onclick=()=>{conOut.innerHTML=""};
+
+// ---- editor ----
+const src=$("src");
+function gutter(){const n=src.value.split("\n").length;$("gutter").textContent=[...Array(n).keys()].map(i=>i+1).join("\n")}
+src.addEventListener("input",()=>{gutter();save()});
+src.addEventListener("scroll",()=>{$("gutter").scrollTop=src.scrollTop});
+function runCurrent(){
+  const a=src.selectionStart,b=src.selectionEnd,txt=src.value;
+  if(b>a){runSource(txt.slice(a,b));return}
+  let stmts=null;try{stmts=parseR(txt)}catch(e){}
+  if(stmts){const s=stmts.find(s=>a>=s.start&&a<=s.end)||stmts.find(s=>s.start>=a);if(s){runSource(txt.slice(s.start,s.end));let nx=txt.indexOf("\n",s.end);nx=nx<0?txt.length:nx+1;src.selectionStart=src.selectionEnd=nx;return}}
+  const ls=txt.lastIndexOf("\n",a-1)+1;let le=txt.indexOf("\n",a);if(le<0)le=txt.length;const line=txt.slice(ls,le);if(line.trim())runSource(line);src.selectionStart=src.selectionEnd=Math.min(txt.length,le+1);
+}
+src.addEventListener("keydown",e=>{
+  if(e.key==="Enter"&&(e.ctrlKey||e.metaKey)){e.preventDefault();if(e.shiftKey)runSource(src.value);else runCurrent()}
+  if(e.key==="Tab"){e.preventDefault();const a=src.selectionStart;src.setRangeText("  ",a,src.selectionEnd,"end");gutter()}
+  if(e.altKey&&e.key==="-"){e.preventDefault();src.setRangeText(" <- ",src.selectionStart,src.selectionEnd,"end")}
+  if(e.ctrlKey&&e.shiftKey&&(e.key==="M"||e.key==="m")){e.preventDefault();src.setRangeText(" |> ",src.selectionStart,src.selectionEnd,"end")}
+});
+$("runLine").onclick=()=>{src.focus();runCurrent()};
+$("runAll").onclick=()=>runSource(src.value);
+$("clearSrc").onclick=()=>{src.value=HEADER;gutter();save()};
+const HEADER=`# =====================================================
+#  Kivara District · Yellow Fever response
+#  Run a line: cursor on it, press Ctrl+Enter
+#  Run everything: Ctrl+Shift+Enter
+#  Shortcuts: Alt+-  gives  <-    Ctrl+Shift+M  gives  |>
+# =====================================================
+`;
+function appendSrc(code){if(!src.value.endsWith("\n"))src.value+="\n";src.value+=code+"\n";gutter();src.scrollTop=src.scrollHeight;save()}
+
+// ---- right-top panel ----
+let tab="mission";
+document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{tab=b.dataset.tab;document.querySelectorAll("[data-tab]").forEach(x=>x.setAttribute("aria-selected",x===b));renderRight()});
+function descObj(v){if(v===null)return "NULL";if(isVec(v))return `${typeOf(v).slice(0,3)} [1:${v.length}] ${v.slice(0,4).map(e=>fmtEl(e)).join(" ")}${v.length>4?" …":""}`;
+  if(isSF(v))return `sf · ${v.nrow} × ${v.names.length+1} · ${v.geomType}`;if(isDF(v))return `${v.nrow} obs. of ${v.names.length} variables`;
+  if(isR(v))return `SpatRaster ${v.ny}×${v.nx} · ${v.logical?"TRUE/FALSE":v.name}`;if(isList(v))return `List of ${v.vals.length}`;if(v.type==="tmap")return "tmap object — print it to draw";
+  if(v.type==="httr2_response")return `<httr2_response> ${v.status} ${v.statusText}`;if(v.type==="httr2_request")return "<httr2_request>";if(v.type==="sgbp")return `sgbp list of ${v.list.length}`;return v.type}
+function renderEnv(){if(tab==="env")renderRight()}
+function renderRight(){
+  const el=$("rightTop");
+  if(tab==="env"){const vs=[...R.global.vars.entries()];el.innerHTML=vs.length?`<table class="env"><tbody>${vs.map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(descObj(v))}</td></tr>`).join("")}</tbody></table>`:`<p class="empty">Global Environment is empty. Objects you create with <code>&lt;-</code> appear here.</p>`;return}
+  if(tab==="files"){el.innerHTML=`<p class="empty" style="padding-bottom:0">~/kivara_yf · click the Excel file to preview its sheets; click any other file to add the line that reads it</p><table class="env files"><tbody>${Object.entries(FILES).map(([f,m])=>`<tr><td><button class="choice" data-file="${f}" style="font:600 12px var(--mono)">${f}</button></td><td>${esc(m.desc)} · ${m.size}</td></tr>`).join("")}</tbody></table>`;
+    el.querySelectorAll("[data-file]").forEach(b=>b.onclick=()=>{const f=b.dataset.file;if(FILES[f].xlsx){previewXlsx(f);return}const v=f.replace(/\..*$/,"").replace(/^(worldpop_kivara_|grid3_|gee_|osm_|yf_)/,"").replace(/_2020.*|_last30d.*/,"");
+      const code=f.endsWith(".tif")?`${v} <- rast("${f}")`:f.endsWith(".csv")?`${v} <- read.csv("${f}")`:`${v} <- st_read("${f}")`;appendSrc(code);toast("Inserted into script")});return}
+  if(tab==="playbook"){renderPlaybook();return}
+  renderMission();
+}
+function renderPlaybook(){
+  const el=$("rightTop");
+  el.innerHTML=`<div class="pb"><div><h2>Reuse this workflow in any project</h2><p class="brief" style="margin-top:4px">Every mission was one step of the same six-step recipe. Swap in your own files, thresholds and question: cholera, malaria, measles, PMTCT, access to care.</p></div>
+  ${PLAYBOOK.map(s=>`<div class="pbstep"><span class="pbn">${s.n}</span><div><b>${s.title}</b> · ${s.what}<pre>${esc(s.code)}</pre></div></div>`).join("")}
+  <div><b>What to swap for other diseases</b><div class="swap"><table><thead><tr><th>Project</th><th>Risk layer (step 4)</th><th>Who / what to count (step 5)</th><th>Catchment</th></tr></thead><tbody>${SWAPS.map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div></div>
+  <div class="reuse"><b>Checklist for a new project</b>1. Put each source in one folder: Excel/CSV tables, .tif rasters, .geojson/.shp shapes. · 2. In Excel: one table per sheet, headers in row 1, no merged cells. · 3. Know your coordinates: degrees → 4326, metres → your UTM code. · 4. Save the script and re-run it when new data arrive.</div>
+  <div class="mfoot"><button class="btn primary" id="pbCopy">Copy template script</button><button class="btn" id="pbSave">Save template (.txt)</button><button class="btn" id="pbInsert">Open template in editor</button><button class="btn" id="mySave">Save my script (.txt)</button><span id="pbNote" style="font-size:12px;color:var(--muted)"></span></div></div>`;
+  $("pbCopy").onclick=async()=>{try{await navigator.clipboard.writeText(playbookScript());$("pbNote").textContent="Copied. Paste it into RStudio."}catch(e){$("pbNote").textContent="Copy blocked here. Use 'Open template in editor' and select all."}};
+  $("pbSave").onclick=()=>saveText("open_data_workflow_template.R.txt",playbookScript(),"pbNote");
+  $("mySave").onclick=()=>saveText("my_kivara_script.R.txt",src.value,"pbNote");
+  $("pbInsert").onclick=()=>{appendSrc("\n"+playbookScript());toast("Template added to the end of your script")};
+}
+async function saveText(name,text,noteId){const note=$(noteId);try{await getDL();if(!dl){note.textContent="Saving isn't available here. Use Copy instead.";return}await dl.save({filename:name,data:text});note.textContent="Saved. Rename it to .R to open it in RStudio."}catch(e){note.textContent=e&&e.code==="declined"?"Save cancelled.":"Couldn't save here. Use Copy instead."}}
+function steps(){$("steps").innerHTML=MISSIONS.map((m,i)=>`<button class="step ${S.done[i]?"done":i===S.mi?"cur":""}" data-jump="${i}" title="Go to ${m.code}: ${m.title} (earlier missions are rebuilt automatically)" aria-label="Go to ${m.code}"></button>`).join("");$("steps").querySelectorAll("[data-jump]").forEach(b=>b.onclick=()=>{tab="mission";document.querySelectorAll("[data-tab]").forEach(x=>x.setAttribute("aria-selected",x.dataset.tab==="mission"));jumpTo(+b.dataset.jump)})}
+function renderMission(){
+  const el=$("rightTop");const m=MISSIONS[S.mi];if(!m){return}
+  const tasks=m.tasks.map((t,i)=>({...t,ok:!!S.done[S.mi+"t"+i]}));
+  const qz=S.quiz[S.mi]||{};const ans=S.answered[S.mi];
+  const firstOpen=tasks.findIndex(t=>!t.ok);
+  el.innerHTML=`<div class="mission">
+    <div class="mhead"><span class="mnum">${m.code} / M${MISSIONS.length}</span><div><h2>${m.title}</h2><div class="src">${m.src} · Playbook step ${m.step}</div></div></div>
+    <p class="brief">${m.brief}</p>
+    <ul class="tasks">${tasks.map((t,i)=>`<li class="task ${t.ok?"done":""}"><span class="box">${t.ok?"✓":i+1}</span><span class="t">${t.t}${t.why?`<span class="why">${t.why}</span>`:""}${!t.ok?`<span class="stepbtns">${t.tpl?`<button class="tplbtn" data-tpl="${i}" title="Adds a starter line to your script. Fill in any ___ then press Run.">${i===firstOpen?"▸ ":""}Starter code</button>`:""}<button class="revbtn" data-rev="${i}" title="Adds the finished code to your script and runs it">Reveal answer</button></span>`:""}</span></li>`).join("")}
+      ${m.answer?`<li class="task ${ans?"done":""}"><span class="box">${ans?"✓":"?"}</span><span class="t">Report to the IMT: <b>${m.answer.label}</b>${ans?` — <code>${esc(ans)}</code>`:`<span class="why">Run the code, read the number in the console, type it here.</span><span class="answer"><input id="ans" placeholder="your number" aria-label="${m.answer.label}"><button id="ansBtn">Submit</button></span><span class="stepbtns">${m.answer.tpl?`<button class="tplbtn" data-tpl="ans">Starter code</button>`:""}<button class="revbtn" data-rev="ans">Reveal answer</button></span>`}</span></li>`:""}
+    </ul>
+    <div class="reuse"><b>Use this anywhere</b>${m.reuse}</div>
+    <div class="task ${qz.right?"done":""}" style="flex-direction:column;gap:2px"><span class="optional">Bonus check-in · +20 XP · optional</span><span><b>${m.quiz.q}</b></span><span class="choices">${m.quiz.opts.map((o,i)=>`<button class="choice ${qz.right&&i===m.quiz.a?"right":""} ${(qz.wrong||[]).includes(i)?"wrong":""}" data-q="${i}" ${qz.right?"disabled":""}>${o}</button>`).join("")}</span>${qz.right?`<span class="why">${qz.revealed?"Answer: ":""}${m.quiz.why}</span>`:`<span><button class="revbtn" id="quizRev">Show answer</button></span>`}</div>
+    <div id="hintArea">${S.hints[S.mi]?`<div class="hintbox"><b>Hint.</b> ${m.hint}</div>`:""}${S.sol[S.mi]?`<div class="hintbox" style="margin-top:8px"><b>Full solution</b> (added to your script: press Run all)<pre>${esc(m.sol)}</pre></div>`:""}</div>
+    <div class="mfoot">
+      <button class="btn" id="hintBtn" ${S.hints[S.mi]?"disabled":""}>Hint (−5 XP)</button>
+      <button class="btn" id="solBtn" ${S.sol[S.mi]?"disabled":""}>I'm stuck: full solution (−20 XP)</button>
+      <button class="btn" id="catchBtn" title="Rebuilds every object from earlier missions using the model answers">Catch me up</button>
+      <span style="flex:1"></span>
+      ${S.mi<MISSIONS.length-1?`<button class="btn" id="skipBtn" title="Move on; earlier objects are rebuilt for you">Skip</button>`:""}
+      <button class="btn primary" id="nextBtn" ${missionComplete(S.mi)?"":"disabled"}>${S.mi===MISSIONS.length-1?"Finish & debrief":"Next mission →"}</button>
+    </div></div>`;
+  el.querySelectorAll("[data-tpl]").forEach(b=>b.onclick=()=>{const k=b.dataset.tpl;const code=k==="ans"?m.answer.tpl:m.tasks[+k].tpl;appendSrc(code);
+    const n=code.indexOf("___");const start=src.value.lastIndexOf(code);src.focus();if(n>=0){src.setSelectionRange(start+n,start+n+3);toast("Replace the highlighted ___ then press Run line")}else{src.setSelectionRange(start,start);toast("Starter code added: press Run line (Ctrl+Enter)")}});
+  const ab=$("ansBtn");if(ab){const go=()=>{const v=$("ans").value.trim();if(!v)return;if(m.answer.check(v)){S.answered[S.mi]=v;addXP(40,"Correct report");checkMission();renderRight()}else{toast("Not quite: check the number in your console output");$("ans").select()}};ab.onclick=go;$("ans").onkeydown=e=>{if(e.key==="Enter")go()}}
+  el.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{const i=+b.dataset.q;const q=S.quiz[S.mi]=S.quiz[S.mi]||{wrong:[]};if(i===m.quiz.a){q.right=true;addXP(q.wrong.length?10:20,"Check-in")}else{q.wrong.push(i)}checkMission();renderRight()});
+  el.querySelectorAll("[data-rev]").forEach(b=>b.onclick=()=>{const k=b.dataset.rev;if(k==="ans")revealAnswer();else revealTask(+k)});
+  const qr=$("quizRev");if(qr)qr.onclick=revealQuiz;
+  $("catchBtn").onclick=()=>{const r=catchUp(S.mi);if(!r.length)toast("You're already caught up");checkMission()};
+  $("hintBtn").onclick=()=>{S.hints[S.mi]=true;addXP(-5);renderRight()};
+  $("solBtn").onclick=()=>{S.sol[S.mi]=true;addXP(-20);appendSrc(m.sol);renderRight()};
+  const sk=$("skipBtn");if(sk)sk.onclick=()=>{if(!S.done[S.mi])S.done[S.mi]="skipped";jumpTo(S.mi+1)};
+  $("nextBtn").onclick=()=>{if(!missionComplete(S.mi))return;if(!S.done[S.mi]){S.done[S.mi]=true;addXP(50,m.code+" complete")}if(S.mi===MISSIONS.length-1)finish();else startMission(S.mi+1)};
+  steps();
+}
+function missionComplete(i){const m=MISSIONS[i];return m.tasks.every((t,k)=>S.done[i+"t"+k])&&(!m.answer||S.answered[i])}
+function previewXlsx(f,sheet){const X=FILES[f];const names=Object.keys(X.sheets);sheet=sheet||names[0];const d=X.sheets[sheet]();const n=Math.min(d.nrow,60);const L=i=>String.fromCharCode(65+i);
+  const md=modal(`<div class="src" style="font:600 11px var(--mono);color:var(--muted)">EXCEL PREVIEW · read-only</div><h2 style="font-size:18px">${f}</h2>
+  <p style="font-size:13px;margin:4px 0 0">Each <b>sheet tab</b> becomes one table in R. Row 1 holds the column names, and every row after it is one record.</p>
+  <div class="xl" style="margin-top:10px"><table><thead><tr><th></th>${d.names.map((c,i)=>`<th>${L(i)}</th>`).join("")}</tr></thead><tbody><tr><td class="rn">1</td>${d.names.map(c=>`<td><b>${esc(c)}</b></td>`).join("")}</tr>${[...Array(n).keys()].map(r=>`<tr><td class="rn">${r+2}</td>${d.names.map(c=>`<td>${esc(fmtEl(d.cols[c][r],false))}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+  <div class="sheetTabs" role="tablist">${names.map(s=>`<button data-sh="${s}" aria-selected="${s===sheet}">${s}</button>`).join("")}</div>
+  <p style="font-size:13px;margin:10px 0 0">In R: <code>${esc(`read_excel("${f}", sheet = "${sheet}")`)}</code>${d.nrow>n?` · showing ${n} of ${d.nrow} rows`:""}</p>
+  <div class="mfoot" style="margin-top:12px"><button class="btn primary" id="xlIns">Add this line to my script</button><span style="flex:1"></span><button class="btn" id="closeBtn">Close</button></div>`);
+  md.querySelectorAll("[data-sh]").forEach(b=>b.onclick=()=>previewXlsx(f,b.dataset.sh));$("closeBtn").onclick=closeModal;
+  $("xlIns").onclick=()=>{appendSrc(`${sheet==="linelist"?"cases":sheet==="weekly_counts"?"weekly":sheet} <- read_excel("${f}", sheet = "${sheet}")`);closeModal();toast("Added to your script")}}
+function checkMission(){const m=MISSIONS[S.mi];if(!m)return;let changed=false;
+  m.tasks.forEach((t,k)=>{const key=S.mi+"t"+k;if(!S.done[key]){let ok=false;try{ok=t.c()}catch(e){}if(ok){S.done[key]=true;changed=true;S.stats.lastProgressAt=Date.now();addXP(S.revealed[key]?5:20,S.revealed[key]?"Step done (revealed)":"Task done")}}});
+  if(changed||tab==="mission")renderRight();}
+function startMission(i){S.mi=i;appendSrc(`\n# ---- ${MISSIONS[i].code}: ${MISSIONS[i].title} ----`);tab="mission";document.querySelectorAll("[data-tab]").forEach(x=>x.setAttribute("aria-selected",x.dataset.tab==="mission"));checkMission();renderRight();save()}
+
+// ---- modals ----
+function modal(html){$("modalRoot").innerHTML=`<div class="modal" role="dialog" aria-modal="true"><div class="card">${html}</div></div>`;return $("modalRoot").firstChild}
+function closeModal(){$("modalRoot").innerHTML=""}
+function intro(){const md=modal(`<div class="src" style="font:600 11px var(--mono);color:var(--muted);letter-spacing:.08em">SITUATION REPORT · 22 SEP 2026 · 06:00</div>
+  <h2>Yellow Fever in Lomera. You have 48 hours.</h2>
+  <p>A neighbouring district has confirmed a Yellow Fever outbreak. Your job: design a targeted vector-control and vaccination plan for the semi-rural border zone of <b>Kivara District</b>, and present it to the National Yellow Fever Incident Management Team.</p>
+  <p>You have an Excel workbook from the surveillance officer, open-source data (WorldPop, GRID3, Google Earth Engine, OpenStreetMap) and R. Work through ${MISSIONS.length} missions; the last one produces the map you'll brief with.</p>
+  <p style="font-size:13px;margin-bottom:4px"><b>New to R? You won't get stuck:</b></p>
+  <ol style="font-size:13px;margin-top:0;padding-left:20px">
+    <li>Each step has a <b>Starter code</b> button. It adds a line to your script with a blank <code>___</code> for you to fill in.</li>
+    <li>Press <b>▶ Run line</b> (or Ctrl+Enter). The step ticks itself off when your code works.</li>
+    <li><b>Explain as I go</b> prints a plain-English note the first time you use each function.</li>
+    <li>Errors come with a <b>Hint:</b> line that tells you what to fix.</li>
+    <li>Still stuck? <b>Reveal answer</b> on any step runs the right code for you, so you can always keep going.</li>
+    <li>The <b>Playbook</b> tab turns every step into a template for your own projects.</li>
+  </ol>
+  <p style="color:var(--muted);font-size:12.5px">Kivara, Lomera and all data here are fictional, simulated for training.</p>
+  <div class="mfoot"><button class="btn primary" id="go">Accept mission</button></div>`);
+  $("go").onclick=()=>{closeModal();if(!S.started){S.started=true;startMission(0)}src.focus()}}
+let dl=null;
+async function getDL(){if(dl)return dl;if(window.claude&&window.claude.use){try{dl=await window.claude.use("downloads")}catch(e){}}
+  if(!dl&&!window.claude)dl={save:async({filename,data})=>{const b=data instanceof Blob?data:new Blob([data],{type:"text/plain"});const u=URL.createObjectURL(b);const a=document.createElement("a");a.href=u;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);return {status:"saved"}}};return dl}
+async function finish(){
+  S.finished=true;save();if(!Object.values(S.hints).some(Boolean)&&!Object.values(S.sol).some(Boolean))award("nohints");if(!Object.values(S.sol).some(Boolean))award("selfmade");
+  const img=S.savedCanvas?S.savedCanvas.toDataURL("image/png"):null;
+  const md=modal(`<div class="src" style="font:600 11px var(--mono);color:var(--muted);letter-spacing:.08em">DEBRIEF · NATIONAL YF IMT</div>
+    <h2>Plan delivered with ${Math.floor(S.minutes/60)}h ${S.minutes%60}m to spare</h2>
+    <p><b>${S.xp} XP</b> · rank <b>${rankOf(S.xp)}</b></p>
+    <div class="badges">${Object.entries(BADGES).map(([k,n])=>`<span class="badge ${S.badges[k]?"got":""}">${S.badges[k]?"★ ":""}${n}</span>`).join("")}</div>
+    ${img?`<p style="margin-top:14px"><img src="${img}" alt="Your exported Kivara Yellow Fever map"></p>`:""}
+    <p style="font-size:13px;color:var(--muted)">Discuss: Ranking by population alone picks the big western towns — but the cases cluster in the east, where two facilities have no cold chain. Did your hubs cover the outbreak? Would weighting by <code>cases_5km</code> or by children under 5 change the choice? Should fixing a fridge at Mbere Hospital be part of the plan? Where would you send vector-control teams first?</p>
+    <p style="font-size:13px"><b>Take it home:</b> the <b>Playbook</b> tab turns these missions into a six-step template you can reuse for cholera, malaria, measles, PMTCT, or any project with your own Excel files.</p>
+    <div class="mfoot"><button class="btn" id="pbGo">Open Playbook</button><button class="btn primary" id="dlBtn" ${img?"":"hidden"}>Save map PNG</button><span id="dlNote" style="font-size:12px;color:var(--muted)"></span><span style="flex:1"></span><button class="btn" id="closeBtn">Keep exploring</button></div>`);
+  $("closeBtn").onclick=closeModal;$("pbGo").onclick=()=>{closeModal();tab="playbook";document.querySelectorAll("[data-tab]").forEach(x=>x.setAttribute("aria-selected",x.dataset.tab==="playbook"));renderRight()};
+  const btn=$("dlBtn");if(btn)btn.onclick=async()=>{try{await getDL();
+      if(!dl){$("dlNote").textContent="Saving isn't available here — right-click the map and choose “Save image as…”.";return}
+      const blob=await new Promise(r=>S.savedCanvas.toBlob(r,"image/png"));await dl.save({filename:S.savedName||"kivara_yf_hubs.png",data:blob});$("dlNote").textContent="Saved."}
+    catch(e){$("dlNote").textContent=e&&e.code==="declined"?"Save cancelled.":"Couldn't save — right-click the map and choose “Save image as…”."}};
+}
+
+// ---- persistence (per-viewer convenience) ----
+const KEY="kivara-outbreak-console-v3";
+function save(){try{localStorage.setItem(KEY,JSON.stringify({xp:S.xp,mi:S.mi,done:S.done,answered:S.answered,quiz:S.quiz,hints:S.hints,sol:S.sol,badges:S.badges,minutes:S.minutes,explain:S.explain,started:S.started,flags:S.flags,revealed:S.revealed,stats:S.stats,finished:S.finished,src:src.value}))}catch(e){}if(window.Sync)Sync.push()}
+function load(){try{const d=JSON.parse(localStorage.getItem(KEY)||"null");if(!d)return false;Object.assign(S,d);src.value=d.src||HEADER;return true}catch(e){return false}}
+$("resetBtn").onclick=()=>{const md=modal(`<h2>Start over?</h2><p>This clears your XP, missions and script on this device.</p><div class="mfoot"><button class="btn primary" id="yes">Start over</button><button class="btn" id="no">Cancel</button></div>`);
+  $("no").onclick=closeModal;$("yes").onclick=()=>{try{localStorage.removeItem(KEY)}catch(e){}location.reload()}};
+
+$("plot").title="Click to enlarge";$("plot").style.cursor="zoom-in";
+$("plot").onclick=()=>{const md=modal(`<img src="${$("plot").toDataURL("image/png")}" alt="Current plot, enlarged"><div class="mfoot" style="margin-top:10px"><span style="flex:1"></span><button class="btn" id="closeBtn">Close</button></div>`);md.querySelector(".card").style.maxWidth="1100px";$("closeBtn").onclick=closeModal;md.onclick=e=>{if(e.target===md)closeModal()}};
+$("explainBtn").onclick=()=>{S.explain=!S.explain;$("explainBtn").textContent="Explain as I go: "+(S.explain?"On":"Off");$("explainBtn").setAttribute("aria-pressed",S.explain);save()};
+// ---- boot ----
+Plot.init();
+{const c=Plot.ctx;c.fillStyle="#8a9a93";c.font="15px sans-serif";c.textAlign="center";c.fillText("Plots and maps appear here",450,320)}
+const restored=load();
+if(!restored)src.value=HEADER;
+gutter();tick(0);$("explainBtn").textContent="Explain as I go: "+(S.explain?"On":"Off");$("xp").textContent=S.xp;$("rank").textContent=rankOf(S.xp);
+out("R version 4.4.2 (2024-10-31) -- \"Pile of Leaves\"\nPlatform: x86_64-w64-mingw32/x64 · Kivara training sandbox\n\nType R code in the script and press Ctrl+Enter, or type here and press Enter.","msg");
+function begin(){if(restored&&S.started){out("\nWelcome back. Your progress and script were restored.","ok");catchUp(S.mi);MISSIONS[S.mi].tasks.forEach((t,k)=>{if(S.done[S.mi+"t"+k]&&t.full){MUTE=true;try{runSource(t.full,{echo:false,stats:false})}finally{MUTE=false}}});checkMission();renderRight()}else intro()}
+if(window.Sync&&Sync.configured())Sync.join(begin);else begin();
+steps();
+</script>
+
+</body></html>
