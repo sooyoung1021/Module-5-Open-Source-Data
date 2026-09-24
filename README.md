@@ -23,4 +23,5 @@ This Quarto document is written for the trainees of Data Use for Decision Scienc
 * Download this repository to your local directory.
 * Open the example quarto script in the "script" folder.
 * You can either copy-paste the relevant code chunks to your own script, or work directly on the quarto document.
-* If you are working on the quarto directly, switch the echo: false to __true__ in the YAML box before rendering. 
+* If you are working on the quarto directly, switch the echo: false to __true__ in the YAML box before rendering.
+* Use simulator in the main folder to practice the examples step-by-step.
